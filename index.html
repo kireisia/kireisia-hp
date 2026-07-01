@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社キレイシア｜大阪のハウスクリーニング専門店</title>
+  <meta name="description" content="大阪市城東区を拠点に、大阪・京都・兵庫・奈良エリアで4,000台以上のエアコンクリーニング実績。エアコン・水回り・空室清掃からコーティングまで。口コミ評価4.77の信頼をあなたに。">
+  <meta name="robots" content="index, follow">
+  <!-- 最低限のContent-Security-Policy（信頼CDNのみ許可・XSS対策） -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; base-uri 'self';">
+  <!-- canonical（重複コンテンツ評価防止） -->
+  <link rel="canonical" href="https://www.kireisia.co.jp/">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.kireisia.co.jp/">
+  <meta property="og:title" content="株式会社キレイシア｜大阪のハウスクリーニング専門店">
+  <meta property="og:description" content="大阪・京都・兵庫・奈良対応のハウスクリーニング。エアコン4,000台以上・口コミ4.77の実績。">
+  <meta property="og:image" content="https://www.kireisia.co.jp/images/ogp.jpg">
+  <meta property="og:site_name" content="株式会社キレイシア">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="google-site-verification" content="lHsrfmNwH3YIj5sE7cZq9-3_LwMM5E3Xr3IEO6Of9c8" />
+  <!-- ファーストビュー強制表示（SNS/LINE経由で途中表示になる事故防止） -->
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('pageshow', () => {
+      window.scrollTo(0, 0);
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    });
+  </script>
+  <!-- ファーストビュー画像のLCP最適化（プリロード） -->
+  <link rel="preload" as="image" href="images/home-hero.jpg" fetchpriority="high">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFKLS69SQD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZFKLS69SQD');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&family=Roboto:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+  <!-- Tailwind v4 CDN：マイナーまでバージョン固定（破壊的変更回避・knowledge 02-tech-stack準拠） -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1?v=20260523"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-primary: #1E3A8A;
+      --color-primary-dark: #152D6B;
+      --color-primary-light: #E8EDF8;
+      --color-primary-50: #F0F2FA;
+      --color-accent: #06C755;
+      --color-accent-dark: #05A847;
+      --color-warm: #F5A623;
+      --color-warm-dark: #8b5d10;
+      --color-warm-light: #FFF8EC;
+      --color-emphasis: #D64545;
+      --color-surface: #FAFCFE;
+      --color-card: #FFFFFF;
+      --color-text-main: #2D3748;
+      --color-text-sub: #5A6677;
+      --color-text-light: #8896A6;
+      --color-border: #E2EAF0;
+      --font-sans: "Zen Kaku Gothic New", "Noto Sans JP", system-ui, sans-serif;
+      --font-display: "Noto Sans JP", sans-serif;
+      --font-mincho: "Noto Serif JP", "Yu Mincho", serif;
+    }
+  </style>
+  <style>
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes pulse-ring { 0%{transform:scale(1);opacity:.5} 100%{transform:scale(1.4);opacity:0} }
+    .float-anim{animation:float 4s ease-in-out infinite}
+    .line-btn{transition:all .3s cubic-bezier(.25,.46,.45,.94)}
+    .line-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,199,85,.3)}
+    /* ファーストビュー：画像が主役。オーバーレイは右下のキャッチボックス周辺にだけ薄くかける */
+    .hero-overlay{background:linear-gradient(135deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 45%,rgba(0,0,0,.18) 100%)}
+    /* 画像のハイライトを軽く強化（白飛び回避のため控えめ） */
+    .hero-image{filter:brightness(1.04) contrast(1.05) saturate(1.08);image-rendering:-webkit-optimize-contrast}
+    /* キャッチボックス（右下・白半透明・水色アクセント） */
+    .hero-caption{background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-left:6px solid #1E3A8A;box-shadow:0 20px 50px rgba(0,0,0,.18),0 8px 20px rgba(0,0,0,.10)}
+    /* C案：液状ガラスカード（写真の下に独立配置・上品な高級感） */
+    .liquid-glass-light{
+      background:rgba(255,255,255,.90);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,.6);
+      box-shadow:0 30px 60px rgba(0,0,0,.18),0 10px 25px rgba(30,58,138,.15);
+    }
+    /* F案：明朝体（タイポグラフィ重視のFV用） */
+    .font-mincho{font-family:"Noto Serif JP","Yu Mincho",serif}
+    /* 実績カード：stagger（時差）フェードアップ＋わずかなscale（.js-readyスコープ・R2多重防御準拠） */
+    .js-ready .stat-card{opacity:0;transform:translateY(30px) scale(.95);transition:opacity .8s cubic-bezier(.22,1,.36,1) var(--stagger,0s),transform .8s cubic-bezier(.22,1,.36,1) var(--stagger,0s)}
+    .js-ready [data-reveal].is-visible .stat-card{opacity:1;transform:translateY(0) scale(1)}
+    @media (prefers-reduced-motion:reduce){
+      .js-ready .stat-card{opacity:1!important;transform:none!important;transition:none!important}
+    }
+    /* プレミアム実績カード：数字をグラデーションテキスト化（HOMEのみ） */
+    .stat-num-primary{
+      background:linear-gradient(135deg,#1E3A8A 0%,#152D6B 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 2px 4px rgba(30,58,138,.25));
+    }
+    .stat-num-warm{
+      background:linear-gradient(135deg,#F5A623 0%,#8b5d10 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 2px 4px rgba(245,166,35,.3));
+    }
+    /* プレミアムメダルバッジ（金属感・参考：オープンバッジ／オリンピックメダル） */
+    .medal-ring{position:relative;border-radius:50%;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+    .medal-ring-gold{background:radial-gradient(circle at 30% 25%,#FFF5D0 0%,#F5C842 25%,#E89B12 55%,#A06808 90%,#6B4400 100%);box-shadow:inset 0 4px 10px rgba(255,255,255,.75),inset 0 -4px 10px rgba(0,0,0,.4),0 10px 22px rgba(232,155,18,.45),0 4px 8px rgba(0,0,0,.25)}
+    .medal-ring-blue{background:radial-gradient(circle at 30% 25%,#D0D8EC 0%,#4A6AAE 25%,#152D6B 55%,#12275A 90%,#0A1A3D 100%);box-shadow:inset 0 4px 10px rgba(255,255,255,.75),inset 0 -4px 10px rgba(0,0,0,.4),0 10px 22px rgba(30,58,138,.45),0 4px 8px rgba(0,0,0,.25)}
+    .medal-ring-silver{background:radial-gradient(circle at 30% 25%,#FFFFFF 0%,#E8E8EC 25%,#A8A8B0 55%,#707078 90%,#404048 100%);box-shadow:inset 0 4px 10px rgba(255,255,255,.85),inset 0 -4px 10px rgba(0,0,0,.4),0 10px 22px rgba(160,160,170,.5),0 4px 8px rgba(0,0,0,.25)}
+    .medal-ring::before{content:"";position:absolute;inset:8%;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(255,255,255,.4),inset 0 0 0 4px rgba(0,0,0,.15);pointer-events:none}
+    .medal-inner{position:absolute;inset:14%;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 0 3px 6px rgba(0,0,0,.18),inset 0 -1px 2px rgba(255,255,255,.5)}
+    .medal-inner-gold{background:radial-gradient(circle at 50% 30%,#FFFFFF 0%,#FFF8E8 70%,#FFE7B0 100%)}
+    .medal-inner-blue{background:radial-gradient(circle at 50% 30%,#FFFFFF 0%,#E8EDF8 70%,#C0CCE4 100%)}
+    .medal-inner-silver{background:radial-gradient(circle at 50% 30%,#FFFFFF 0%,#F0F0F2 70%,#DCDCE0 100%)}
+    /* リボン（メダル下のラベル帯・両端V字カット） */
+    .medal-ribbon{display:inline-block;position:relative;padding:5px 18px;font-weight:800;letter-spacing:.1em;font-size:10px;color:#fff;margin-top:-12px;z-index:10;clip-path:polygon(0 0,100% 0,calc(100% - 8px) 50%,100% 100%,0 100%,8px 50%);box-shadow:0 3px 6px rgba(0,0,0,.25)}
+    .ribbon-gold{background:linear-gradient(180deg,#F5C842 0%,#E89B12 50%,#A06808 100%);text-shadow:0 1px 2px rgba(107,68,0,.6)}
+    .ribbon-blue{background:linear-gradient(180deg,#4A6AAE 0%,#152D6B 50%,#12275A 100%);text-shadow:0 1px 2px rgba(15,60,83,.6)}
+    .ribbon-silver{background:linear-gradient(180deg,#E8E8EC 0%,#A8A8B0 50%,#707078 100%);text-shadow:0 1px 2px rgba(0,0,0,.4)}
+    /* ホバーでメダル微回転 */
+    @media(hover:hover){.stat-card:hover .medal-ring{transform:rotate(-4deg) scale(1.06)}}
+    /* スパークル装飾 */
+    .medal-sparkle{position:absolute;color:#F5C842;font-weight:900;text-shadow:0 0 10px rgba(245,200,66,.9),0 0 4px #fff;pointer-events:none}
+    /* 縦書き小キャプション（思う心風の上線アクセント） */
+    .hero-tagline{position:relative;color:#1E3A8A;font-weight:700;letter-spacing:.15em}
+    .hero-tagline::before{content:"";display:inline-block;width:2.5rem;height:2px;background:#1E3A8A;vertical-align:middle;margin-right:.6rem}
+
+    /* ファーストビューのアニメーション */
+    /* 画像：等倍からゆっくり微ズーム（人物が初期状態で切れないようscale(1)→scale(1.04)） */
+    @keyframes heroZoom{0%{transform:scale(1)}100%{transform:scale(1.04)}}
+    .hero-image{animation:heroZoom 12s ease-out both}
+    /* キャッチボックス：右下からふわっとスライドイン＋フェード */
+    @keyframes heroCaption{0%{opacity:0;transform:translate(24px,24px)}100%{opacity:1;transform:translate(0,0)}}
+    .hero-caption-anim{animation:heroCaption .9s cubic-bezier(.22,1,.36,1) .4s both}
+    /* ステータスバッジ：上からスッと降りる */
+    @keyframes heroBadge{0%{opacity:0;transform:translateY(-12px)}100%{opacity:1;transform:translateY(0)}}
+    .hero-badge-anim{animation:heroBadge .7s cubic-bezier(.22,1,.36,1) .2s both}
+    /* 各テキストの順次表示 */
+    @keyframes heroFadeUp{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+    .hero-fade-1{animation:heroFadeUp .7s ease-out .9s both}
+    .hero-fade-2{animation:heroFadeUp .7s ease-out 1.05s both}
+    .hero-fade-3{animation:heroFadeUp .7s ease-out 1.20s both}
+    /* モーション軽減ユーザー対応 */
+    @media (prefers-reduced-motion:reduce){
+      .hero-image,.hero-caption-anim,.hero-badge-anim,.hero-fade-1,.hero-fade-2,.hero-fade-3{animation:none}
+    }
+    /* ④ 文字の可読性セーフティ：背景の濃い部分とかぶっても読めるよう控えめなシャドウ */
+    .hero-text-readable{text-shadow:0 1px 2px rgba(255,255,255,.85),0 0 8px rgba(255,255,255,.6)}
+    /* ② 実績アンカー（小バッジ） */
+    .hero-stat{background:rgba(255,255,255,.92);backdrop-filter:blur(4px);border:1px solid rgba(30,58,138,.3);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    /* ⑤ スクロール連動の初期非表示／表示時アニメ（data-revealに付与） */
+    /* JSが.js-readyを<html>に付与した時のみ初期非表示にする → JS無効/読み込み遅延でも内容が見える */
+    .js-ready [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+    .js-ready [data-reveal].is-visible{opacity:1;transform:translateY(0)}
+    /* モーション軽減ユーザーは即時表示 */
+    @media (prefers-reduced-motion:reduce){
+      .js-ready [data-reveal]{opacity:1;transform:none;transition:none}
+    }
+    /* ⑥ フォーカス可視化（キーボード操作時のリング） */
+    a:focus-visible,button:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(30,58,138,.55);border-radius:.5rem}
+    /* ⑦ メインコピー文字分割アニメ */
+    @keyframes charFadeUp{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
+    .char-anim{display:inline-block;opacity:0;animation:charFadeUp .75s cubic-bezier(.22,1,.36,1) both;animation-delay:calc(var(--d,0s) + 1s)}
+    .creed-card{background:#1E3A8A;color:#fff;border-radius:8px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+    h1,h2,h3{text-wrap:balance}
+    p,li{text-wrap:pretty}
+    /* 口コミカルーセル（横スクロール）：スクロールバー非表示・スナップ */
+    .review-scroll{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .review-scroll::-webkit-scrollbar{display:none}
+    .review-scroll>*{scroll-snap-align:start}
+    /* 低解像度PNGの表示時の画質改善（縮小時のスムージング向上） */
+    .crisp-img{image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
+    /* 写真用：高画質レンダリング（Retina滑らか表示） */
+    .hi-quality-img{image-rendering:auto;image-rendering:high-quality;-ms-interpolation-mode:bicubic;backface-visibility:hidden;transform:translateZ(0)}
+    /* 早割風インパクト文字：白フチ＋立体3Dシャドウ */
+    .pop-warm{color:#F5A623;-webkit-text-stroke:3px #fff;paint-order:stroke fill;text-shadow:0 3px 0 #8b5d10,0 5px 0 #6b4810,0 7px 14px rgba(0,0,0,.55)}
+    .pop-white{color:#fff;-webkit-text-stroke:2.5px #0d2a44;paint-order:stroke fill;text-shadow:0 3px 0 #0d2a44,0 5px 0 #061a2e,0 6px 14px rgba(0,0,0,.55)}
+    @media (max-width:640px){
+      .pop-warm{-webkit-text-stroke-width:2px;text-shadow:0 2px 0 #8b5d10,0 3px 0 #6b4810,0 5px 10px rgba(0,0,0,.5)}
+      .pop-white{-webkit-text-stroke-width:1.5px;text-shadow:0 2px 0 #0d2a44,0 4px 10px rgba(0,0,0,.5)}
+    }
+    /* 背景透かし「KIREISIA」を改行させず常に1行で全表示する（スマホ・PC共通） */
+    .hero-watermark{white-space:nowrap;word-break:normal;overflow-wrap:normal}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+  <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}.hero-image,.hero-caption-anim,.hero-fade-1,.hero-fade-2,.hero-fade-3,.char-anim{animation:none!important;opacity:1!important;transform:none!important}</style></noscript>
+  <!-- 構造化データ：LocalBusiness（AI検索・Google AI Overview引用率を最大化） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.kireisia.co.jp/#organization",
+    "name": "株式会社キレイシア",
+    "url": "https://www.kireisia.co.jp/",
+    "logo": "https://www.kireisia.co.jp/images/logo.jpg",
+    "image": "https://www.kireisia.co.jp/images/ogp.jpg",
+    "telephone": "+81-6-7493-0993",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "東中浜7丁目2-21",
+      "addressLocality": "大阪市城東区",
+      "addressRegion": "大阪府",
+      "postalCode": "536-0023",
+      "addressCountry": "JP"
+    },
+    "areaServed": [
+      {"@type": "AdministrativeArea", "name": "大阪府"},
+      {"@type": "AdministrativeArea", "name": "京都府"},
+      {"@type": "AdministrativeArea", "name": "兵庫県"},
+      {"@type": "AdministrativeArea", "name": "奈良県"}
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.77",
+      "reviewCount": "472",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "priceRange": "¥5,000〜¥50,000",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  }
+  </script>
+  <!-- 構造化データ：Service（提供サービスをAI検索が直接抽出可能に） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": {"@id": "https://www.kireisia.co.jp/#organization"},
+    "serviceType": "ハウスクリーニング",
+    "areaServed": "大阪府・京都府・兵庫県・奈良県",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "ハウスクリーニングサービス",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "エアコンクリーニング"}, "price": "9000", "priceCurrency": "JPY"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "洗濯機クリーニング"}, "price": "15000", "priceCurrency": "JPY"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "水回りクリーニング"}, "price": "5000", "priceCurrency": "JPY"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ソファクリーニング"}, "price": "6000", "priceCurrency": "JPY"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "マットレスクリーニング"}, "price": "7000", "priceCurrency": "JPY"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "空室清掃"}, "price": "27000", "priceCurrency": "JPY"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "壁紙再生コーティング"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "エアコン設置"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "店舗清掃"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "便利屋"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "排水管洗浄"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "家事代行"}}
+      ]
+    }
+  }
+  </script>
+  <!-- 構造化データ：FAQPage（AI検索引用率がもっとも高いスキーマの一つ） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "出張費や追加料金はかかりますか？",
+        "acceptedAnswer": {"@type": "Answer", "text": "出張費は無料です。作業前にお見積りをご提示し、ご納得いただいてから作業を開始しますので、後から追加料金が発生することはありません。"}
+      },
+      {
+        "@type": "Question",
+        "name": "即日対応は可能ですか？",
+        "acceptedAnswer": {"@type": "Answer", "text": "ご予約状況により即日対応が可能です。お急ぎの場合はお電話（06-7493-0993）またはLINEからお問い合わせください。"}
+      },
+      {
+        "@type": "Question",
+        "name": "お子様やペットがいても安心して依頼できますか？",
+        "acceptedAnswer": {"@type": "Answer", "text": "ペットやお子様に優しいエコ洗剤の取り扱いがございます。お子様（5歳以下）またはペットがいるご家庭は¥500引きの割引も適用されます。"}
+      },
+      {
+        "@type": "Question",
+        "name": "対応エリアはどこまでですか？",
+        "acceptedAnswer": {"@type": "Answer", "text": "大阪市城東区を拠点に、大阪府・京都府・兵庫県・奈良県の広域に対応しています。詳しいエリアはお問い合わせください。"}
+      },
+      {
+        "@type": "Question",
+        "name": "完全分解クリーニングと通常分解の違いは何ですか？",
+        "acceptedAnswer": {"@type": "Answer", "text": "完全分解は熱交換器・送風ファン・ドレンパン・基板まですべて取り外して洗浄する高度な技術です。通常分解では届かない奥のカビ・汚れまで除去できます。"}
+      }
+    ]
+  }
+  </script>
+</head>
+<body id="top" class="bg-white text-text-main font-sans antialiased scroll-smooth">
+
+<!-- 共通ヘッダー -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-18">
+      <a href="index.html" class="flex items-center -ml-4 sm:-ml-6 lg:-ml-8">
+        <img src="images/logo-transparent.png" alt="キレイシア" class="h-10 sm:h-12 w-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-3 lg:gap-5" role="navigation">
+        <a href="index.html" class="text-xs lg:text-sm text-primary font-bold transition-colors">HOME</a>
+        <a href="service.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">サービス一覧</a>
+        <a href="about.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">企業理念</a>
+        <a href="company.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">会社概要</a>
+        <a href="https://en-gage.net/kireisia_saiyo/" target="_blank" rel="noopener" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">採用情報</a>
+        <a href="blog.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">ブログ</a>
+        <a href="contact.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="tel:06-7493-0993" class="flex items-center gap-1.5 bg-primary-50 hover:bg-primary-light text-primary-dark font-bold text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-2 rounded-full transition-colors">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.94.39 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.87.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="whitespace-nowrap">06-7493-0993</span>
+        </a>
+        <a href="contact.html" class="line-btn hidden md:inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white text-sm font-bold px-5 py-3 rounded-full">
+          <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span class="hidden sm:inline">お問い合わせ</span>
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden p-2 -mr-2 text-text-sub hover:text-primary transition-colors" aria-label="メニュー" aria-expanded="false">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-border">
+    <nav class="px-4 py-4 space-y-3">
+      <a href="index.html" class="block text-sm text-primary font-bold py-1">HOME</a>
+      <a href="service.html" class="block text-sm text-text-main hover:text-primary py-1">サービス一覧</a>
+      <a href="about.html" class="block text-sm text-text-main hover:text-primary py-1">企業理念</a>
+      <a href="company.html" class="block text-sm text-text-main hover:text-primary py-1">会社概要</a>
+      <a href="https://en-gage.net/kireisia_saiyo/" target="_blank" rel="noopener" class="block text-sm text-text-main hover:text-primary py-1">採用情報</a>
+      <a href="blog.html" class="block text-sm text-text-main hover:text-primary py-1">ブログ</a>
+      <a href="contact.html" class="block text-sm text-text-main hover:text-primary py-1">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================
+     ① ファーストビュー（F案：明朝体タイポグラフィ＋写真下配置／上品・洗練・余白美）
+     ============================================ -->
+<section class="relative pt-16 sm:pt-18 bg-warm/5 overflow-hidden">
+  <!-- 装飾：背景ブロブ（ネイビー・左上・大型） -->
+  <div aria-hidden="true" class="absolute -top-32 -left-32 w-[400px] sm:w-[600px] lg:w-[800px] h-[400px] sm:h-[600px] lg:h-[800px] bg-primary/30 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- 装飾：背景ブロブ（暖色・右下・大型） -->
+  <div aria-hidden="true" class="absolute top-32 -right-32 w-[350px] sm:w-[550px] lg:w-[700px] h-[350px] sm:h-[550px] lg:h-[700px] bg-warm/30 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- 装飾：中央のアクセントブロブ（薄いネイビー） -->
+  <div aria-hidden="true" class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[200px] sm:w-[300px] lg:w-[400px] h-[200px] sm:h-[300px] lg:h-[400px] bg-primary-light/40 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- 装飾：巨大透かし英字 -->
+  <div aria-hidden="true" class="absolute top-[44%] sm:top-[38%] lg:top-[28%] -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none select-none">
+    <p class="hero-watermark font-display font-black text-[22vw] sm:text-[18vw] lg:text-[13vw] text-primary/[0.10] tracking-[-0.05em] leading-none">KIREISIA</p>
+  </div>
+  <!-- 上半分：余白＋明朝体大型キャッチ -->
+  <div class="relative z-10 px-6 sm:px-12 lg:px-20 pt-8 sm:pt-12 lg:pt-16 pb-10 sm:pb-14 lg:pb-20 max-w-5xl mx-auto">
+    <p class="font-mincho text-xs sm:text-sm text-text-sub font-medium mb-4 sm:mb-6 tracking-wide hero-fade-1">
+      大阪のハウスクリーニング<br>
+      エアコンクリーニングなら キレイシア
+    </p>
+    <h1 class="font-mincho font-bold text-text-main leading-[1.5] tracking-tight">
+      <!-- SEO/LLMO最適化：検索エンジンには地域＋サービス＋社名で読ませる（視覚は下記キャッチ） -->
+      <span class="sr-only">大阪のハウスクリーニング｜エアコン・水回り対応 株式会社キレイシア</span>
+      <span aria-hidden="true">
+        <span class="block text-4xl sm:text-6xl lg:text-7xl mb-2 sm:mb-4 hero-fade-2">
+          <span class="text-primary">キレイ</span>の<span class="text-text-main">力</span>で
+        </span>
+        <span class="block text-3xl sm:text-5xl lg:text-6xl pl-6 sm:pl-12 lg:pl-20 hero-fade-3">
+          暮らしに <span class="text-warm">シアわせ</span>を
+        </span>
+      </span>
+    </h1>
+  </div>
+
+  <!-- 下半分：写真フル＋ブランドメッセージオーバーレイ -->
+  <div class="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden">
+    <img src="images/home-hero.jpg" alt="エアコンクリーニング作業風景" width="1448" height="1086" loading="eager" fetchpriority="high" decoding="async" class="hero-image absolute inset-0 w-full h-full object-cover object-top">
+    <!-- 上端ソフトフェード（明朝体エリア bg-warm/5 と自然に繋ぐ） -->
+    <div aria-hidden="true" class="absolute inset-x-0 top-0 h-12 sm:h-16 lg:h-24 bg-gradient-to-b from-warm/15 via-warm/5 to-transparent pointer-events-none z-[1]"></div>
+    <!-- 下端ソフトフェード（メダル群側 bg-warm/5 と自然に繋ぐ） -->
+    <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-warm/20 via-warm/8 to-transparent pointer-events-none z-[1]"></div>
+
+    <!-- メダルバーと同じmax-w-6xlコンテナで位置基準を揃える（写真コンテナの全幅とメダルバー幅のズレを解消） -->
+    <div class="absolute inset-0 max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 pointer-events-none">
+      <!-- 暗オーバーレイ：薄く -->
+      <div aria-hidden="true" class="absolute bottom-[calc(8rem-9mm)] sm:bottom-[calc(11rem-9mm)] lg:bottom-[calc(14rem-9mm)] left-1/2 -translate-x-1/2 w-[88%] sm:w-[80%] lg:w-[90%] h-[35%] bg-black/15 blur-3xl rounded-full"></div>
+
+      <!-- ブランドメッセージ：薄い影に変更 -->
+      <div class="absolute bottom-[calc(8rem-9mm)] sm:bottom-[calc(11rem-9mm)] lg:bottom-[calc(14rem-9mm)] left-1/2 -translate-x-1/2 z-10 text-center w-[92%] sm:w-[88%] lg:w-[94%] pointer-events-auto">
+        <p class="font-mincho text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)] font-black leading-tight tracking-tight text-2xl sm:text-4xl lg:text-5xl xl:text-6xl" style="-webkit-text-stroke:0.7px rgba(0,0,0,0.55);paint-order:stroke fill;text-shadow:0 1px 2px rgba(0,0,0,0.4)">
+          実績豊富なプロが伺います<span class="hidden lg:inline">、</span><br class="lg:hidden"><span class="text-primary">安心</span>してお任せください
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ②' 実績バー（4種・FV写真下端にオーバーラップ／浮遊感）
+     ============================================ -->
+<section data-reveal class="relative -mt-20 sm:-mt-32 lg:-mt-44 z-10 px-3 sm:px-6 lg:px-8 pb-10 sm:pb-14 lg:pb-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
+      <!-- 1. エアコン5,000台以上 / ゴールドメダル -->
+      <div class="stat-card relative text-center hover:-translate-y-1.5 transition-all duration-300" style="--stagger:0s">
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto">
+          <span aria-hidden="true" class="medal-sparkle text-sm sm:text-base lg:text-lg -top-1 -right-1">✦</span>
+          <span aria-hidden="true" class="medal-sparkle text-xs sm:text-sm -bottom-1 -left-1">✦</span>
+          <div class="medal-ring medal-ring-gold w-full h-full">
+            <div class="medal-inner medal-inner-gold">
+              <p class="font-display font-black text-2xl sm:text-3xl lg:text-4xl tracking-tighter leading-none stat-num-warm">5,000</p>
+              <p class="text-[10px] sm:text-xs lg:text-sm font-bold text-text-sub mt-1">台以上</p>
+            </div>
+          </div>
+        </div>
+        <span class="medal-ribbon ribbon-gold">エアコン実績</span>
+        <p class="text-[10px] sm:text-xs text-text-sub font-medium mt-2 leading-tight px-1">エアコンクリーニング実績</p>
+      </div>
+      <!-- 2. 洗濯機1,000台以上 / 水色メダル -->
+      <div class="stat-card relative text-center hover:-translate-y-1.5 transition-all duration-300" style="--stagger:.15s">
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto">
+          <span aria-hidden="true" class="medal-sparkle text-sm sm:text-base lg:text-lg -top-1 -right-1" style="color:#4A6AAE">✦</span>
+          <span aria-hidden="true" class="medal-sparkle text-xs sm:text-sm -bottom-1 -left-1" style="color:#4A6AAE">✦</span>
+          <div class="medal-ring medal-ring-blue w-full h-full">
+            <div class="medal-inner medal-inner-blue">
+              <p class="font-display font-black text-2xl sm:text-3xl lg:text-4xl tracking-tighter leading-none stat-num-primary">1,000</p>
+              <p class="text-[10px] sm:text-xs lg:text-sm font-bold text-text-sub mt-1">台以上</p>
+            </div>
+          </div>
+        </div>
+        <span class="medal-ribbon ribbon-blue">洗濯機実績</span>
+        <p class="text-[10px] sm:text-xs text-text-sub font-medium mt-2 leading-tight px-1">洗濯機クリーニング実績</p>
+      </div>
+      <!-- 3. ★4.77 口コミ評価 / ゴールドメダル -->
+      <div class="stat-card relative text-center hover:-translate-y-1.5 transition-all duration-300" style="--stagger:.3s">
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto">
+          <span aria-hidden="true" class="medal-sparkle text-sm sm:text-base lg:text-lg -top-1 -right-1">✦</span>
+          <span aria-hidden="true" class="medal-sparkle text-xs sm:text-sm -bottom-1 -left-1">✦</span>
+          <div class="medal-ring medal-ring-gold w-full h-full">
+            <div class="medal-inner medal-inner-gold">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mb-1 drop-shadow-[0_1px_2px_rgba(107,68,0,0.3)]" viewBox="0 0 24 24" aria-hidden="true">
+                <defs>
+                  <linearGradient id="starGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F5C842"/>
+                    <stop offset="50%" stop-color="#E89B12"/>
+                    <stop offset="100%" stop-color="#A06808"/>
+                  </linearGradient>
+                </defs>
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="url(#starGold)"/>
+              </svg>
+              <p class="font-display font-black text-2xl sm:text-3xl lg:text-4xl tracking-tighter leading-none stat-num-warm">4.77</p>
+              <p class="text-[10px] sm:text-xs lg:text-sm font-bold text-text-sub mt-1">/472件</p>
+            </div>
+          </div>
+        </div>
+        <span class="medal-ribbon ribbon-gold">口コミ評価</span>
+        <p class="text-[10px] sm:text-xs text-text-sub font-medium mt-2 leading-tight px-1">口コミ評価（472件）</p>
+      </div>
+      <!-- 4. 大阪府ランキング2位 / シルバーメダル -->
+      <div class="stat-card relative text-center hover:-translate-y-1.5 transition-all duration-300" style="--stagger:.45s">
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto">
+          <span aria-hidden="true" class="medal-sparkle text-sm sm:text-base lg:text-lg -top-1 -right-1" style="color:#E8E8EC">✦</span>
+          <span aria-hidden="true" class="medal-sparkle text-xs sm:text-sm -bottom-1 -left-1" style="color:#E8E8EC">✦</span>
+          <div class="medal-ring medal-ring-silver w-full h-full">
+            <div class="medal-inner medal-inner-silver">
+              <p class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tighter leading-none text-zinc-700">2<span class="text-xs sm:text-sm font-bold text-text-sub ml-0.5">位</span></p>
+            </div>
+          </div>
+        </div>
+        <span class="medal-ribbon ribbon-silver">大阪府ランキング</span>
+        <p class="text-[10px] sm:text-xs text-text-sub font-medium mt-2 leading-tight px-1">洗濯槽・洗濯機クリーニング 大阪府ランキング</p>
+        <p class="text-[9px] sm:text-[10px] text-text-light mt-1 leading-tight">（2023年3月）</p>
+      </div>
+    </div>
+    <!-- 実績バッジの下に説明文（FV上半分から移動） -->
+    <div class="max-w-3xl mx-auto mt-12 sm:mt-16 lg:mt-20 px-4 text-center">
+      <p class="text-base sm:text-lg lg:text-xl text-text-sub leading-relaxed">
+        大阪府を中心に、<br class="sm:hidden">信頼をいただきながらハウスクリーニングの<br class="hidden sm:block">ご依頼を頂いております。<br>
+        リーズナブルな価格で<br class="sm:hidden">お客様一人ひとりのご要望に合わせたサービスを提供し、<br class="hidden sm:block">安心していただけるクリーニングに取り組んでいます。
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     セクション間の繋ぎ目デザイン（実績バッジ→会社紹介）
+     ============================================ -->
+<div aria-hidden="true" class="relative h-32 sm:h-44 lg:h-52 overflow-hidden">
+  <!-- ウェーブSVG（薄い水色グラデで上下を繋ぐ） -->
+  <svg viewBox="0 0 1440 140" preserveAspectRatio="none" class="absolute inset-0 w-full h-full">
+    <defs>
+      <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E8EDF8"/>
+        <stop offset="50%" stop-color="#F0F2FA"/>
+        <stop offset="100%" stop-color="#E8EDF8"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,70 C240,120 480,20 720,70 C960,120 1200,20 1440,70 L1440,140 L0,140 Z" fill="url(#waveGrad)" opacity="0.6"></path>
+    <path d="M0,90 C320,140 640,40 960,90 C1200,130 1320,60 1440,90 L1440,140 L0,140 Z" fill="#F0F2FA" opacity="0.7"></path>
+  </svg>
+  <!-- 左右の装飾罫線 -->
+  <div class="absolute top-1/2 left-0 -translate-y-1/2 right-0 flex items-center justify-center gap-3 sm:gap-5 px-4">
+    <div class="flex-1 max-w-[80px] sm:max-w-[140px] lg:max-w-[200px] h-px bg-gradient-to-r from-transparent via-primary/40 to-primary/60"></div>
+    <!-- 中央バッジ：円形＋キレイシアロゴ（2倍拡大） -->
+    <div class="relative">
+      <div class="absolute inset-0 rounded-full bg-primary/30 blur-2xl scale-150"></div>
+      <div class="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 rounded-full bg-white ring-4 ring-white shadow-2xl shadow-primary/30 flex items-center justify-center overflow-hidden p-3 sm:p-4">
+        <img src="images/logo-transparent.png" alt="キレイシアロゴ" class="w-full h-full object-contain" loading="lazy">
+      </div>
+      <!-- スパークル装飾 -->
+      <span aria-hidden="true" class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 text-warm text-xl sm:text-2xl lg:text-3xl drop-shadow-md">✦</span>
+      <span aria-hidden="true" class="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 text-primary text-base sm:text-xl lg:text-2xl drop-shadow-md">✦</span>
+    </div>
+    <div class="flex-1 max-w-[80px] sm:max-w-[140px] lg:max-w-[200px] h-px bg-gradient-to-l from-transparent via-primary/40 to-primary/60"></div>
+  </div>
+</div>
+
+<!-- ============================================
+     ② 会社紹介（装飾強化版）
+     ============================================ -->
+<section id="about" class="relative py-14 sm:py-20 bg-white overflow-hidden">
+  <!-- 装飾：左上の水色ブロブ -->
+  <div aria-hidden="true" class="absolute -top-20 -left-20 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- 装飾：右下の暖色ブロブ -->
+  <div aria-hidden="true" class="absolute -bottom-20 -right-20 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-warm/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- 装飾：大型クォーテーション（左上・引用符風） -->
+  <div aria-hidden="true" class="absolute top-8 left-4 sm:left-8 lg:left-16 font-display font-black text-7xl sm:text-9xl lg:text-[10rem] leading-none select-none pointer-events-none text-primary/12">“</div>
+  <!-- 装飾：大型クォーテーション（右下・閉じ引用符） -->
+  <div aria-hidden="true" class="absolute bottom-16 right-4 sm:right-8 lg:right-16 font-display font-black text-7xl sm:text-9xl lg:text-[10rem] leading-none select-none pointer-events-none text-primary/12">”</div>
+
+  <div data-reveal class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- 英字ラベル -->
+    <span class="inline-block text-primary text-xs sm:text-sm font-bold tracking-[0.3em] uppercase mb-4 sm:mb-5">— OUR COMPANY —</span>
+    <p class="text-sm sm:text-base text-text-sub mb-3">「株式会社キレイシア」は</p>
+    <h2 class="font-display font-bold text-xl sm:text-3xl lg:text-4xl tracking-tight text-text-main leading-tight mb-5">
+      <span class="whitespace-nowrap"><span class="text-primary/80">「キレイ」</span>と<span class="text-primary/80">「シアワセ」</span>を</span><br class="sm:hidden">提供する会社
+    </h2>
+    <!-- グラデ区切り線（プライマリ色のソフトグラデ） -->
+    <div class="w-20 sm:w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full mb-8"></div>
+    <div class="text-sm sm:text-base text-text-sub leading-relaxed max-w-3xl mx-auto space-y-4 mb-10 sm:mb-12">
+      <p>当社は、大阪・京都・兵庫・奈良を中心にハウスクリーニングを行っています。<br>エアコンクリーニングや洗濯機クリーニングをはじめ、ご自宅の清掃から、<br class="hidden sm:block">店舗・ホテル・施設のクリーニングまで幅広く対応。</p>
+      <p>プロの技術で、隅々まで丁寧に清掃し、快適な空間をお届けします。<br>「掃除が気になるなる」「エアコンの汚れを何とかしたい」<br class="hidden sm:block">そんなお悩みは、ぜひ当社にお任せください！</p>
+      <p>お客様のご要望に合わせた最適なプランをご提案し、安心・安全なクリーニングサービスをご提供いたします。</p>
+    </div>
+    <!-- チーム写真：ゴールド/水色グラデ枠＋プレミアムシャドウ -->
+    <div class="max-w-2xl mx-auto relative">
+      <!-- 後ろの装飾グロウ -->
+      <div aria-hidden="true" class="absolute -inset-3 sm:-inset-4 bg-gradient-to-br from-primary/30 via-warm/20 to-primary/30 rounded-3xl blur-lg pointer-events-none"></div>
+      <!-- 写真フレーム本体 -->
+      <div class="relative overflow-hidden rounded-2xl shadow-2xl ring-2 ring-white bg-white p-2 sm:p-3">
+        <img src="images/home-team.jpg" alt="株式会社キレイシアのスタッフ集合写真" width="1434" height="1078" class="w-full h-auto block rounded-xl hi-quality-img" decoding="async" loading="lazy">
+      </div>
+      <!-- スパークル装飾 -->
+      <span aria-hidden="true" class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 text-warm text-2xl sm:text-3xl drop-shadow-md">✦</span>
+      <span aria-hidden="true" class="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 text-primary text-xl sm:text-2xl drop-shadow-md">✦</span>
+      <p class="text-center text-text-sub text-sm sm:text-base mt-6 sm:mt-8 leading-relaxed">キレイシアのスタッフ一同、笑顔と誠実な対応でお客様をお迎えします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- セクション境目のウェーブ（白→水色のなめらかな遷移） -->
+<div aria-hidden="true" class="-mb-px bg-white">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="block w-full h-10 sm:h-14 fill-primary-50"><path d="M0,40 C360,90 720,0 1440,50 L1440,80 L0,80 Z"></path></svg>
+</div>
+
+<!-- ============================================
+     ④ 研修風景（自社育成・現場力の向上）
+     ============================================ -->
+<section class="relative py-16 sm:py-24 bg-primary-50 overflow-hidden">
+  <!-- 装飾：背景ブロブ -->
+  <div aria-hidden="true" class="absolute -top-32 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-primary/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div aria-hidden="true" class="absolute -bottom-32 left-0 w-72 h-72 sm:w-96 sm:h-96 bg-warm/15 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div data-reveal class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <span class="inline-block text-primary text-sm font-bold tracking-[0.3em] uppercase mb-3">— OUR TRAINING —</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-text-main">なぜキレイシアの品質は安定しているのか？</h2>
+    </div>
+    <!-- Atomic Answer -->
+    <p class="text-sm sm:text-base text-text-sub leading-relaxed max-w-3xl mx-auto text-center mb-12 sm:mb-14">
+      <strong class="text-text-main">キレイシアの品質が安定している理由は、自社内の体系的な研修制度にあります。</strong>
+      新人スタッフから現場リーダーまでが同じカリキュラムで技術と接客を学ぶことで、どのスタッフが伺っても同じ仕上がりをお届けできる体制を整えています。
+    </p>
+
+    <!-- 育成プロセス3ステップ -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mb-12 sm:mb-16 mt-12">
+      <div class="relative bg-white rounded-2xl p-6 sm:p-7 ring-1 ring-zinc-900/5 shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark text-white font-display font-black text-base flex items-center justify-center shadow-lg ring-4 ring-primary-50 tracking-wider">01</div>
+        <div class="mt-5">
+          <p class="text-xs font-bold text-primary tracking-[0.2em] uppercase mb-2">BASIC</p>
+          <h3 class="font-display font-bold text-base sm:text-lg text-text-main mb-3">基礎研修</h3>
+          <p class="text-xs sm:text-sm text-text-sub leading-relaxed">道具の使い方・洗剤の知識・接客マナーを座学とロープレで徹底習得</p>
+        </div>
+      </div>
+      <div class="relative bg-white rounded-2xl p-6 sm:p-7 ring-1 ring-zinc-900/5 shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark text-white font-display font-black text-base flex items-center justify-center shadow-lg ring-4 ring-primary-50 tracking-wider">02</div>
+        <div class="mt-5">
+          <p class="text-xs font-bold text-primary tracking-[0.2em] uppercase mb-2">OJT</p>
+          <h3 class="font-display font-bold text-base sm:text-lg text-text-main mb-3">現場同行</h3>
+          <p class="text-xs sm:text-sm text-text-sub leading-relaxed">先輩スタッフの現場に同行し、実際の作業・お客様対応を体得</p>
+        </div>
+      </div>
+      <div class="relative bg-white rounded-2xl p-6 sm:p-7 ring-1 ring-zinc-900/5 shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-warm to-warm-dark text-white font-display font-black text-base flex items-center justify-center shadow-lg ring-4 ring-primary-50 tracking-wider">03</div>
+        <div class="mt-5">
+          <p class="text-xs font-bold text-warm-dark tracking-[0.2em] uppercase mb-2">EXPERT</p>
+          <h3 class="font-display font-bold text-base sm:text-lg text-text-main mb-3">技術習得</h3>
+          <p class="text-xs sm:text-sm text-text-sub leading-relaxed">完全分解クリーニング等の高度技術をマスターし、独立対応へ</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 研修風景写真（ゴールドアクセント枠＋下部キャプション） -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-8">
+      <figure class="relative bg-white p-3 rounded-3xl shadow-2xl ring-1 ring-zinc-900/5 hover:shadow-[0_30px_60px_rgba(245,166,35,0.25)] transition-all duration-500 m-0">
+        <div aria-hidden="true" class="absolute -top-1 -left-1 w-20 h-20 bg-gradient-to-br from-warm/60 to-transparent rounded-tl-3xl pointer-events-none"></div>
+        <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
+          <img src="images/home-training1.jpg" alt="キレイシアの自社研修風景・新人スタッフへの技術指導" width="1433" height="1098" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent pointer-events-none"></div>
+          <div class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-warm text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg">
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            自社育成
+          </div>
+          <figcaption class="absolute bottom-3 left-4 right-4 text-white font-bold text-sm sm:text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">基礎から徹底指導／ベテランによるマンツーマン研修</figcaption>
+        </div>
+      </figure>
+      <figure class="relative bg-white p-3 rounded-3xl shadow-2xl ring-1 ring-zinc-900/5 hover:shadow-[0_30px_60px_rgba(245,166,35,0.25)] transition-all duration-500 m-0">
+        <div aria-hidden="true" class="absolute -top-1 -right-1 w-20 h-20 bg-gradient-to-bl from-warm/60 to-transparent rounded-tr-3xl pointer-events-none"></div>
+        <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
+          <img src="images/home-training2.jpg" alt="キレイシアの現場力向上のためのOJT風景" width="1108" height="1477" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent pointer-events-none"></div>
+          <div class="absolute top-3 right-3 inline-flex items-center gap-1.5 bg-warm text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg">
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            現場力の向上
+          </div>
+          <figcaption class="absolute bottom-3 left-4 right-4 text-white font-bold text-sm sm:text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">先輩との同行で実践力UP／現場対応力を磨く</figcaption>
+        </div>
+      </figure>
+    </div>
+    <p class="text-center text-text-main text-sm sm:text-base font-medium max-w-2xl mx-auto leading-relaxed">
+      自社研修でサービスの安定性向上、統一された品質で、<br class="hidden sm:block">いつでも最高のサービスをお届けいたします。
+    </p>
+  </div>
+</section>
+
+<!-- ============================================
+     ⑤ 選ばれる3つの理由（01・02・03 の横3カラム）
+     ============================================ -->
+<section class="py-16 sm:py-24 bg-white">
+  <div data-reveal class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 sm:mb-16">
+      <span class="inline-block text-primary text-sm font-bold tracking-widest uppercase mb-3">OUR STRENGTHS</span>
+      <h2 class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-text-main mb-2">なぜキレイシアが選ばれるのか？</h2>
+      <p class="font-display font-bold text-lg sm:text-2xl text-text-main">プロの誇りを込めて、3つの理由</p>
+    </div>
+    <!-- Atomic Answer：AI検索引用率を最大化する結論先行ブロック -->
+    <p class="text-sm sm:text-base text-text-sub leading-relaxed max-w-3xl mx-auto text-center mb-10 sm:mb-12">
+      <strong class="text-text-main">キレイシアが選ばれる理由は「確かな技術」「わかりやすい料金」「心を込めた対応」の3つです。</strong>
+      経験に裏打ちされた品質と、追加料金なしの正直な料金体系で、大阪・京都・兵庫・奈良エリアのお客様から口コミ評価4.77（472件）をいただいています。
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
+      <!-- 01 確かな技術 -->
+      <div class="relative bg-white rounded-3xl pt-12 pb-8 px-6 sm:px-7 ring-1 ring-zinc-900/5 shadow-2xl hover:shadow-primary/20 transition-shadow">
+        <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-primary text-white font-display font-black text-2xl flex items-center justify-center shadow-lg ring-4 ring-white tracking-tight">
+          01
+        </div>
+        <h3 class="font-display font-bold text-lg sm:text-xl text-text-main text-center mb-4 leading-snug">確かな技術で、<br>安心と満足を</h3>
+        <p class="text-sm text-text-sub leading-relaxed">
+          経験に裏打ちされた技術と知識をもとに、すべてのお客様に最適なクリーニングをお届けします。品質への妥協は一切いたしません。
+        </p>
+      </div>
+      <!-- 02 わかりやすい説明と正直な料金 -->
+      <div class="relative bg-white rounded-3xl pt-12 pb-8 px-6 sm:px-7 ring-1 ring-zinc-900/5 shadow-2xl hover:shadow-primary/20 transition-shadow">
+        <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-primary text-white font-display font-black text-2xl flex items-center justify-center shadow-lg ring-4 ring-white tracking-tight">
+          02
+        </div>
+        <h3 class="font-display font-bold text-lg sm:text-xl text-text-main text-center mb-4 leading-snug">わかりやすい説明と、<br>正直な料金</h3>
+        <p class="text-sm text-text-sub leading-relaxed">
+          作業前に内容と料金を丁寧にご説明し、ご納得いただいてから作業を開始します。後から追加費用が発生することは一切ありません。
+        </p>
+      </div>
+      <!-- 03 心を込めた対応 -->
+      <div class="relative bg-white rounded-3xl pt-12 pb-8 px-6 sm:px-7 ring-1 ring-zinc-900/5 shadow-2xl hover:shadow-primary/20 transition-shadow">
+        <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-primary text-white font-display font-black text-2xl flex items-center justify-center shadow-lg ring-4 ring-white tracking-tight">
+          03
+        </div>
+        <h3 class="font-display font-bold text-lg sm:text-xl text-text-main text-center mb-4 leading-snug">心を込めた対応で、<br>信頼を築きます</h3>
+        <p class="text-sm text-text-sub leading-relaxed">
+          お客様とのコミュニケーションを大切にし、ご要望やお困りごとに寄り添ったご提案をいたします。信頼されるパートナーを目指します。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ⑥ エアコンクリーニング特集
+     ============================================ -->
+<section class="py-16 sm:py-24 bg-primary-50">
+  <div data-reveal class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 見出し -->
+    <div class="text-center mb-8 sm:mb-10">
+      <p class="text-primary text-sm font-bold tracking-widest uppercase mb-4">AIRCON CLEANING</p>
+      <div class="inline-block bg-white px-6 sm:px-10 py-4 sm:py-5 rounded-md border-2 border-text-main shadow-md">
+        <h2 class="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-text-main leading-tight">
+          エアコンクリーニングはなぜ完全分解が必要？
+        </h2>
+      </div>
+    </div>
+    <!-- Atomic Answer -->
+    <p class="text-sm sm:text-base text-text-sub leading-relaxed max-w-3xl mx-auto text-center mb-10 sm:mb-12">
+      <strong class="text-text-main">完全分解クリーニングは、熱交換器・送風ファン・ドレンパン・基板まで取り外して洗浄する高度な技術です。</strong>
+      通常の分解では届かない奥のカビや汚れまでほぼすべて取り除けるため、においの再発が少なく、効きも良くなります。キレイシアはこの完全分解に対応するスペシャリストが徹底対応します。
+    </p>
+
+    <!-- メインビジュアル：エアコン完全分解洗浄バナー（先方提供画像・テキスト/シール焼き付け済み） -->
+    <div class="max-w-5xl mx-auto mb-12 sm:mb-14">
+      <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl ring-1 ring-zinc-900/10">
+        <img src="images/aircon-feature-banner.jpg" alt="エアコン完全分解洗浄・見えない汚れまで徹底除去・口コミ評価4.77" width="1536" height="1024" class="w-full h-auto block hi-quality-img" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <!-- 対応範囲 -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8">
+      <div class="text-base sm:text-lg font-bold text-text-main">
+        <p>・エアコンクリーニング</p>
+        <p>・お掃除機能付き</p>
+      </div>
+      <svg class="w-10 h-10 text-primary rotate-90 sm:rotate-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      <div class="bg-white border-2 border-warm rounded-lg px-6 py-3 shadow-md">
+        <p class="font-display font-black text-xl sm:text-2xl text-warm">全機種対応</p>
+      </div>
+    </div>
+
+    <!-- 対応メーカー一覧（公式ロゴ） -->
+    <div class="max-w-2xl mx-auto mb-12">
+      <div class="bg-white rounded-lg shadow-md ring-1 ring-border px-4 sm:px-6 py-6 sm:py-8">
+        <p class="text-center text-xs font-bold text-text-light tracking-widest mb-5">対応メーカー</p>
+        <div class="grid grid-cols-3 gap-4 sm:gap-6 items-center justify-items-center">
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><img src="images/maker-daikin.png" alt="DAIKIN" class="max-w-full max-h-full object-contain"></div>
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><img src="images/maker-panasonic.png" alt="Panasonic" class="max-w-full max-h-full object-contain"></div>
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><img src="images/maker-mitsubishi.png" alt="三菱電機 MITSUBISHI ELECTRIC" class="max-w-full max-h-full object-contain"></div>
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><img src="images/maker-hitachi.png" alt="HITACHI" class="max-w-full max-h-full object-contain"></div>
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><img src="images/maker-toshiba.png" alt="TOSHIBA" class="max-w-full max-h-full object-contain"></div>
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><img src="images/maker-sharp.png" alt="SHARP" class="max-w-full max-h-full object-contain"></div>
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><img src="images/maker-iris.png" alt="アイリスオーヤマ IRIS OHYAMA" class="max-w-full max-h-full object-contain"></div>
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><img src="images/maker-fujitsu.png" alt="FUJITSU 富士通" class="max-w-full max-h-full object-contain"></div>
+          <div class="w-28 h-12 sm:w-40 sm:h-14 flex items-center justify-center"><span class="text-lg sm:text-2xl font-bold text-text-light tracking-wide">etc...</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 完全分解対応可能 -->
+    <div class="bg-white rounded-2xl px-2 py-5 sm:p-10 shadow-md mb-8">
+      <h3 class="font-display font-black text-2xl sm:text-3xl text-primary-dark text-center mb-6">完全分解対応可能</h3>
+      <p class="text-base sm:text-base text-text-main leading-relaxed text-center max-w-3xl mx-auto">
+        完全分解クリーニングができるのは、限られたプロだけ。<br>
+        エアコンの内部を徹底洗浄する完全分解は、高度な技術と経験が求められる専門作業です。<br>
+        しかし、この作業をマスターしているのはごくわずか。<br>
+        一般的な「分解洗浄」では届かない奥の汚れも、<strong class="text-primary">完全分解ならほぼすべて取り除けます。</strong>
+      </p>
+
+      <!-- 完全分解洗浄とは（折りたたみ・キレイシアの強み） -->
+      <details class="group mt-8 -mx-2 sm:mx-auto max-w-5xl rounded-2xl overflow-hidden shadow-xl shadow-primary/20 ring-1 ring-primary/10">
+        <summary class="flex items-center justify-between gap-3 cursor-pointer list-none px-5 py-6 sm:px-8 sm:py-7 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary-dark transition-colors select-none">
+          <span class="flex flex-col min-w-0">
+            <span class="inline-flex items-center self-start gap-1 bg-warm text-primary-dark text-xs sm:text-sm font-black px-2.5 py-0.5 rounded-full mb-1.5">★ キレイシアの強み</span>
+            <span class="font-display font-black text-xl sm:text-3xl text-white leading-tight">完全分解洗浄とは？</span>
+          </span>
+          <!-- 開閉アイコン（開くと180度回転） -->
+          <span class="inline-flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/15 shrink-0 transition-transform duration-300 group-open:rotate-180">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="px-2.5 py-7 sm:px-8 sm:py-9 bg-white">
+          <p class="font-display font-black text-xl sm:text-2xl text-primary-dark text-center mb-3">エアコンクリーニングの<br>クオリティについて</p>
+          <p class="text-sm sm:text-base text-text-main text-center mb-8">エアコンクリーニングのクオリティにも種類がございます💡</p>
+
+          <div class="space-y-6">
+            <!-- ①通常分解 -->
+            <div class="rounded-xl bg-primary-light/30 p-3 sm:p-6">
+              <h4 class="font-display font-black text-xl sm:text-2xl text-primary-dark mb-3 pb-2 border-b-2 border-primary-dark/70">① 通常分解</h4>
+              <p class="text-base sm:text-lg text-text-main leading-relaxed mb-4">
+                フィルターやカバー、吹き出し口周辺を取り外して洗浄。手軽にエアコンクリーニングが可能。<br>
+                通常分解洗浄でも<strong class="text-emphasis">6～8割の洗浄クオリティ</strong>を実現。
+              </p>
+              <figure class="m-0 max-w-md mx-auto">
+                <img src="images/aircon-normal.jpg" alt="通常分解：フィルターやカバーを取り外したエアコン内部" width="1000" height="750" class="w-full rounded-lg shadow-sm" loading="lazy" decoding="async">
+              </figure>
+            </div>
+            <!-- ②ドレンパン分解 -->
+            <div class="rounded-xl bg-primary-light/30 p-3 sm:p-6">
+              <h4 class="font-display font-black text-xl sm:text-2xl text-primary-dark mb-3 pb-2 border-b-2 border-primary-dark/70">② ドレンパン分解</h4>
+              <p class="text-base sm:text-lg text-text-main leading-relaxed mb-4">
+                エアコン内部の<strong class="text-emphasis">ドレンパン（結露水を受ける部品）</strong>を取り外して洗浄。<br>
+                汚れやカビが生えやすい、水が溜まる受け皿のパーツを徹底除去できる。<strong class="text-emphasis">水漏れや悪臭を防げる。</strong><br>
+                <span class="text-text-sub text-sm sm:text-base">※一部分解できない機種がございます</span>
+              </p>
+              <div class="space-y-4">
+                <!-- ドレンパン取り外し前→後 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                  <figure class="m-0">
+                    <img src="images/drainpan-before.jpg" alt="ドレンパン分解前：ドレンパン部分を赤丸で示したエアコン内部" width="313" height="213" class="w-full rounded-lg shadow-sm" loading="lazy" decoding="async">
+                  </figure>
+                  <figure class="m-0">
+                    <img src="images/drainpan-after.jpg" alt="ドレンパンを取り外した後のエアコン内部" width="340" height="230" class="w-full rounded-lg shadow-sm" loading="lazy" decoding="async">
+                  </figure>
+                </div>
+                <!-- 取り外した汚れたドレンパン -->
+                <figure class="m-0 max-w-xl mx-auto">
+                  <img src="images/drainpan-dirty.jpg" alt="取り外したドレンパン。汚れとカビが大量に付着した状態" width="550" height="160" class="w-full rounded-lg shadow-sm" loading="lazy" decoding="async">
+                  <figcaption class="text-center text-text-sub text-sm sm:text-base mt-2">分解したドレンパン部分です。水が溜まりやすいパーツのため、<strong class="text-emphasis">こんなに汚れています。</strong></figcaption>
+                </figure>
+              </div>
+            </div>
+            <!-- ③完全分解 -->
+            <div class="rounded-xl bg-primary-light/40 p-3 sm:p-6 ring-2 ring-primary/50 relative">
+              <span class="absolute -top-3 right-4 bg-warm text-primary-dark text-xs sm:text-sm font-black px-3 py-1 rounded-full shadow-sm">キレイシアの強み</span>
+              <h4 class="font-display font-black text-xl sm:text-2xl text-primary-dark mb-3 pb-2 border-b-2 border-primary-dark/70">③ 完全分解</h4>
+              <p class="text-base sm:text-lg text-text-main leading-relaxed mb-4">
+                熱交換器やファンまで取り外し、内部の隅々まで洗浄。<strong class="text-emphasis">汚れやカビをほぼ完全に洗浄可能。</strong><br>
+                完全分解をできる業者は全体の10～20%程度と言われており対応出来ない業者も多いですが、<strong class="text-emphasis">キレイシアは対応可能です。</strong><br>
+                <span class="text-text-sub text-sm sm:text-base">※一部分解できない機種がございます</span>
+              </p>
+              <!-- 送風ファン取り外し前→後 -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
+                <figure class="m-0">
+                  <img src="images/fan-before.jpg" alt="完全分解前：送風ファン部分を赤丸で示したエアコン内部" width="410" height="300" class="w-full rounded-lg shadow-sm" loading="lazy" decoding="async">
+                </figure>
+                <figure class="m-0">
+                  <img src="images/fan-after.jpg" alt="完全分解後：送風ファンまで取り外したエアコン内部。完全分解はここまで分解します" width="324" height="258" class="w-full rounded-lg shadow-sm" loading="lazy" decoding="async">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- Before/After -->
+    <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-md mb-8">
+      <div class="text-center mb-6">
+        <div class="inline-block bg-white px-6 py-2 rounded-md border-2 border-text-main shadow-sm">
+          <p class="font-display font-bold text-xl sm:text-2xl text-text-main">完全分解</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 sm:gap-8 items-center max-w-3xl mx-auto">
+        <figure class="text-center m-0">
+          <figcaption class="font-display font-black text-2xl sm:text-3xl text-text-main mb-3">Before</figcaption>
+          <div class="aspect-square overflow-hidden rounded-xl ring-4 ring-primary-light">
+            <img src="images/home-aircon-before.jpg" alt="エアコン完全分解クリーニング作業前の内部にカビとホコリが付着した状態" width="1108" height="1477" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </div>
+        </figure>
+        <figure class="text-center m-0">
+          <figcaption class="font-display font-black text-2xl sm:text-3xl text-text-main mb-3">After</figcaption>
+          <div class="aspect-square overflow-hidden rounded-xl ring-4 ring-primary-light">
+            <img src="images/home-aircon-after.jpg" alt="エアコン完全分解クリーニング作業後にカビ・ホコリが除去された清潔な状態" width="1108" height="1477" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </div>
+        </figure>
+      </div>
+      <p class="text-center text-sm text-text-sub mt-4">※完全分解クリーニングによる施工事例</p>
+    </div>
+
+    <!-- エコ洗剤 -->
+    <div class="relative bg-gradient-to-br from-accent/10 to-white rounded-2xl p-6 sm:p-10 ring-1 ring-accent/20 text-center overflow-hidden">
+      <!-- 装飾：背景の葉っぱブロブ -->
+      <div aria-hidden="true" class="absolute -top-10 -right-10 w-40 h-40 sm:w-56 sm:h-56 bg-accent/15 rounded-full blur-3xl pointer-events-none"></div>
+      <!-- 家族写真（赤ちゃん・ワンちゃん・猫ちゃん／実写） -->
+      <figure class="relative max-w-56 mx-auto mb-6 sm:mb-8 m-0">
+        <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl ring-1 ring-accent/20">
+          <img src="images/home-pet-v3.jpg" alt="赤ちゃんがわんちゃんに手を伸ばし、奥に猫ちゃんがいる家族の写真" width="1400" height="933" class="w-full h-auto block" loading="lazy" decoding="async">
+        </div>
+        <!-- スパークル -->
+        <span aria-hidden="true" class="absolute -top-2 -right-2 text-warm text-base sm:text-xl drop-shadow-md">✦</span>
+        <span aria-hidden="true" class="absolute -bottom-2 -left-2 text-accent text-sm sm:text-base drop-shadow-md">✦</span>
+      </figure>
+      <div class="relative">
+        <div class="inline-block bg-accent/20 px-4 py-1.5 rounded-full text-xs font-bold text-accent-dark mb-3">ECO FRIENDLY</div>
+        <h3 class="font-display font-bold text-lg sm:text-2xl text-text-main leading-tight mb-4">大切な、お子様、<br class="sm:hidden">わんちゃん、猫ちゃんが<br class="sm:hidden">いるお客様。</h3>
+        <p class="text-sm sm:text-base text-text-sub leading-relaxed max-w-2xl mx-auto">
+          自然と家族に優しい<strong class="text-accent-dark">エコ洗剤</strong>取り扱いございます！！<br>
+          <span class="text-xs text-text-light">（お子様・ペットがいるご家庭は¥500引き。両方該当でも割引は¥500です）</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- 空気の王様 抗菌エアコンフィルター（興味づけ／詳細はサービスページへ誘導） -->
+    <div class="relative mt-8 sm:mt-10 bg-gradient-to-br from-sky-50 to-white rounded-2xl p-6 sm:p-10 ring-1 ring-sky-200 overflow-hidden">
+      <!-- 装飾：背景の水色ブロブ -->
+      <div aria-hidden="true" class="absolute -top-10 -left-10 w-40 h-40 sm:w-56 sm:h-56 bg-sky-200/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative grid sm:grid-cols-2 gap-6 sm:gap-10 items-center">
+        <!-- 商品画像 -->
+        <figure class="m-0 max-w-md mx-auto w-full">
+          <div class="overflow-hidden rounded-2xl shadow-xl ring-1 ring-sky-900/10">
+            <img src="images/ousama-filter.jpg" alt="空気の王様 抗菌・抗ウィルスエアコンフィルター（空気触媒AT254コーティング）" class="w-full h-auto block" loading="lazy" decoding="async">
+          </div>
+        </figure>
+        <!-- テキスト -->
+        <div class="text-center sm:text-left">
+          <div class="inline-block bg-sky-600/10 px-4 py-1.5 rounded-full text-xs font-bold text-sky-700 mb-3">NEW｜新商品取扱い開始</div>
+          <h3 class="font-display font-black text-xl sm:text-2xl lg:text-3xl text-text-main leading-tight mb-3">
+            空気を洗う、新感覚。<br class="sm:hidden">
+            <span class="text-sky-700">空気の王様</span> 抗菌エアコンフィルター
+          </h3>
+          <p class="text-sm sm:text-base text-text-sub leading-relaxed mb-5 max-w-xl mx-auto sm:mx-0">
+            貼るだけ簡単。空気触媒<strong class="text-sky-700">AT254</strong>コーティングで、浮遊カビ・花粉・PM2.5・ウィルス・ニオイ対策。
+            <strong class="text-text-main">お手入れがラクになり、空調費の抑制やエアコンの故障対策にも。</strong>飲食店でも長年愛用されています。
+          </p>
+          <a href="service.html#ousama" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-bold px-7 py-3 rounded-full text-sm sm:text-base transition">
+            空気の王様の詳細を見る
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- サービス一覧への誘導 -->
+    <div class="text-center mt-10">
+      <a href="service.html#services" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-8 py-3 rounded-full text-sm sm:text-base transition">
+        エアコンクリーニングの詳細・料金を見る
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- セクション境目のウェーブ（水色→白へなめらか遷移） -->
+<div aria-hidden="true" class="-mt-px bg-primary-50">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="block w-full h-10 sm:h-14 fill-white"><path d="M0,40 C360,90 720,0 1440,50 L1440,80 L0,80 Z"></path></svg>
+</div>
+
+<!-- ============================================
+     ⑦ 水回りクリーニング特集
+     ============================================ -->
+<section class="py-16 sm:py-24 bg-white">
+  <div data-reveal class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-6 sm:mb-8">
+      <p class="text-primary text-sm font-bold tracking-[0.3em] uppercase">— WATER AREA CLEANING —</p>
+    </div>
+
+    <!-- ヒーロービジュアル：洗濯機分解クリーニングバナー（先方提供画像・テキスト/シール焼き付け済み） -->
+    <div class="max-w-5xl mx-auto mb-10 sm:mb-14 lg:mb-16">
+      <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl ring-1 ring-zinc-900/10">
+        <img src="images/water-feature-banner.jpg" alt="洗濯機分解クリーニング・プロの洗浄で本当の清潔を取り戻す・大阪府ランキング2位" width="1536" height="1024" class="w-full h-auto block hi-quality-img" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <!-- Atomic Answer（水回り全体の結論先行） -->
+    <p class="text-sm sm:text-base text-text-sub leading-relaxed max-w-3xl mx-auto text-center mb-12">
+      <strong class="text-text-main">水回り（キッチン・浴室・洗面所・トイレ・レンジフード）は、汚れの種類が異なるためプロの技術が最も効果を発揮する箇所です。</strong>
+      キレイシアでは洗濯機の分解クリーニングから水回り5点セットまで、対応箇所を自由に組み合わせていただけます。
+    </p>
+
+    <!-- 洗濯機クリーニング -->
+    <div class="mb-16">
+      <div class="text-center mb-8">
+        <div class="inline-block bg-white px-6 sm:px-10 py-4 sm:py-5 rounded-md border-2 border-text-main shadow-md">
+          <h2 class="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-text-main leading-tight">
+            洗濯機クリーニングは何をしてもらえる？
+          </h2>
+        </div>
+      </div>
+      <div class="max-w-3xl mx-auto mb-8">
+        <p class="text-sm sm:text-base text-text-main leading-relaxed mb-4">
+          洗剤や柔軟剤を変えてもニオイや黒ずみが気になる…。<br>
+          それ、洗濯機の内部汚れが原因かもしれません。<br>
+          洗濯機の中は、湿気・皮脂・洗剤カスが溜まりやすく、カビや雑菌の温床になりがち。<br>
+          見えないからこそ放置しがちですが、肌に触れる衣類やタオルの<br>
+          <strong>"本当の清潔"を守るには、定期的な内部洗浄が大切です。</strong>
+        </p>
+        <p class="text-sm sm:text-base text-text-main leading-relaxed">
+          当店では分解クリーニングにより、洗濯槽の裏側やパーツの奥まで徹底洗浄。<br>
+          市販の洗濯槽クリーナーでは落とせない頑固な汚れやカビを、スッキリ除去します。
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto mb-6">
+        <figure class="relative aspect-[4/3] overflow-hidden rounded-xl ring-4 ring-primary-light m-0">
+          <img src="images/home-washer-before.jpg" alt="洗濯機分解クリーニング作業前の洗濯槽の汚れ状態" width="750" height="1334" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <figcaption class="absolute top-3 left-3 bg-white/95 px-3 py-1 rounded text-sm font-bold text-text-main shadow">before</figcaption>
+        </figure>
+        <figure class="relative aspect-[4/3] overflow-hidden rounded-xl ring-4 ring-primary-light m-0">
+          <img src="images/home-washer-after.jpg" alt="洗濯機分解クリーニング作業後の清潔になった洗濯槽の状態" width="750" height="1334" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <figcaption class="absolute top-3 left-3 bg-white/95 px-3 py-1 rounded text-sm font-bold text-text-main shadow">after</figcaption>
+        </figure>
+      </div>
+      <p class="text-center text-sm sm:text-base font-bold text-[#E53E3E] leading-relaxed">
+        ご家族の肌に触れるものだから、洗濯機の中まで清潔に。<br>
+        プロの洗濯機クリーニングをぜひご体感ください！
+      </p>
+    </div>
+
+    <!-- 水回り5点セット -->
+    <div>
+      <div class="text-center mb-8">
+        <div class="inline-block bg-white px-6 sm:px-10 py-4 sm:py-5 rounded-md border-2 border-text-main shadow-md">
+          <h3 class="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-text-main leading-tight">
+            気になる水回り<br>
+            5点まるごと徹底クリーニング
+          </h3>
+        </div>
+      </div>
+      <!-- 5点セット画像（六角形デザイン） -->
+      <div class="max-w-md sm:max-w-xl mx-auto">
+        <img src="images/home-water-set-new.jpg" alt="水回り5点セット ¥50,000円（税込）キッチン・レンジフード・洗面所・浴室・トイレ" width="1080" height="1080" class="w-full h-auto rounded-2xl shadow-md crisp-img" loading="lazy" decoding="async">
+        <p class="text-center text-xs sm:text-sm text-text-sub mt-4">※単品でも対応可能です。組み合わせ自由です。</p>
+      </div>
+    </div>
+
+    <!-- 水回りの詳細へ -->
+    <div class="text-center mt-10">
+      <a href="service.html#services" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-8 py-3 rounded-full text-sm sm:text-base transition">
+        水回りクリーニングの詳細・料金を見る
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- セクション境目のウェーブ（白→水色へなめらか遷移） -->
+<div aria-hidden="true" class="-mb-px bg-white">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="block w-full h-10 sm:h-14 fill-primary-50"><path d="M0,40 C360,90 720,0 1440,50 L1440,80 L0,80 Z"></path></svg>
+</div>
+
+<!-- ============================================
+     ⑧ お客様の声（口コミ画像 横スライド）
+     ============================================ -->
+<section class="py-16 sm:py-24 bg-primary-50">
+  <div data-reveal class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <span class="inline-block text-primary text-sm font-bold tracking-widest uppercase mb-3">CUSTOMER REVIEWS</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-text-main mb-3">お客様の声</h2>
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <svg class="w-5 h-5" style="color:#FBBF24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-5 h-5" style="color:#FBBF24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-5 h-5" style="color:#FBBF24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-5 h-5" style="color:#FBBF24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-5 h-5" style="color:#FBBF24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="font-display font-black text-2xl text-text-main ml-2">4.77</span>
+        <span class="text-sm text-text-sub">/ 472件の口コミ</span>
+      </div>
+      <!-- Atomic Answer：実績を結論先行で明示 -->
+      <p class="text-sm sm:text-base text-text-sub leading-relaxed max-w-2xl mx-auto">
+        <strong class="text-text-main">キレイシアは口コミ評価4.77（472件）をいただいています。</strong>
+        下記は実際にご利用いただいたお客様からの評価の一部です。
+      </p>
+    </div>
+
+    <!-- 横スワイプカルーセル（1枠1画像表示・表示中のカードに合わせて高さ自動調整） -->
+    <div class="relative max-w-[210px] sm:max-w-[260px] mx-auto">
+      <div id="reviewScroll" class="review-scroll flex overflow-x-auto items-stretch rounded-2xl shadow-lg ring-1 ring-border bg-white">
+        <!-- 口コミ画像1（最大画像review2の比率464:780に揃えてobject-cover object-topでクロップ） -->
+        <div class="flex-shrink-0 w-full overflow-hidden p-3 sm:p-4 box-border" style="aspect-ratio:464/780">
+          <img src="images/review1.jpg" alt="お客様の声 1：実家のエアコン" width="630" height="786" class="w-full h-full object-contain block" loading="lazy" decoding="async">
+        </div>
+        <!-- 口コミ画像2（基準・全体表示） -->
+        <div class="flex-shrink-0 w-full overflow-hidden p-3 sm:p-4 box-border" style="aspect-ratio:464/780">
+          <img src="images/review2.jpg" alt="お客様の声 2：エアコンクリーニング大満足" width="464" height="780" class="w-full h-full object-contain block" loading="lazy" decoding="async">
+        </div>
+        <!-- 口コミ画像3 -->
+        <div class="flex-shrink-0 w-full overflow-hidden p-3 sm:p-4 box-border" style="aspect-ratio:464/780">
+          <img src="images/review3.jpg" alt="お客様の声 3：完全分解洗浄" width="724" height="798" class="w-full h-full object-contain block" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- 左右ナビゲーションボタン -->
+      <button id="reviewPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%+8px)] sm:-translate-x-[calc(100%+12px)] w-10 h-10 bg-white rounded-full shadow-lg ring-1 ring-border flex items-center justify-center text-text-main hover:text-primary hover:shadow-xl transition" aria-label="前へ">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="reviewNext" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[calc(100%+8px)] sm:translate-x-[calc(100%+12px)] w-10 h-10 bg-white rounded-full shadow-lg ring-1 ring-border flex items-center justify-center text-text-main hover:text-primary hover:shadow-xl transition" aria-label="次へ">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <!-- ドットインジケーター -->
+    <div class="flex items-center justify-center gap-2 mt-6">
+      <button class="review-dot w-2.5 h-2.5 rounded-full bg-primary transition" data-index="0" aria-label="1枚目を表示"></button>
+      <button class="review-dot w-2.5 h-2.5 rounded-full bg-text-light/40 transition" data-index="1" aria-label="2枚目を表示"></button>
+      <button class="review-dot w-2.5 h-2.5 rounded-full bg-text-light/40 transition" data-index="2" aria-label="3枚目を表示"></button>
+    </div>
+
+    <!-- スクロールヒント -->
+    <p class="text-center text-xs text-text-light mt-3 sm:hidden">← 横にスワイプしてご覧いただけます →</p>
+  </div>
+</section>
+
+<!-- ============================================
+     ⑨ 対応エリア（ローカルSEO・地域名密度の確保）
+     ============================================ -->
+<section id="area" class="py-16 sm:py-24 bg-white">
+  <div data-reveal class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <span class="inline-block text-primary text-sm font-bold tracking-widest uppercase mb-3">SERVICE AREA</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-text-main mb-3">対応エリアはどこまでですか？</h2>
+      <span class="inline-block bg-warm/15 text-warm-dark text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full ring-1 ring-warm/30">対応エリア拡大中！</span>
+    </div>
+    <!-- Atomic Answer -->
+    <p class="text-sm sm:text-base text-text-sub leading-relaxed max-w-3xl mx-auto text-center mb-10">
+      <strong class="text-text-main">キレイシアは大阪市城東区を拠点に、大阪府・京都府・兵庫県・奈良県の広域に対応しています。</strong>
+      下記エリア外のお客様もまずはお気軽にご相談ください。出張エリアの調整が可能な場合があります。
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="bg-white rounded-3xl p-5 sm:p-6 ring-1 ring-zinc-900/5 shadow-xl hover:shadow-2xl transition-shadow">
+        <h3 class="font-display font-bold text-lg text-primary mb-3">大阪府</h3>
+        <p class="text-xs sm:text-sm text-text-sub leading-relaxed">大阪市全域（城東区・中央区・北区・福島区・天王寺区・浪速区・西区 ほか24区）／堺市／東大阪市／八尾市／吹田市／豊中市／枚方市／高槻市／茨木市／松原市 ほか</p>
+      </div>
+      <div class="bg-white rounded-3xl p-5 sm:p-6 ring-1 ring-zinc-900/5 shadow-xl hover:shadow-2xl transition-shadow">
+        <h3 class="font-display font-bold text-lg text-primary mb-3">京都府</h3>
+        <p class="text-xs sm:text-sm text-text-sub leading-relaxed">京都市（伏見区・山科区 ほか）／宇治市／長岡京市／向日市／城陽市／八幡市／木津川市 ほか</p>
+      </div>
+      <div class="bg-white rounded-3xl p-5 sm:p-6 ring-1 ring-zinc-900/5 shadow-xl hover:shadow-2xl transition-shadow">
+        <h3 class="font-display font-bold text-lg text-primary mb-3">兵庫県</h3>
+        <p class="text-xs sm:text-sm text-text-sub leading-relaxed">神戸市（東灘区・灘区・中央区 ほか）／尼崎市／西宮市／芦屋市／伊丹市／宝塚市／川西市 ほか</p>
+      </div>
+      <div class="bg-white rounded-3xl p-5 sm:p-6 ring-1 ring-zinc-900/5 shadow-xl hover:shadow-2xl transition-shadow">
+        <h3 class="font-display font-bold text-lg text-primary mb-3">奈良県</h3>
+        <p class="text-xs sm:text-sm text-text-sub leading-relaxed">奈良市／生駒市／大和郡山市／天理市／橿原市／香芝市／葛城市／大和高田市 ほか</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- お問い合わせCTA -->
+<section class="py-16 sm:py-20 bg-gradient-to-br from-primary-light via-white to-primary-50">
+  <div data-reveal class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-text-main mb-4">まずはお気軽にご相談ください</h2>
+    <p class="text-text-sub mb-8">お見積り無料・相談無料です。</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+      <a href="https://page.line.me/?accountId=235yilws" class="line-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-8 py-4 rounded-full text-base">
+        <img src="images/line-brand-icon.png" alt="LINE" class="w-8 h-8 rounded-lg">LINEで無料お見積り
+      </a>
+      <a href="tel:06-7493-0993" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-warm hover:bg-warm/90 text-white font-bold px-8 py-4 rounded-full text-base shadow-lg hover:shadow-xl transition-all duration-200">
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.94.39 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.87.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        お電話（06-7493-0993）
+      </a>
+      <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-primary-50 text-text-main font-medium px-8 py-4 rounded-full text-base ring-1 ring-border hover:ring-primary/30 transition-all duration-200">
+        <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        お問い合わせフォーム
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 共通フッター -->
+<footer class="bg-text-main text-white py-12 sm:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <img src="images/logo-footer.png" alt="キレイシア" class="h-12 w-auto mb-4">
+        <p class="text-sm text-white/80 leading-relaxed mb-4">大阪市城東区を拠点に、<br>大阪・京都・兵庫・奈良エリアで<br>ハウスクリーニングを行っています。</p>
+        <div class="space-y-1 text-sm text-white/70">
+          <p>〒536-0023</p>
+          <p>大阪府大阪市城東区東中浜7丁目2-21</p>
+          <p>TEL：<a href="tel:06-7493-0993" class="hover:text-primary transition-colors">06-7493-0993</a></p>
+          <p>営業時間：9:00〜20:00</p>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-display font-bold text-base mb-4 text-primary">ページ一覧</h4>
+        <ul class="space-y-2 text-sm text-white/80">
+          <li><a href="index.html" class="hover:text-primary transition-colors">HOME</a></li>
+          <li><a href="service.html" class="hover:text-primary transition-colors">サービス一覧</a></li>
+          <li><a href="about.html" class="hover:text-primary transition-colors">企業理念</a></li>
+          <li><a href="company.html" class="hover:text-primary transition-colors">会社概要</a></li>
+          <li><a href="https://en-gage.net/kireisia_saiyo/" target="_blank" rel="noopener" class="hover:text-primary transition-colors">採用情報</a></li>
+          <li><a href="blog.html" class="hover:text-primary transition-colors">ブログ</a></li>
+          <li><a href="contact.html" class="hover:text-primary transition-colors">お問い合わせ</a></li>
+          <li><a href="privacy.html" class="hover:text-primary transition-colors">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display font-bold text-base mb-4 text-primary">お問い合わせ</h4>
+        <div class="space-y-3">
+          <a href="https://page.line.me/?accountId=235yilws" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white text-sm font-bold px-4 py-2.5 rounded-full transition-colors">
+            <img src="images/line-brand-icon.png" alt="LINE" class="w-6 h-6 rounded">LINEで無料お見積り
+          </a>
+          <p class="text-sm text-white/80"><a href="tel:06-7493-0993" class="hover:text-primary transition-colors">📞 06-7493-0993</a></p>
+          <p class="text-sm text-white/80"><a href="contact.html" class="hover:text-primary transition-colors">✉ お問い合わせフォーム</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-white/10 text-center text-xs text-white/60">
+      <!-- 更新日（E-E-A-T「鮮度」シグナル・AI検索の引用評価向上） -->
+      <p class="mb-2"><time datetime="2026-05-02">2026年5月更新</time></p>
+      <p>© 2026 株式会社キレイシア All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // モバイルメニュー開閉処理
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // 口コミカルーセル：左右ボタン＋ドットで1枚ずつ切替＋高さ自動調整
+  const reviewScroll = document.getElementById('reviewScroll');
+  const reviewPrev = document.getElementById('reviewPrev');
+  const reviewNext = document.getElementById('reviewNext');
+  const reviewDots = document.querySelectorAll('.review-dot');
+  if (reviewScroll && reviewPrev && reviewNext) {
+    const slides = reviewScroll.querySelectorAll('.flex-shrink-0');
+    const slideCount = slides.length;
+    // 表示中のドットを更新する処理
+    const updateDots = (index) => {
+      reviewDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-text-light/40');
+          dot.classList.add('bg-primary');
+        } else {
+          dot.classList.remove('bg-primary');
+          dot.classList.add('bg-text-light/40');
+        }
+      });
+    };
+    // 高さ管理は不要（各スライドにaspect-ratio:464/780を設定済み・全スライド同じ高さ）
+    const updateHeight = () => {};
+    // 現在のインデックスを取得
+    const getCurrentIndex = () => {
+      return Math.round(reviewScroll.scrollLeft / reviewScroll.clientWidth);
+    };
+    // 指定インデックスへスクロール
+    const scrollToIndex = (index) => {
+      const targetIndex = Math.max(0, Math.min(slideCount - 1, index));
+      reviewScroll.scrollTo({ left: targetIndex * reviewScroll.clientWidth, behavior: 'smooth' });
+      updateDots(targetIndex);
+    };
+    reviewPrev.addEventListener('click', () => {
+      scrollToIndex(getCurrentIndex() - 1);
+    });
+    reviewNext.addEventListener('click', () => {
+      scrollToIndex(getCurrentIndex() + 1);
+    });
+    reviewDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        scrollToIndex(parseInt(dot.dataset.index, 10));
+      });
+    });
+    // スクロール時にドット・高さを同期（スワイプ完了後に滑らかにフィット）
+    let scrollTimer;
+    reviewScroll.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      // スワイプ停止後に1回だけ高さ更新（スワイプ中は枠が動かない）
+      scrollTimer = setTimeout(() => {
+        const idx = getCurrentIndex();
+        updateDots(idx);
+        updateHeight(idx);
+      }, 150);
+    });
+    // 初期表示時とウィンドウリサイズ時の高さ初期化
+    const initHeight = () => updateHeight(getCurrentIndex());
+    if (document.readyState === 'complete') {
+      initHeight();
+    } else {
+      window.addEventListener('load', initHeight);
+    }
+    window.addEventListener('resize', () => {
+      // リサイズ中は遷移を無効化（カクつき防止）
+      reviewScroll.style.transition = 'none';
+      initHeight();
+      setTimeout(() => { reviewScroll.style.transition = 'height 300ms ease'; }, 50);
+    });
+  }
+
+  // ⑤ スクロール連動アニメ（data-reveal属性が付いた要素を画面に入った時にフェードアップ）
+  // JS実行確認用フラグを<html>に付与（CSSの.js-readyスコープを発動）
+  document.documentElement.classList.add('js-ready');
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+    // 既に画面内にある要素は即時表示（初期ビューポート対策）
+    const checkAndObserve = (el) => {
+      const r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight - 30 && r.bottom > 30){
+        el.classList.add('is-visible');
+      } else {
+        revealObserver.observe(el);
+      }
+    };
+    document.querySelectorAll('[data-reveal]').forEach(checkAndObserve);
+    // 安全網：5秒経っても is-visible が付かない要素は強制表示（万一観測が効かない場合の保険）
+    setTimeout(() => {
+      document.querySelectorAll('[data-reveal]:not(.is-visible)').forEach(el => el.classList.add('is-visible'));
+    }, 5000);
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+  }
+
+</script>
+
+<!-- フローティングLINEボタン（スマホ・PC共通／全ページ統一） -->
+<div class="hidden md:block fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6">
+  <a href="https://page.line.me/?accountId=235yilws" class="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-accent shadow-lg shadow-accent/30 hover:scale-110 transition-transform focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/40" aria-label="LINEで予約"><img src="images/line-brand-icon.png" alt="LINE" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl"></a>
+</div>
+
+<!-- スマホ専用 下部固定CTAバー（お問い合わせ + LINE見積もり） -->
+<div class="md:hidden h-20" aria-hidden="true"></div>
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border shadow-[0_-4px_16px_rgba(0,0,0,0.10)]" style="padding-bottom:env(safe-area-inset-bottom)">
+  <div class="grid grid-cols-2">
+    <a href="contact.html" class="flex flex-col items-center justify-center gap-1 py-3 bg-primary hover:bg-primary-dark text-white font-bold text-xs transition-colors">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+      <span>お問い合わせ</span>
+    </a>
+    <a href="https://page.line.me/?accountId=235yilws" class="flex flex-col items-center justify-center gap-1 py-3 bg-accent hover:bg-accent-dark text-white font-bold text-xs transition-colors">
+      <img src="images/line-brand-icon.png" alt="LINE" class="w-6 h-6 rounded" loading="lazy">
+      <span>LINEで見積もり</span>
+    </a>
+  </div>
+</div>
+
+<!-- 日本語の改行を文節（意味のまとまり）単位で整える：Google製BudouX・自己完結/外部通信なし -->
+<script src="js/budoux-ja.min.js"></script>
+<script>
+  // 本文テキストを「単語の途中で改行しない（文節区切り）」ようにする
+  (function () {
+    try {
+      // 対象：本文の段落・リスト・説明文（見出しはflex等のレイアウトを崩さないため除外）
+      var targetSelectors = 'p, li, dd, blockquote, figcaption';
+      var textElements = document.querySelectorAll(targetSelectors);
+      textElements.forEach(function (element) {
+        // 処理済み・空・内側に別の対象や既存budoux-jaを含む場合はスキップ
+        if (element.dataset.budouxDone) return;
+        if (!element.textContent.trim()) return;
+        if (element.querySelector(targetSelectors)) return;
+        if (element.querySelector('budoux-ja')) return;
+        // flex/gridコンテナはレイアウト崩れ防止のため除外
+        var display = window.getComputedStyle(element).display;
+        if (display.indexOf('flex') !== -1 || display.indexOf('grid') !== -1) return;
+        // 中身を<budoux-ja>で包む → 文節の境界に見えない改行ポイントが入る
+        var wrapper = document.createElement('budoux-ja');
+        while (element.firstChild) { wrapper.appendChild(element.firstChild); }
+        element.appendChild(wrapper);
+        element.dataset.budouxDone = '1';
+      });
+    } catch (error) {
+      // 失敗しても通常表示は維持されるようにエラーだけ記録
+      console.error('BudouX適用エラー:', error);
+    }
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "status_badge": "即日対応可能・LINEで24時間予約受付",
+  "catchphrase": {
+    "part1": "キレイ",
+    "part2": "と",
+    "part3": "シアワセ",
+    "part4": "を",
+    "part5": "お届けします"
+  },
+  "area_label_line1": "大阪市城東区を拠点に、",
+  "area_label_line2": "大阪・京都・兵庫・奈良エリア対応",
+  "achievement_1": {
+    "number": "5,000",
+    "unit": "台以上",
+    "label": "エアコンクリーニング実績"
+  },
+  "achievement_2": {
+    "number": "1,000",
+    "unit": "台以上",
+    "label": "洗濯機クリーニング実績"
+  },
+  "achievement_3": {
+    "number": "4.77",
+    "label": "口コミ評価（472件）"
+  },
+  "achievement_4": {
+    "number": "2",
+    "unit": "位",
+    "label": "洗濯槽・洗濯機クリーニング\n大阪府ランキング（2023年3月）"
+  },
+  "subtitle": "大阪・京都・兵庫・奈良を中心に、エアコンから水回りまでプロの技術で住まいを隅々までピカピカに。",
+  "discount": {
+    "text_before": "お子様（5才以下）またはペットがいるご家庭は",
+    "price": "¥500",
+    "text_after": "引き",
+    "notes": "※両方該当する場合も割引は¥500です"
+  }
+}

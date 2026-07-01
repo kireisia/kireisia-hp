@@ -1,0 +1,71 @@
+{
+  "title": "洗濯機クリーニング",
+  "badge_1": "出張費・追加料金",
+  "badge_1_strong": "0円",
+  "badge_2": "保険加入済み",
+  "badge_3": "作業外注",
+  "badge_3_strong": "一切なし",
+  "concerns_title": "こんなお悩みございませんか？",
+  "concerns_list": [
+    "洗濯槽がカビ臭い",
+    "洗濯物に黒い汚れやほこりが付く",
+    "洗濯物のニオイが気になる",
+    "ドラム式洗濯機の乾燥時間が長い",
+    "糸くずフィルターに黒い汚れがつく"
+  ],
+  "concerns_outro": "プロの洗濯機分解洗浄でお悩み解決いたします",
+  "price_section_title": "価格表",
+  "price_section_note": "※すべて税込価格です　※時期によって金額が変動いたします",
+  "price_group_1_name": "ドラム式洗濯機",
+  "price_group_1_items": [
+    {"name": "ドラム式洗濯機", "price": "¥35,000"}
+  ],
+  "price_group_1_note": "※アイリスオーヤマとアクアは対応不可",
+  "price_group_2_name": "縦型洗濯機",
+  "price_subgroup_2a_label": "日立［ビートウォッシュ］・［白い約束］",
+  "price_subgroup_2a_items": [
+    {"name": "乾燥機能なし", "price": "¥18,000"},
+    {"name": "乾燥機能付き", "price": "¥21,000"}
+  ],
+  "price_subgroup_2b_label": "パナソニック・東芝・三菱・シャープ・他",
+  "price_subgroup_2b_items": [
+    {"name": "乾燥機能なし", "price": "¥15,000"},
+    {"name": "乾燥機能付き", "price": "¥18,000"}
+  ],
+  "price_warning_list": [
+    "※8年以上の洗濯機は、万が一壊れた際にメーカーに部品の在庫がないため保証外になります。",
+    "※コインパーキングの場合は、駐車料金を頂戴しております。"
+  ],
+  "options_title": "オプション",
+  "options_list": [
+    {"name": "防カビコート", "price": "¥3,000"}
+  ],
+  "points_title": "キレイシアのポイント",
+  "points_intro": "プロの技でスッキリ！快適な空間をご提供します！",
+  "points_list": [
+    "全機種対応可能です！",
+    "分解しての徹底洗浄を行います！",
+    "ご要望があればお気軽にお声がけください！",
+    "スリッパ持参",
+    "作業にご不満の場合は無料にて追加対応",
+    "コロナ対策の徹底"
+  ],
+  "before_after_title": "Before / After",
+  "before_after_slides": [
+    {"caption": "縦型洗濯機 分解洗浄", "before_image": "images/washer-before1.jpg", "before_alt": "縦型洗濯機 洗濯槽のカビ・汚れ付着状態", "after_image": "images/washer-after1.jpg", "after_alt": "縦型洗濯機 分解洗浄後のピカピカの状態"},
+    {"caption": "ドラム式洗濯機 内部洗浄", "before_image": "images/washer-before2.jpg", "before_alt": "ドラム式洗濯機 内部の汚れ・水垢付着状態", "after_image": "images/washer-after2.jpg", "after_alt": "ドラム式洗濯機 内部洗浄後"},
+    {"caption": "洗濯槽のカビ除去", "before_image": "images/washer-before3.jpg", "before_alt": "洗濯槽 カビ・雑菌で汚れた状態", "after_image": "images/washer-after3.jpg", "after_alt": "洗濯槽 クリーニング後の清潔な状態"}
+  ],
+  "booking_notes_title": "ご予約に関する注意事項",
+  "booking_notes_list": [
+    "直前でのご予約には対応できません。最低3日以上の余裕を持ってご予約ください。",
+    "ご予約の日時が、当社の営業時間内であることをご確認ください。",
+    "予約の日程候補は、なるべく日時をずらしてください。",
+    "予約が集中し、ご希望の日時に伺えない場合がございます。その場合は、メッセージにて改めて日時をお伺いいたします。"
+  ],
+  "faq_title": "よくあるご質問",
+  "faq_list": [
+    {"question": "追加料金がかかる場合がありますか？", "answer": "当日の急な追加料金は発生しません。必ず、お客様の状況を事前にお知らせください。"},
+    {"question": "無料で駐車できる場所がない場合はどうしたらいいですか？", "answer": "付近の有料パーキングを使用しますが、その場合はパーキング代のご負担をお願いします。"}
+  ]
+}

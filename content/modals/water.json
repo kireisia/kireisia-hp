@@ -1,0 +1,43 @@
+{
+  "title": "水回りクリーニング",
+  "concerns_title": "こんなお悩みございませんか？",
+  "concerns_list": [
+    "細部までキレイにしたいが方法がわからない",
+    "水回りの清掃は重労働のため掃除出来ない",
+    "頑固な汚れが市販の洗剤では取り切れない",
+    "ニオイやカビが気になる",
+    "趣味やプライベートが忙しくて掃除の時間がとれない",
+    "油汚れが気になるが触りたくない"
+  ],
+  "concerns_outro": "プロのクリーニングでお悩み解決いたします",
+  "price_section_title": "価格表",
+  "price_section_note": "※すべて税込価格です　※時期によって金額が変動いたします",
+  "price_list": [
+    {"name": "洗面台クリーニング", "price": "¥5,000"},
+    {"name": "トイレクリーニング", "price": "¥8,500"},
+    {"name": "レンジフードクリーニング", "price": "¥14,000"},
+    {"name": "キッチンクリーニング", "price": "¥14,000"},
+    {"name": "風呂釜洗浄", "price": "¥15,000"},
+    {"name": "お風呂クリーニング ★人気No.3", "price": "¥16,000"}
+  ],
+  "options_title": "オプション",
+  "options_list": [
+    {"name": "浴槽エプロン内洗浄（お風呂）", "price": "¥3,000"},
+    {"name": "防カビコート（お風呂）", "price": "¥3,000"},
+    {"name": "鏡コーティング（お風呂）", "price": "¥3,000"},
+    {"name": "ミニ換気扇（お風呂・トイレ）", "price": "¥3,000"},
+    {"name": "食器洗い乾燥機（キッチン）", "price": "¥3,000"},
+    {"name": "電子レンジ（キッチン）", "price": "¥3,000"},
+    {"name": "汚れ防止コート（トイレ）", "price": "¥3,000"},
+    {"name": "浴室乾燥機（お風呂）", "price": "¥5,000"}
+  ],
+  "before_after_title": "Before / After",
+  "before_after_slides": [
+    {"caption": "浴室壁面の水垢除去", "before_image": "images/water-before1.jpg", "before_alt": "浴室壁面 水垢・石鹸カス付着状態", "after_image": "images/water-after1.jpg", "after_alt": "浴室壁面 クリーニング後"},
+    {"caption": "換気扇の分解洗浄", "before_image": "images/water-before2.jpg", "before_alt": "換気扇 油汚れ・ホコリ付着状態", "after_image": "images/water-after2.jpg", "after_alt": "換気扇 分解洗浄後"},
+    {"caption": "浴槽エプロン内洗浄", "before_image": "images/water-before3.jpg", "before_alt": "浴槽エプロン内 カビ・ヌメリ付着状態", "after_image": "images/water-after3.jpg", "after_alt": "浴槽エプロン内 洗浄後"},
+    {"caption": "トイレクリーニング", "before_image": "images/water-before4.jpg", "before_alt": "トイレ 黄ばみ・汚れ付着状態", "after_image": "images/water-after4.jpg", "after_alt": "トイレ クリーニング後"},
+    {"caption": "キッチン コンロ周り", "before_image": "images/water-before5.jpg", "before_alt": "キッチン コンロ周りの油汚れ状態", "after_image": "images/water-after5.jpg", "after_alt": "キッチン コンロ周り クリーニング後"},
+    {"caption": "キッチン シンク周り", "before_image": "images/water-before6.jpg", "before_alt": "キッチン シンク周りの汚れ状態", "after_image": "images/water-after6.jpg", "after_alt": "キッチン シンク周り クリーニング後"}
+  ]
+}

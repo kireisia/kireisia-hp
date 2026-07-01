@@ -1,0 +1,56 @@
+# ============================================================
+# ブログ自動ビルド用 GitHub Actions ワークフロー
+#
+# 【重要】これは「新HPをGitHubに載せて公開する時」に初めて有効化される。
+#         それまで（ローカル作業中）は動かない。準備として置いてあるだけ。
+#
+# 何をするか:
+#   記事のマークダウン（content/blog/*.md）が更新されたら、
+#   自動で build_blog.py を実行し、生成物（blog/・blog.html・sitemap.xml）を
+#   コミット＆プッシュする。社長がCMSで記事を追加すると自動でHTMLが出来る仕組み。
+# ============================================================
+
+name: ブログ自動ビルド
+
+# 起動条件: content/blog配下の更新、または任意のマークダウン変更をpushした時
+on:
+  push:
+    paths:
+      - "content/blog/**"
+      - "**.md"
+
+# 生成物をコミット＆プッシュするため、リポジトリへの書き込み権限を付与
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. リポジトリのソースを取得
+      - name: ソースコードを取得する
+        uses: actions/checkout@v4
+
+      # 2. Python を準備する（標準ライブラリのみ使用するため追加インストール不要）
+      - name: Python をセットアップする
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3. ブログをビルドする（md → HTML、一覧、sitemap.xml を再生成）
+      - name: ブログをビルドする
+        run: python3 build_blog.py
+
+      # 4. 生成物に変更があればコミット＆プッシュする
+      - name: 生成物をコミットしてプッシュする
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add blog/ blog.html sitemap.xml
+          # 変更が無い場合は commit するとエラーになるので、差分があるときだけコミットする
+          if git diff --staged --quiet; then
+            echo "生成物に変更はありませんでした。コミットをスキップします。"
+          else
+            git commit -m "ブログ生成物を自動更新する（build_blog.py）"
+            git push
+          fi

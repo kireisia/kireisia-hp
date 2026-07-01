@@ -1,0 +1,74 @@
+{
+  "aircon": {
+    "image": "images/aircon-top.jpg",
+    "title": "エアコンクリーニング",
+    "description": "ダニ・カビ・ホコリを高圧洗浄で徹底除去。完全分解清掃にも対応。全メーカー対応。",
+    "price": "¥9,000〜（税込）"
+  },
+  "washer": {
+    "image": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80",
+    "title": "洗濯機クリーニング",
+    "description": "分解洗浄で洗濯槽の裏側まで徹底洗浄。頑固なカビもスッキリ除去。",
+    "price": "¥15,000〜（税込）"
+  },
+  "water": {
+    "image": "images/water-top.jpg",
+    "title": "水回りクリーニング",
+    "description": "キッチン・浴室・トイレ・洗面台のカビ・水垢をピカピカに。",
+    "price": "¥5,000〜（税込）"
+  },
+  "sofa": {
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80",
+    "title": "ソファクリーニング",
+    "description": "普段のお掃除では落とせないソファの汚れやシミをプロが除去。",
+    "price": "¥6,000〜（税込）"
+  },
+  "mattress": {
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80",
+    "title": "マットレスクリーニング",
+    "description": "毎日使う寝具のダニ・ホコリを徹底除去。安眠の環境を。",
+    "price": "¥7,000〜（税込）"
+  },
+  "wall": {
+    "image": "images/wall-coating-top.jpg",
+    "title": "壁紙再生コーティング",
+    "description": "壁紙を張り替えずにお好きな色で再生。抗菌・消臭・防カビ効果も長期持続。",
+    "price": "お見積り"
+  },
+  "vacant": {
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+    "title": "空室清掃",
+    "description": "引越し前後や退去後のお部屋を隅々まで丁寧に仕上げます。",
+    "price": "¥27,000〜"
+  },
+  "aircon_install": {
+    "image": "images/aircon-install-top.jpg",
+    "title": "エアコン設置",
+    "description": "エアコンの取付・取外し工事をプロが対応。引越し時の移設もお任せください。",
+    "price": "お見積り"
+  },
+  "shop": {
+    "image": "images/shop-top.jpg",
+    "title": "店舗清掃",
+    "description": "飲食店・オフィス・店舗の清掃をプロが対応。定期清掃もご相談ください。",
+    "price": "お見積り"
+  },
+  "handyman": {
+    "image": "images/handyman-top.jpg",
+    "title": "便利屋",
+    "description": "家具の移動・組立、不用品回収など、暮らしの困りごとをまるっとお任せ。",
+    "price": "お見積り"
+  },
+  "drain": {
+    "image": "images/drain-top.jpg",
+    "title": "排水管洗浄",
+    "description": "つまり・悪臭の原因を高圧洗浄で徹底除去。定期メンテナンスもお任せ。",
+    "price": "お見積り"
+  },
+  "housekeeping": {
+    "image": "images/housekeeping-top.jpg",
+    "title": "家事代行",
+    "description": "プロが行うお掃除特化型の家事代行。掃除のコツもアドバイスいたします。",
+    "price": "¥3,500〜（税込）"
+  }
+}

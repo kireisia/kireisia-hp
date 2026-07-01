@@ -1,0 +1,56 @@
+{
+  "title": "壁紙再生コーティング",
+  "concept_title": "壁紙を張り替えずに、お好きな色でキレイに再生！",
+  "concept_text": "汚れや黄ばみが気になる壁紙に、当社オリジナルの染色コーティング剤を塗布して新品同様に仕上げます。カラーサンプルからお好きな色をお選びいただけますので、お部屋の雰囲気に合わせた仕上がりが可能。さらに抗菌・消臭・防カビ効果が長期持続します。",
+  "merit_1_title": "張り替えの半額以下",
+  "merit_1_text": "6帖（天井含む）の壁紙を張り替えると平均4万円。壁紙再生コーティングなら約2万円で、費用を大幅に抑えられます。",
+  "merit_2_title": "施工スピードは張り替えの3倍",
+  "merit_2_text": "6帖の壁紙張り替えは通常6〜7時間。壁紙再生コーティングなら2〜3時間で完了。有害な接着剤も不使用のため、施工後すぐに普段通りの生活ができます。",
+  "price_section_title": "料金目安",
+  "price_section_note": "※すべて税込価格　※時期によって金額が変動いたします",
+  "price_group_1_name": "ワンルームM（6帖）",
+  "price_group_1_items": [
+    {"name": "壁のみ", "price": "¥16,500〜"},
+    {"name": "天井・壁", "price": "¥22,000〜"}
+  ],
+  "price_group_2_name": "ワンルームLDK（10帖）",
+  "price_group_2_items": [
+    {"name": "壁のみ", "price": "¥27,500〜"},
+    {"name": "天井・壁", "price": "¥33,000〜"}
+  ],
+  "price_group_3_name": "2DK（床面積40㎡位）",
+  "price_group_3_items": [
+    {"name": "壁のみ", "price": "¥55,000〜"},
+    {"name": "天井・壁", "price": "¥66,000〜"}
+  ],
+  "price_group_4_name": "2LDK（床面積55㎡位）",
+  "price_group_4_items": [
+    {"name": "壁のみ", "price": "¥71,500〜"},
+    {"name": "天井・壁", "price": "¥91,300〜"}
+  ],
+  "price_group_5_name": "3LDK（床面積70㎡位）",
+  "price_group_5_items": [
+    {"name": "壁のみ", "price": "¥88,000〜"},
+    {"name": "天井・壁", "price": "¥99,000〜"}
+  ],
+  "price_group_6_name": "4LDK（床面積90㎡位）",
+  "price_group_6_items": [
+    {"name": "壁のみ", "price": "¥121,000〜"},
+    {"name": "天井・壁", "price": "¥154,000〜"}
+  ],
+  "points_title": "キレイシアのポイント",
+  "points_intro": "プロの技でスッキリ！快適な空間をご提供します！",
+  "points_list": [
+    "自然でまるで新品のような仕上がり",
+    "安心の損害保険加入済み",
+    "職人直通で安心",
+    "安心のアフターフォロー",
+    "作業にご不満の場合は無料にて追加対応",
+    "コロナ対策の徹底"
+  ],
+  "before_after_title": "Before / After",
+  "before_after_slides": [
+    {"caption": "壁紙の黄ばみ・汚れを再生", "before_image": "images/wall-coating-before1.jpg", "before_alt": "壁紙再生コーティング施工前", "after_image": "images/wall-coating-after1.jpg", "after_alt": "壁紙再生コーティング施工後"},
+    {"caption": "お好みの色で新品同様の仕上がり", "before_image": "images/wall-coating-before2.jpg", "before_alt": "壁紙再生コーティング施工前", "after_image": "images/wall-coating-after2.jpg", "after_alt": "壁紙再生コーティング施工後"}
+  ]
+}

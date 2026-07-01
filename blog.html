@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; base-uri 'self';">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-primary: #5BBEE5;
+      --color-primary-dark: #3A9FCA;
+      --color-primary-light: #E8F4FD;
+      --color-primary-50: #F0F9FF;
+      --color-accent: #06C755;
+      --color-accent-dark: #05A847;
+      --color-warm: #F5A623;
+      --color-warm-light: #FFF8EC;
+      --color-surface: #FAFCFE;
+      --color-card: #FFFFFF;
+      --color-text-main: #2D3748;
+      --color-text-sub: #5A6677;
+      --color-text-light: #8896A6;
+      --color-border: #E2EAF0;
+      --font-sans: "Zen Kaku Gothic New", "Noto Sans JP", system-ui, sans-serif;
+      --font-display: "Noto Sans JP", sans-serif;
+    }
+  </style>
+  <style>
+    .line-btn{transition:all .3s cubic-bezier(.25,.46,.45,.94)}
+    .line-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,199,85,.3)}
+    .post-card{transition:all .3s cubic-bezier(.25,.46,.45,.94)}
+    .post-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(91,190,229,.18)}
+    .ig-btn{background:linear-gradient(45deg,#F58529 0%,#DD2A7B 50%,#8134AF 100%);transition:all .3s ease}
+    .ig-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(221,42,123,.3)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+    h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
+    .article-body h2{scroll-margin-top:90px}
+  </style>
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('pageshow', () => { window.scrollTo(0, 0); });
+  </script>
+  <title>お役立ちブログ｜大阪のハウスクリーニングのコツ・料金相場・事例｜キレイシア</title>
+  <meta name="description" content="大阪のハウスクリーニング会社キレイシアのお役立ちブログ。エアコン・浴室・キッチンの掃除のコツ、料金相場、施工事例をわかりやすく解説します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.kireisia.co.jp/blog.html">
+  <link rel="canonical" href="https://www.kireisia.co.jp/blog.html">
+  <meta property="og:title" content="お役立ちブログ｜大阪のハウスクリーニング キレイシア">
+  <meta property="og:description" content="掃除のコツ・料金相場・施工事例をわかりやすく解説。">
+  <meta property="og:image" content="https://www.kireisia.co.jp/images/ogp.jpg">
+  <meta property="og:site_name" content="株式会社キレイシア">
+  <meta property="og:locale" content="ja_JP">
+</head>
+<body class="bg-white text-text-main font-sans antialiased scroll-smooth">
+
+<header class="sticky top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-18">
+      <a href="index.html" class="flex items-center -ml-4 sm:-ml-6 lg:-ml-8">
+        <img src="images/logo-transparent.png" alt="キレイシア" class="h-10 sm:h-12 w-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-3 lg:gap-5" role="navigation">
+        <a href="index.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">HOME</a>
+        <a href="service.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">サービス一覧</a>
+        <a href="about.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">企業理念</a>
+        <a href="company.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">会社概要</a>
+        <a href="https://en-gage.net/kireisia_saiyo/" target="_blank" rel="noopener" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">採用情報</a>
+        <a href="blog.html" class="text-xs lg:text-sm text-primary font-bold transition-colors">ブログ</a>
+        <a href="contact.html" class="text-xs lg:text-sm text-text-main hover:text-primary font-medium transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="tel:06-7493-0993" class="flex items-center gap-1.5 bg-primary-50 hover:bg-primary-light text-primary-dark font-bold text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-2 rounded-full transition-colors">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.94.39 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.87.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="whitespace-nowrap">06-7493-0993</span>
+        </a>
+        <a href="contact.html" class="line-btn hidden md:inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white text-sm font-bold px-5 py-3 rounded-full">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span class="hidden sm:inline">お問い合わせ</span>
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden p-2 -mr-2 text-text-sub hover:text-primary transition-colors" aria-label="メニュー" aria-expanded="false">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-border">
+    <nav class="px-4 py-4 space-y-3">
+      <a href="index.html" class="block text-sm text-text-main hover:text-primary py-1">HOME</a>
+      <a href="service.html" class="block text-sm text-text-main hover:text-primary py-1">サービス一覧</a>
+      <a href="about.html" class="block text-sm text-text-main hover:text-primary py-1">企業理念</a>
+      <a href="company.html" class="block text-sm text-text-main hover:text-primary py-1">会社概要</a>
+      <a href="https://en-gage.net/kireisia_saiyo/" target="_blank" rel="noopener" class="block text-sm text-text-main hover:text-primary py-1">採用情報</a>
+      <a href="blog.html" class="block text-sm text-primary font-bold py-1">ブログ</a>
+      <a href="contact.html" class="block text-sm text-text-main hover:text-primary py-1">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="pt-12 sm:pt-16 pb-8 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="inline-block text-primary text-sm font-bold tracking-widest uppercase mb-3">BLOG</span>
+    <h1 class="font-display font-black text-2xl sm:text-4xl tracking-tight text-text-main mb-4">お役立ちブログ</h1>
+    <p class="text-sm sm:text-base text-text-sub leading-relaxed max-w-2xl mx-auto">
+      大阪のハウスクリーニング会社キレイシアが、<strong class="text-text-main">エアコン・浴室・キッチンの掃除のコツ、料金相場、施工事例</strong>をわかりやすく解説します。プロの視点で「知っておくと得する情報」をお届けします。
+    </p>
+  </div>
+</section>
+
+<section class="pb-6 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="blogFilters" class="flex flex-wrap justify-center gap-2">
+      <button type="button" class="blog-filter bg-primary text-white text-sm font-bold px-4 py-2 rounded-full cursor-pointer" data-filter="すべて" aria-pressed="true">すべて</button>
+      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="エアコン" aria-pressed="false">エアコン</button>
+      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="浴室・水回り" aria-pressed="false">浴室・水回り</button>
+      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="キッチン" aria-pressed="false">キッチン</button>
+      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="料金・相場" aria-pressed="false">料金・相場</button>
+      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="施工事例" aria-pressed="false">施工事例</button>
+      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="お知らせ" aria-pressed="false">お知らせ</button>
+    </div>
+  </div>
+</section>
+
+<section class="py-8 sm:py-10 bg-surface">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="postGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <a href="blog/aircon-cleaning-joto-osaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/aircon-after2.jpg" alt="エアコンクリーニングの頻度と費用の目安は？プロが解説のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">料金・相場</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">エアコンクリーニングの頻度と費用の目安は？プロが解説</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">エアコンクリーニングの目安は、一般のご家庭で1〜2年に1回、費用は通常エアコンで9,000円（税込）〜です。 ペットや喫煙、長時間使用のご家庭は年1回が目安。大阪のハウスクリーニング専門店キレイシアが、料金の目安までわかりやすく解説します。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/aircon-mold-smell-higashinari.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/aircon-after4.jpg" alt="エアコンのカビ・ニオイ対策と防カビの方法｜ご家庭向けに解説のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">エアコン</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">エアコンのカビ・ニオイ対策と防カビの方法｜ご家庭向けに解説</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">エアコンのカビ・ニオイの原因は、内部に残る湿気とホコリで繁殖したカビです。使用後の送風運転やフィルター掃除で予防はできますが、送風ファンや熱交換器の奥は自分では届きません。 気になるニオイが取れないときは、プロの分解洗浄＋消臭抗菌コート（2,000円・税込）で再発を抑えるのがおすすめです。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/bathroom-mold-prevention-osaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/water-after1.jpg" alt="浴室のカビ・水垢を防ぐ掃除のコツ｜ご家庭でできる予防法のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">浴室・水回り</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">浴室のカビ・水垢を防ぐ掃除のコツ｜ご家庭でできる予防法</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">浴室のカビと水垢は、「湿気を残さない・栄養（石鹸カスや皮脂）を流す・水分を切る」の3つを習慣にするだけで、ぐっと防ぎやすくなります。 それでも落ちない頑固な黒カビ・水垢は、プロの浴室クリーニングと防カビコート（3,000円・税込）で一度リセットし、再発を抑えるのがおすすめです。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/commercial-aircon-chuo-osaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/shop-top.jpg" alt="飲食店の業務用エアコンクリーニング｜費用と頻度の目安のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">料金・相場</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">飲食店の業務用エアコンクリーニング｜費用と頻度の目安</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">飲食店の業務用エアコンクリーニングは、壁掛けタイプ15,000円〜、天井カセット（4方向）タイプ25,000円（税込）が目安。清掃頻度は油や煙で汚れやすいため半年〜1年に1回がおすすめです。 大阪の店舗にはスピード対応が可能です。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/drain-cleaning-osaka-higashiosaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/drain-top.jpg" alt="排水管のつまり・悪臭は高圧洗浄で解決｜原因と対処法のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">浴室・水回り</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">排水管のつまり・悪臭は高圧洗浄で解決｜原因と対処法</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">排水管のつまり・悪臭の正体は、配管の奥に蓄積した「油・髪の毛・石けんカス・食材カス」です。市販のパイプクリーナーで直らない奥のつまりは、プロの高圧洗浄で水圧を使って配管の奥まで一気に洗い流すのが確実です。 流れが悪い・ゴポゴポ音がする段階での早めの対処が、逆流や水漏れを防ぐポイントです。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/housecleaning-higashiosaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/aircon-top.jpg" alt="ハウスクリーニング業者の選び方｜料金と対応エリアの確認ポイントのサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">料金・相場</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">ハウスクリーニング業者の選び方｜料金と対応エリアの確認ポイント</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">ハウスクリーニング業者を選ぶときは、「料金が明確か・追加料金がないか・対応サービスの幅・地元対応の速さ」の4点で比べるのが失敗しないコツです。 大阪のハウスクリーニング専門店キレイシアは、エアコン9,000円〜・水回り5,000円〜（すべて税込）で、見積もり後の追加料金は原則ありません。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/kitchen-rangehood-chuo-osaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/water-after5.jpg" alt="飲食店向け｜キッチン・レンジフードの油汚れを徹底洗浄のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">キッチン</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">飲食店向け｜キッチン・レンジフードの油汚れを徹底洗浄</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">厨房のキッチン・レンジフード（換気扇）の油汚れは、火災リスク・吸排気効率の低下・衛生やニオイの原因になります。 キレイシアは大阪の飲食店・店舗厨房を中心に、ファンやフィルター内部までプロが分解洗浄。ご家庭の「換気扇＋キッチン」は26,000円（税込）、店舗厨房はお見積りで承ります。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/ousama-filter-shop-osaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/ousama-card.jpg" alt="店舗向け｜「空気の王様」抗菌フィルターで空調費と故障を抑える方法のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">エアコン</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">店舗向け｜「空気の王様」抗菌フィルターで空調費と故障を抑える方法</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">「空気の王様」抗菌エアコンフィルターは、エアコンの吸込口に貼るだけで、浮遊カビ・花粉・PM2.5など7種の汚れに対応する空気触媒AT254のフィルターです。 お手入れがラクになり、空調費や故障の対策にもつながります。業務用・家庭用に対応し、交換は1ヶ月ごと。料金はお問い合わせ・お見積りで承ります。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/water-cleaning-price-osaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/water-after1.jpg" alt="大阪市の水回りクリーニング料金相場は？キッチン・浴室・トイレをまとめて解説のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">料金・相場</span>
+            <time datetime="2026-06-28" class="text-xs text-text-light">2026.06.28</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">大阪市の水回りクリーニング料金相場は？キッチン・浴室・トイレをまとめて解説</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">大阪市の水回りクリーニングの料金は、1か所5,000円〜、人気の「水回り5点セット（お風呂・換気扇・キッチン・トイレ・洗面）」で50,000円（税込）が目安です。 まとめて依頼するほど1か所あたりはお得になります。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/aircon-price-osaka.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/aircon-after1.jpg" alt="大阪のエアコンクリーニング料金相場は？追加料金の有無までわかりやすく解説のサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-primary-light text-primary-dark text-xs font-bold px-2.5 py-1 rounded-full">料金・相場</span>
+            <time datetime="2026-06-26" class="text-xs text-text-light">2026.06.26</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">大阪のエアコンクリーニング料金相場は？追加料金の有無までわかりやすく解説</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">大阪のエアコンクリーニングの料金相場は、通常の壁掛けタイプで8,000〜12,000円、お掃除機能付きで15,000〜22,000円が目安です（1台あたり・税込）。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+      <a href="blog/hotel-aircon-40.html" class="post-card bg-card rounded-2xl overflow-hidden ring-1 ring-border block">
+        <div class="aspect-video overflow-hidden bg-primary-light">
+          <img src="images/aircon-after3.jpg" alt="大阪市内のホテル様｜客室エアコン40台を分解クリーニングしましたのサムネイル" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="bg-warm-light text-warm text-xs font-bold px-2.5 py-1 rounded-full">施工事例</span>
+            <time datetime="2026-06-26" class="text-xs text-text-light">2026.06.26</time>
+          </div>
+          <h2 class="font-bold text-base text-text-main leading-snug mb-2">大阪市内のホテル様｜客室エアコン40台を分解クリーニングしました</h2>
+          <p class="text-xs text-text-sub leading-relaxed line-clamp-2">大阪市内のホテル様にて、全客室の業務用エアコン40台を3日間で分解クリーニングしました。</p>
+          <span class="inline-block mt-3 text-xs text-primary font-bold">記事を読む →</span>
+        </div>
+      </a>
+
+    </div>
+    <p id="noPosts" class="hidden text-center text-text-sub py-10">このジャンルの記事はまだありません。</p>
+  </div>
+</section>
+
+<script>
+  // ブログのジャンル別フィルター（ボタンで記事を絞り込む）
+  (function () {
+    const filterButtons = document.querySelectorAll('.blog-filter');
+    const cards = document.querySelectorAll('#postGrid .post-card');
+    const noPosts = document.getElementById('noPosts');
+    if (!filterButtons.length || !cards.length) return;
+
+    function setActive(activeBtn) {
+      filterButtons.forEach((btn) => {
+        const isActive = btn === activeBtn;
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        if (isActive) {
+          btn.className = 'blog-filter bg-primary text-white text-sm font-bold px-4 py-2 rounded-full cursor-pointer';
+        } else {
+          btn.className = 'blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer';
+        }
+      });
+    }
+
+    function applyFilter(category) {
+      let shown = 0;
+      cards.forEach((card) => {
+        const badge = card.querySelector('span.rounded-full');
+        const cardCategory = badge ? badge.textContent.trim() : '';
+        const match = category === 'すべて' || cardCategory === category;
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (noPosts) noPosts.classList.toggle('hidden', shown !== 0);
+    }
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        setActive(btn);
+        applyFilter(btn.getAttribute('data-filter'));
+      });
+    });
+  })();
+</script>
+
+<section class="py-12 sm:py-16 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-br from-primary-50 to-white rounded-3xl p-6 sm:p-10 ring-1 ring-primary/10">
+      <div class="flex flex-col sm:flex-row items-center gap-6">
+        <div class="flex-shrink-0">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1" style="background:linear-gradient(45deg,#F58529 0%,#DD2A7B 50%,#8134AF 100%);">
+            <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <defs><linearGradient id="ig-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs>
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig-g)" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="url(#ig-g)" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-g)"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 text-center sm:text-left">
+          <p class="text-sm text-text-sub mb-1">Instagram公式アカウント</p>
+          <p class="font-display font-black text-xl sm:text-2xl text-text-main mb-2">@osouji_kireisia</p>
+          <p class="text-sm text-text-sub leading-relaxed">日々の施工事例・お掃除のコツを発信中。最新の投稿はこちらから（本番ではここに自動表示）。</p>
+        </div>
+        <div class="flex-shrink-0">
+          <a href="https://www.instagram.com/osouji_kireisia/" target="_blank" rel="noopener" class="ig-btn inline-flex items-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+            <span>フォローする</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 sm:py-20 bg-gradient-to-br from-primary-light via-white to-primary-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-text-main mb-4">お気軽にお問い合わせください</h2>
+    <p class="text-text-sub mb-8">お見積り・ご相談は無料です。</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+      <a href="https://page.line.me/?accountId=235yilws" class="line-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white font-bold px-8 py-4 rounded-full text-base">
+        <img src="images/line-brand-icon.png" alt="LINE" class="w-8 h-8 rounded-lg">LINEで無料お見積り
+      </a>
+      <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-primary-50 text-text-main font-medium px-8 py-4 rounded-full text-base ring-1 ring-border hover:ring-primary/30 transition-all duration-200">
+        <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        お問い合わせフォーム
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-text-main text-white py-12 sm:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <img src="images/logo-footer.png" alt="キレイシア" class="h-12 w-auto mb-4">
+        <p class="text-sm text-white/80 leading-relaxed mb-4">大阪市城東区を拠点に、<br>大阪・京都・兵庫・奈良エリアで<br>ハウスクリーニングを行っています。</p>
+        <div class="space-y-1 text-sm text-white/70">
+          <p>〒536-0023</p>
+          <p>大阪府大阪市城東区東中浜7丁目2-21</p>
+          <p>TEL：<a href="tel:06-7493-0993" class="hover:text-primary transition-colors">06-7493-0993</a></p>
+          <p>営業時間：9:00〜20:00</p>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-display font-bold text-base mb-4 text-primary">ページ一覧</h4>
+        <ul class="space-y-2 text-sm text-white/80">
+          <li><a href="index.html" class="hover:text-primary transition-colors">HOME</a></li>
+          <li><a href="service.html" class="hover:text-primary transition-colors">サービス一覧</a></li>
+          <li><a href="about.html" class="hover:text-primary transition-colors">企業理念</a></li>
+          <li><a href="company.html" class="hover:text-primary transition-colors">会社概要</a></li>
+          <li><a href="https://en-gage.net/kireisia_saiyo/" target="_blank" rel="noopener" class="hover:text-primary transition-colors">採用情報</a></li>
+          <li><a href="blog.html" class="hover:text-primary transition-colors">ブログ</a></li>
+          <li><a href="contact.html" class="hover:text-primary transition-colors">お問い合わせ</a></li>
+          <li><a href="privacy.html" class="hover:text-primary transition-colors">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display font-bold text-base mb-4 text-primary">お問い合わせ</h4>
+        <div class="space-y-3">
+          <a href="https://page.line.me/?accountId=235yilws" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white text-sm font-bold px-4 py-2.5 rounded-full transition-colors">
+            <img src="images/line-brand-icon.png" alt="LINE" class="w-6 h-6 rounded">LINEで無料お見積り
+          </a>
+          <p class="text-sm text-white/80"><a href="tel:06-7493-0993" class="hover:text-primary transition-colors">📞 06-7493-0993</a></p>
+          <p class="text-sm text-white/80"><a href="contact.html" class="hover:text-primary transition-colors">✉ お問い合わせフォーム</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-white/10 text-center text-xs text-white/60">
+      <p>© 2026 株式会社キレイシア All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // モバイルメニュー開閉処理（既存ページと同一）
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) { mobileMenu.classList.remove('hidden'); mobileMenuBtn.setAttribute('aria-expanded','true'); }
+      else { mobileMenu.classList.add('hidden'); mobileMenuBtn.setAttribute('aria-expanded','false'); }
+    });
+  }
+</script>
+
+<div class="hidden md:block fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6">
+  <a href="https://page.line.me/?accountId=235yilws" class="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-accent shadow-lg shadow-accent/30 hover:scale-110 transition-transform focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/40" aria-label="LINEで予約"><img src="images/line-brand-icon.png" alt="LINE" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl"></a>
+</div>
+
+<div class="md:hidden h-20" aria-hidden="true"></div>
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border shadow-[0_-4px_16px_rgba(0,0,0,0.10)]" style="padding-bottom:env(safe-area-inset-bottom)">
+  <div class="grid grid-cols-2">
+    <a href="contact.html" class="flex flex-col items-center justify-center gap-1 py-3 bg-primary hover:bg-primary-dark text-white font-bold text-xs transition-colors">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>お問い合わせ</span>
+    </a>
+    <a href="https://page.line.me/?accountId=235yilws" class="flex flex-col items-center justify-center gap-1 py-3 bg-accent hover:bg-accent-dark text-white font-bold text-xs transition-colors">
+      <img src="images/line-brand-icon.png" alt="LINE" class="w-6 h-6 rounded" loading="lazy">
+      <span>LINEで見積もり</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

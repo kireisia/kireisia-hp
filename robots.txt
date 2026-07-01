@@ -1,0 +1,56 @@
+# ============================================
+# robots.txt for キレイシア 新HP（複数ページ＋ブログ）
+# AI検索許可 / 学習botブロック / SEO優先
+# ============================================
+
+# 全botデフォルト
+User-agent: *
+Allow: /
+Sitemap: https://www.kireisia.co.jp/sitemap.xml
+
+# ---- AI検索bot: 許可（表示機会確保） ----
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Google-Agent
+Allow: /
+
+# ---- AI学習bot: ブロック（無断学習拒否） ----
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
