@@ -53,7 +53,7 @@ BACKUP_DIR = os.path.join(BASE_DIR, "_backup_blog_cms")
 BACKUP_PATH = os.path.join(BACKUP_DIR, "blog_before_cms.html")
 
 # 公開サイトのベースURL（canonical・OGP・JSON-LD用）
-SITE_BASE = "https://kireisia.github.io"
+SITE_BASE = "https://www.kireisia.co.jp"
 # OGP用の共通画像（絶対URL）
 OGP_IMAGE = SITE_BASE + "/images/ogp.jpg"
 
