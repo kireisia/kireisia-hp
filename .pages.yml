@@ -1184,3 +1184,59 @@ content:
             label: フォーム案内文（2行目）
             type: string
 
+      # ------------------------------------------------------------
+      # フォームの入力項目
+      #   ここを編集すると、お問い合わせフォームの入力欄が変わる。
+      #   「項目名」がそのまま通知メールの見出しになる（SSGformは事前登録不要）。
+      #   ※「メールアドレス」と「内容」は消しても自動で復活する（返信できなくなるのを防ぐため）
+      # ------------------------------------------------------------
+      - name: form_fields
+        label: フォームの入力項目
+        type: file
+        path: content/form.json
+        format: json
+        fields:
+          - name: fields
+            label: 入力項目（上から順に表示されます）
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: 項目名
+                type: string
+                description: そのまま画面に表示され、通知メールの見出しにもなります。例）お名前・ご希望日
+              - name: type
+                label: 入力のしかた
+                type: select
+                default: text
+                options:
+                  values:
+                    - { value: text, label: 1行の文字入力 }
+                    - { value: email, label: メールアドレス }
+                    - { value: tel, label: 電話番号 }
+                    - { value: textarea, label: 複数行の文字入力 }
+                    - { value: radio, label: 選択肢から1つだけ選ぶ }
+                    - { value: checkbox, label: 選択肢から複数選べる }
+              - name: required
+                label: 入力を必須にする
+                type: boolean
+                default: false
+              - name: options
+                label: 選択肢（「選ぶ」タイプのときだけ入力）
+                type: string
+                list: true
+                description: 上から順に表示されます。例）あり／なし
+              - name: placeholder
+                label: 入力欄の薄い見本文字（任意）
+                type: string
+                description: 入力欄に薄く表示される記入例。例）山田 太郎
+              - name: help
+                label: 補足説明（任意）
+                type: text
+                description: 入力欄の下に小さく表示される案内文
+              - name: half
+                label: 横に2つ並べる（隣の項目とセットで有効）
+                type: boolean
+                default: false
+                description: 「姓」と「名」のように短い項目を横並びにしたいときにON
+

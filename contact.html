@@ -150,6 +150,10 @@
           <input type="text" name="wana" tabindex="-1" autocomplete="off">
         </div>
 
+        <!-- ▼ 入力項目：content/form.json の内容で差し替えられる（CMSから編集可能）
+             読み込みに失敗した場合は、下の初期状態のまま表示されるので、フォームが空になることはない -->
+        <div id="cf-fields">
+
         <!-- 姓・名（2カラム） -->
         <div class="cf-field grid grid-cols-2 gap-4">
           <div>
@@ -205,6 +209,9 @@
           <textarea id="cf-message" name="内容" class="cf-textarea" placeholder="ご質問、ご要望のみのお問い合せでも大歓迎です。 具体的にご依頼を検討されているお客様は、電話番号、ご住所（市町村まででも結構です）も内容欄に記載いただけると助かります。" required></textarea>
           <p class="cf-help">ご希望の数量やオプションを詳しく記載いただけますとスムーズに対応させていただけます。</p>
         </div>
+
+        </div>
+        <!-- ▲ 入力項目ここまで -->
 
         <!-- 送信ボタン -->
         <button type="submit" class="cf-submit mt-2">
@@ -283,6 +290,154 @@
 </footer>
 
 <script>
+  // ============================================================
+  // お問い合わせフォームの入力項目を content/form.json から組み立てる
+  //   CMS（Pages CMS）で項目の追加・削除・並べ替えができるようにするための処理。
+  //   読み込みや解析に失敗した場合は何もしない＝HTMLに書かれた初期状態がそのまま残るので、
+  //   フォームが空になって問い合わせが取れなくなる事故は起きない。
+  // ============================================================
+
+  // 必ず残す項目（CMSから消されても自動で補う）。これが無いと問い合わせに返信できない
+  const REQUIRED_FIELD_LABELS = ['メールアドレス', '内容'];
+
+  // 項目タイプ → HTMLのinput type の対応表
+  const INPUT_TYPE_MAP = {
+    text: 'text',
+    email: 'email',
+    tel: 'tel',
+  };
+
+  /** HTMLに埋め込む前に危険な文字を無害化する（CMSの入力値をそのまま挿し込まないため） */
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  /** 「必須」バッジのHTMLを返す */
+  function buildRequiredBadge(isRequired) {
+    return isRequired ? '<span class="cf-required">必須</span>' : '';
+  }
+
+  /** 補足説明のHTMLを返す */
+  function buildHelpText(helpText) {
+    return helpText ? '<p class="cf-help">' + escapeHtml(helpText) + '</p>' : '';
+  }
+
+  /** 選択肢（ラジオ・チェックボックス）のHTMLを組み立てる */
+  function buildChoiceField(field, fieldId) {
+    const inputType = field.type === 'radio' ? 'radio' : 'checkbox';
+    const label = escapeHtml(field.label);
+    const options = Array.isArray(field.options) ? field.options : [];
+
+    const choices = options.map(function (optionValue) {
+      const safeValue = escapeHtml(optionValue);
+      return '<label class="cf-choice"><input type="' + inputType + '" name="' + label +
+        '" value="' + safeValue + '">' + safeValue + '</label>';
+    }).join('');
+
+    return '<div class="cf-field">' +
+      '<label class="cf-label">' + label + buildRequiredBadge(field.required) + '</label>' +
+      choices + buildHelpText(field.help) + '</div>';
+  }
+
+  /** 複数行テキスト（textarea）のHTMLを組み立てる */
+  function buildTextareaField(field, fieldId) {
+    const label = escapeHtml(field.label);
+    return '<div class="cf-field">' +
+      '<label class="cf-label" for="' + fieldId + '">' + label + buildRequiredBadge(field.required) + '</label>' +
+      '<textarea id="' + fieldId + '" name="' + label + '" class="cf-textarea" placeholder="' +
+      escapeHtml(field.placeholder) + '"' + (field.required ? ' required' : '') + '></textarea>' +
+      buildHelpText(field.help) + '</div>';
+  }
+
+  /** 1行入力（テキスト・メール・電話）のHTMLを組み立てる。2カラム用は外枠を付けずに返す */
+  function buildInputField(field, fieldId, isInsideGrid) {
+    const label = escapeHtml(field.label);
+    const inputType = INPUT_TYPE_MAP[field.type] || 'text';
+    const inner = '<label class="cf-label" for="' + fieldId + '">' + label + buildRequiredBadge(field.required) + '</label>' +
+      '<input id="' + fieldId + '" type="' + inputType + '" name="' + label + '" class="cf-input" placeholder="' +
+      escapeHtml(field.placeholder) + '"' + (field.required ? ' required' : '') + '>' +
+      buildHelpText(field.help);
+    return isInsideGrid ? '<div>' + inner + '</div>' : '<div class="cf-field">' + inner + '</div>';
+  }
+
+  /** 項目1つ分のHTMLを組み立てる */
+  function buildField(field, index, isInsideGrid) {
+    const fieldId = 'cf-field-' + index;
+    if (field.type === 'radio' || field.type === 'checkbox') return buildChoiceField(field, fieldId);
+    if (field.type === 'textarea') return buildTextareaField(field, fieldId);
+    return buildInputField(field, fieldId, isInsideGrid);
+  }
+
+  /** 項目リスト全体のHTMLを組み立てる（half:true が続く2つは横並びにする） */
+  function buildAllFields(fields) {
+    let html = '';
+    let index = 0;
+    while (index < fields.length) {
+      const current = fields[index];
+      const next = fields[index + 1];
+      const isSingleLineType = current.type !== 'radio' && current.type !== 'checkbox' && current.type !== 'textarea';
+      const canPair = current.half && next && next.half && isSingleLineType;
+
+      if (canPair) {
+        html += '<div class="cf-field grid grid-cols-2 gap-4">' +
+          buildField(current, index, true) + buildField(next, index + 1, true) + '</div>';
+        index += 2;
+      } else {
+        html += buildField(current, index, false);
+        index += 1;
+      }
+    }
+    return html;
+  }
+
+  /** 消してはいけない項目が無ければ末尾に補う（問い合わせに返信できなくなるのを防ぐ） */
+  function ensureRequiredFields(fields) {
+    const existingLabels = fields.map(function (field) { return field.label; });
+    REQUIRED_FIELD_LABELS.forEach(function (label) {
+      if (existingLabels.indexOf(label) !== -1) return;
+      fields.push({
+        label: label,
+        type: label === 'メールアドレス' ? 'email' : 'textarea',
+        required: true,
+        placeholder: '',
+        help: '',
+        half: false,
+        options: []
+      });
+    });
+    return fields;
+  }
+
+  async function renderContactFormFields() {
+    const container = document.getElementById('cf-fields');
+    if (!container) return;
+
+    try {
+      const response = await fetch('content/form.json', { cache: 'no-cache' });
+      if (!response.ok) throw new Error('form.json の取得に失敗しました（HTTP ' + response.status + '）');
+
+      const data = await response.json();
+      const fields = Array.isArray(data.fields) ? data.fields.filter(function (field) {
+        return field && field.label;
+      }) : [];
+
+      // 項目が1つも無い場合は差し替えない（初期状態を残す）
+      if (fields.length === 0) throw new Error('form.json に項目がありません');
+
+      container.innerHTML = buildAllFields(ensureRequiredFields(fields));
+    } catch (error) {
+      // 失敗しても画面はそのまま。原因追跡用にコンソールへ残す
+      console.warn('[お問い合わせフォーム] 入力項目の読み込みに失敗したため初期表示を使用します:', error);
+    }
+  }
+
+  renderContactFormFields();
+
   // モバイルメニュー開閉処理
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');

@@ -1,0 +1,83 @@
+{
+  "fields": [
+    {
+      "label": "姓",
+      "type": "text",
+      "required": true,
+      "placeholder": "お掃除",
+      "help": "",
+      "half": true,
+      "options": []
+    },
+    {
+      "label": "名",
+      "type": "text",
+      "required": true,
+      "placeholder": "太郎",
+      "help": "",
+      "half": true,
+      "options": []
+    },
+    {
+      "label": "メールアドレス",
+      "type": "email",
+      "required": true,
+      "placeholder": "例）yamada@example.com",
+      "help": "",
+      "half": false,
+      "options": []
+    },
+    {
+      "label": "電話番号",
+      "type": "tel",
+      "required": false,
+      "placeholder": "0674930993",
+      "help": "",
+      "half": false,
+      "options": []
+    },
+    {
+      "label": "住所",
+      "type": "text",
+      "required": true,
+      "placeholder": "大阪府大阪市城東区東中浜7丁目2-21",
+      "help": "",
+      "half": false,
+      "options": []
+    },
+    {
+      "label": "駐車スペース",
+      "type": "radio",
+      "required": false,
+      "placeholder": "",
+      "help": "",
+      "half": false,
+      "options": ["あり（有料）", "あり（無料）", "なし"]
+    },
+    {
+      "label": "お問い合わせの種類",
+      "type": "checkbox",
+      "required": false,
+      "placeholder": "",
+      "help": "",
+      "half": false,
+      "options": [
+        "通常エアコン",
+        "お掃除機能付きエアコン",
+        "縦型洗濯機",
+        "ドラム式洗濯機",
+        "水回りクリーニング（キッチン・換気扇・トイレ・浴室・洗面所）",
+        "その他"
+      ]
+    },
+    {
+      "label": "内容",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "ご質問、ご要望のみのお問い合せでも大歓迎です。 具体的にご依頼を検討されているお客様は、電話番号、ご住所（市町村まででも結構です）も内容欄に記載いただけると助かります。",
+      "help": "ご希望の数量やオプションを詳しく記載いただけますとスムーズに対応させていただけます。",
+      "half": false,
+      "options": []
+    }
+  ]
+}
