@@ -1141,6 +1141,75 @@ def render_case_page(article):
     return page
 
 
+def build_blog_list_jsonld(articles):
+    """一覧ページ用の構造化データ（Blog＋パンくず）を組み立てる。
+    AI検索・Googleに「これはブログで、こんな記事がある」と機械可読で伝えるためのもの。"""
+    # 記事の一覧（新しい順・URLとタイトルだけの軽量な形）
+    posts = ",\n      ".join(
+        '{{"@type": "BlogPosting", "headline": "{title}", "url": "{url}", "datePublished": "{date}"}}'.format(
+            title=json_escape(article["title"]),
+            url=f"{SITE_BASE}/blog/{article['slug']}.html",
+            date=article["date"],
+        )
+        for article in articles
+    )
+    return f"""  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "キレイシア お役立ちブログ",
+    "url": "{SITE_BASE}/blog.html",
+    "description": "大阪のハウスクリーニング会社キレイシアによる、掃除のコツ・料金相場・施工事例の解説ブログ",
+    "publisher": {{"@id": "{SITE_BASE}/#organization"}},
+    "blogPost": [
+      {posts}
+    ]
+  }}
+  </script>
+  <script type="application/ld+json">
+  {{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "HOME", "item": "{SITE_BASE}/"}},
+    {{"@type": "ListItem", "position": 2, "name": "お役立ちブログ", "item": "{SITE_BASE}/blog.html"}}]}}
+  </script>"""
+
+
+LLMS_TXT_PATH = os.path.join(BASE_DIR, "llms.txt")
+# llms.txt 内でブログ記事一覧を差し替える範囲を示す目印
+LLMS_BLOG_START = "# ブログ記事一覧（自動更新）"
+LLMS_BLOG_END = "# ブログ記事一覧ここまで"
+
+
+def update_llms_txt(articles):
+    """llms.txt のブログ記事一覧セクションを最新の記事で差し替える。
+    目印（マーカー）が無い場合はファイル末尾に新設する。手書き部分には触らない。"""
+    if not os.path.exists(LLMS_TXT_PATH):
+        print("  [警告] llms.txt が見つからないため記事一覧の更新をスキップしました")
+        return
+
+    with open(LLMS_TXT_PATH, "r", encoding="utf-8") as f:
+        current = f.read()
+
+    # 記事一覧の本文（新しい順・タイトル＋URL）
+    lines = [LLMS_BLOG_START]
+    for article in articles:
+        lines.append(f"- {article['title']}: {SITE_BASE}/blog/{article['slug']}.html")
+    lines.append(LLMS_BLOG_END)
+    block = "\n".join(lines)
+
+    if LLMS_BLOG_START in current and LLMS_BLOG_END in current:
+        # 既存のセクションを丸ごと差し替える
+        before = current.split(LLMS_BLOG_START)[0].rstrip()
+        after = current.split(LLMS_BLOG_END, 1)[1].lstrip("\n")
+        updated = before + "\n\n" + block + ("\n\n" + after if after.strip() else "\n")
+    else:
+        # 目印が無ければ末尾に追加する
+        updated = current.rstrip() + "\n\n" + block + "\n"
+
+    with open(LLMS_TXT_PATH, "w", encoding="utf-8") as f:
+        f.write(updated)
+    print(f"  生成: llms.txt（ブログ記事一覧 {len(articles)} 件を更新）")
+
+
 def render_list_page(articles):
     """記事一覧ページ blog.html を生成して返す"""
     root = ""  # blog.html はルート直下なので相対パスのプレフィックス不要
@@ -1192,6 +1261,11 @@ def render_list_page(articles):
   <meta property="og:image" content="{OGP_IMAGE}">
   <meta property="og:site_name" content="株式会社キレイシア">
   <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="お役立ちブログ｜大阪のハウスクリーニング キレイシア">
+  <meta name="twitter:description" content="掃除のコツ・料金相場・施工事例をわかりやすく解説。">
+  <meta name="twitter:image" content="{OGP_IMAGE}">
+{build_blog_list_jsonld(articles)}
 </head>
 <body class="bg-white text-text-main font-sans antialiased scroll-smooth">
 
@@ -1434,6 +1508,13 @@ def main():
     except Exception as error:
         print(f"[エラー] sitemap.xml の生成に失敗しました: {error}")
         sys.exit(1)
+
+    # llms.txt のブログ記事一覧を最新化する（AI検索が個別記事を引用しやすくするため）
+    try:
+        update_llms_txt(articles)
+    except Exception as error:
+        # llms.txt はAI検索向けの補助ファイルなので、失敗してもビルド全体は止めない
+        print(f"  [警告] llms.txt の更新に失敗しました: {error}")
 
     print("=== ビルド完了 ===")
 

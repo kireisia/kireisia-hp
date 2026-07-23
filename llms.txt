@@ -11,6 +11,13 @@
 - 損害保険加入済み・作業外注なし
 - 所在地: 大阪府大阪市城東区東中浜7丁目2-21
 - 電話: 06-7493-0993
+- 営業時間: 月〜土 9:00-19:00
+- 公式Instagram: https://www.instagram.com/osouji_kireisia/
+- 公式LINE: https://page.line.me/?accountId=235yilws
+- 大阪府: 大阪市（城東区・中央区・北区・都島区・旭区・鶴見区・東成区・生野区・天王寺区・阿倍野区・住吉区・平野区 他全域）・堺市・東大阪市・豊中市・吹田市・高槻市・枚方市
+- 京都府: 京都市（中京区・下京区・上京区・左京区・右京区・伏見区・山科区・南区・西京区 他全域）・宇治市・長岡京市・向日市・八幡市・京田辺市・城陽市 他
+- 兵庫県: 神戸市（中央区・東灘区・灘区・兵庫区・長田区・須磨区・垂水区・北区・西区）・尼崎市・西宮市・伊丹市・宝塚市・川西市・芦屋市・明石市・三田市 他
+- 奈良県: 奈良市・生駒市・香芝市・大和郡山市・天理市・橿原市・大和高田市 他
 
 # サイト構成（複数ページ＋お役立ちブログ）
 - トップページ: https://www.kireisia.co.jp/index.html
@@ -23,3 +30,17 @@
 
 URL: https://www.kireisia.co.jp/
 利用方針: 検索結果での引用・表示OK / 訓練データとしての利用はNG
+
+# ブログ記事一覧（自動更新）
+- エアコンクリーニングの頻度と費用の目安は？プロが解説: https://www.kireisia.co.jp/blog/aircon-cleaning-joto-osaka.html
+- エアコンのカビ・ニオイ対策と防カビの方法｜ご家庭向けに解説: https://www.kireisia.co.jp/blog/aircon-mold-smell-higashinari.html
+- 浴室のカビ・水垢を防ぐ掃除のコツ｜ご家庭でできる予防法: https://www.kireisia.co.jp/blog/bathroom-mold-prevention-osaka.html
+- 飲食店の業務用エアコンクリーニング｜費用と頻度の目安: https://www.kireisia.co.jp/blog/commercial-aircon-chuo-osaka.html
+- 排水管のつまり・悪臭は高圧洗浄で解決｜原因と対処法: https://www.kireisia.co.jp/blog/drain-cleaning-osaka-higashiosaka.html
+- ハウスクリーニング業者の選び方｜料金と対応エリアの確認ポイント: https://www.kireisia.co.jp/blog/housecleaning-higashiosaka.html
+- 飲食店向け｜キッチン・レンジフードの油汚れを徹底洗浄: https://www.kireisia.co.jp/blog/kitchen-rangehood-chuo-osaka.html
+- 店舗向け｜「空気の王様」抗菌フィルターで空調費と故障を抑える方法: https://www.kireisia.co.jp/blog/ousama-filter-shop-osaka.html
+- 大阪市の水回りクリーニング料金相場は？キッチン・浴室・トイレをまとめて解説: https://www.kireisia.co.jp/blog/water-cleaning-price-osaka.html
+- 大阪のエアコンクリーニング料金相場は？追加料金の有無までわかりやすく解説: https://www.kireisia.co.jp/blog/aircon-price-osaka.html
+- 大阪市内のホテル様｜客室エアコン40台を分解クリーニングしました: https://www.kireisia.co.jp/blog/hotel-aircon-40.html
+# ブログ記事一覧ここまで
