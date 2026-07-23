@@ -825,8 +825,16 @@ def build_areaserved_jsonld(article):
 
 
 def json_escape(text):
-    """JSON-LD内に安全に埋め込めるよう、ダブルクオート・改行をエスケープする"""
-    return text.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ")
+    """JSON-LD内に安全に埋め込めるよう、ダブルクオート・改行・山括弧をエスケープする。
+    「<」を \\u003c にするのは、テキスト内に </script> が紛れても
+    JSON-LDの<script>タグが途中で閉じられないようにするため（スクリプト注入対策）"""
+    return (
+        text.replace("\\", "\\\\")
+        .replace('"', '\\"')
+        .replace("\n", " ")
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+    )
 
 
 # ブログ一覧のジャンル別フィルター用JavaScript（通常文字列＝中括弧はそのまま）
@@ -1196,11 +1204,23 @@ def update_llms_txt(articles):
     lines.append(LLMS_BLOG_END)
     block = "\n".join(lines)
 
-    if LLMS_BLOG_START in current and LLMS_BLOG_END in current:
+    has_start = LLMS_BLOG_START in current
+    has_end = LLMS_BLOG_END in current
+
+    if has_start and has_end:
         # 既存のセクションを丸ごと差し替える
         before = current.split(LLMS_BLOG_START)[0].rstrip()
         after = current.split(LLMS_BLOG_END, 1)[1].lstrip("\n")
         updated = before + "\n\n" + block + ("\n\n" + after if after.strip() else "\n")
+    elif has_start or has_end:
+        # 目印が片方だけ残っている＝手動編集などで壊れた状態。
+        # このまま追記すると二重掲載になるため、更新せず警告だけ出して手動修正を促す
+        print(
+            "  [警告] llms.txt の記事一覧マーカーが片方だけ存在します（壊れた状態）。"
+            "更新をスキップしました。llms.txt を開いて "
+            f"「{LLMS_BLOG_START}」と「{LLMS_BLOG_END}」の対を直してください"
+        )
+        return
     else:
         # 目印が無ければ末尾に追加する
         updated = current.rstrip() + "\n\n" + block + "\n"
