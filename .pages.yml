@@ -1196,16 +1196,16 @@ content:
         path: content/form.json
         format: json
         fields:
-          - name: fields
+          - name: form_items
             label: 入力項目（上から順に表示されます）
             type: object
             list: true
             fields:
-              - name: label
+              - name: item_label
                 label: 項目名
                 type: string
                 description: そのまま画面に表示され、通知メールの見出しにもなります。例）お名前・ご希望日
-              - name: type
+              - name: input_type
                 label: 入力のしかた
                 type: select
                 default: text
@@ -1217,11 +1217,11 @@ content:
                     - { value: textarea, label: 複数行の文字入力 }
                     - { value: radio, label: 選択肢から1つだけ選ぶ }
                     - { value: checkbox, label: 選択肢から複数選べる }
-              - name: required
+              - name: is_required
                 label: 入力を必須にする
                 type: boolean
                 default: false
-              - name: options
+              - name: choices
                 label: 選択肢（「選ぶ」タイプのときだけ入力）
                 type: string
                 list: true

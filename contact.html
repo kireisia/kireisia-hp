@@ -329,9 +329,9 @@
 
   /** 選択肢（ラジオ・チェックボックス）のHTMLを組み立てる */
   function buildChoiceField(field, fieldId) {
-    const inputType = field.type === 'radio' ? 'radio' : 'checkbox';
-    const label = escapeHtml(field.label);
-    const options = Array.isArray(field.options) ? field.options : [];
+    const inputType = field.input_type === 'radio' ? 'radio' : 'checkbox';
+    const label = escapeHtml(field.item_label);
+    const options = Array.isArray(field.choices) ? field.choices : [];
 
     const choices = options.map(function (optionValue) {
       const safeValue = escapeHtml(optionValue);
@@ -340,27 +340,27 @@
     }).join('');
 
     return '<div class="cf-field">' +
-      '<label class="cf-label">' + label + buildRequiredBadge(field.required) + '</label>' +
+      '<label class="cf-label">' + label + buildRequiredBadge(field.is_required) + '</label>' +
       choices + buildHelpText(field.help) + '</div>';
   }
 
   /** 複数行テキスト（textarea）のHTMLを組み立てる */
   function buildTextareaField(field, fieldId) {
-    const label = escapeHtml(field.label);
+    const label = escapeHtml(field.item_label);
     return '<div class="cf-field">' +
-      '<label class="cf-label" for="' + fieldId + '">' + label + buildRequiredBadge(field.required) + '</label>' +
+      '<label class="cf-label" for="' + fieldId + '">' + label + buildRequiredBadge(field.is_required) + '</label>' +
       '<textarea id="' + fieldId + '" name="' + label + '" class="cf-textarea" placeholder="' +
-      escapeHtml(field.placeholder) + '"' + (field.required ? ' required' : '') + '></textarea>' +
+      escapeHtml(field.placeholder) + '"' + (field.is_required ? ' required' : '') + '></textarea>' +
       buildHelpText(field.help) + '</div>';
   }
 
   /** 1行入力（テキスト・メール・電話）のHTMLを組み立てる。2カラム用は外枠を付けずに返す */
   function buildInputField(field, fieldId, isInsideGrid) {
-    const label = escapeHtml(field.label);
-    const inputType = INPUT_TYPE_MAP[field.type] || 'text';
-    const inner = '<label class="cf-label" for="' + fieldId + '">' + label + buildRequiredBadge(field.required) + '</label>' +
+    const label = escapeHtml(field.item_label);
+    const inputType = INPUT_TYPE_MAP[field.input_type] || 'text';
+    const inner = '<label class="cf-label" for="' + fieldId + '">' + label + buildRequiredBadge(field.is_required) + '</label>' +
       '<input id="' + fieldId + '" type="' + inputType + '" name="' + label + '" class="cf-input" placeholder="' +
-      escapeHtml(field.placeholder) + '"' + (field.required ? ' required' : '') + '>' +
+      escapeHtml(field.placeholder) + '"' + (field.is_required ? ' required' : '') + '>' +
       buildHelpText(field.help);
     return isInsideGrid ? '<div>' + inner + '</div>' : '<div class="cf-field">' + inner + '</div>';
   }
@@ -368,8 +368,8 @@
   /** 項目1つ分のHTMLを組み立てる */
   function buildField(field, index, isInsideGrid) {
     const fieldId = 'cf-field-' + index;
-    if (field.type === 'radio' || field.type === 'checkbox') return buildChoiceField(field, fieldId);
-    if (field.type === 'textarea') return buildTextareaField(field, fieldId);
+    if (field.input_type === 'radio' || field.input_type === 'checkbox') return buildChoiceField(field, fieldId);
+    if (field.input_type === 'textarea') return buildTextareaField(field, fieldId);
     return buildInputField(field, fieldId, isInsideGrid);
   }
 
@@ -380,7 +380,7 @@
     while (index < fields.length) {
       const current = fields[index];
       const next = fields[index + 1];
-      const isSingleLineType = current.type !== 'radio' && current.type !== 'checkbox' && current.type !== 'textarea';
+      const isSingleLineType = current.input_type !== 'radio' && current.input_type !== 'checkbox' && current.input_type !== 'textarea';
       const canPair = current.half && next && next.half && isSingleLineType;
 
       if (canPair) {
@@ -397,17 +397,17 @@
 
   /** 消してはいけない項目が無ければ末尾に補う（問い合わせに返信できなくなるのを防ぐ） */
   function ensureRequiredFields(fields) {
-    const existingLabels = fields.map(function (field) { return field.label; });
+    const existingLabels = fields.map(function (field) { return field.item_label; });
     REQUIRED_FIELD_LABELS.forEach(function (label) {
       if (existingLabels.indexOf(label) !== -1) return;
       fields.push({
-        label: label,
-        type: label === 'メールアドレス' ? 'email' : 'textarea',
-        required: true,
+        item_label: label,
+        input_type: label === 'メールアドレス' ? 'email' : 'textarea',
+        is_required: true,
         placeholder: '',
         help: '',
         half: false,
-        options: []
+        choices: []
       });
     });
     return fields;
@@ -422,8 +422,8 @@
       if (!response.ok) throw new Error('form.json の取得に失敗しました（HTTP ' + response.status + '）');
 
       const data = await response.json();
-      const fields = Array.isArray(data.fields) ? data.fields.filter(function (field) {
-        return field && field.label;
+      const fields = Array.isArray(data.form_items) ? data.form_items.filter(function (field) {
+        return field && field.item_label;
       }) : [];
 
       // 項目が1つも無い場合は差し替えない（初期状態を残す）

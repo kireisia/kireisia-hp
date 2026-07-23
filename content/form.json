@@ -1,67 +1,71 @@
 {
-  "fields": [
+  "form_items": [
     {
-      "label": "姓",
-      "type": "text",
-      "required": true,
+      "item_label": "姓",
+      "input_type": "text",
+      "is_required": true,
       "placeholder": "お掃除",
       "help": "",
       "half": true,
-      "options": []
+      "choices": []
     },
     {
-      "label": "名",
-      "type": "text",
-      "required": true,
+      "item_label": "名",
+      "input_type": "text",
+      "is_required": true,
       "placeholder": "太郎",
       "help": "",
       "half": true,
-      "options": []
+      "choices": []
     },
     {
-      "label": "メールアドレス",
-      "type": "email",
-      "required": true,
+      "item_label": "メールアドレス",
+      "input_type": "email",
+      "is_required": true,
       "placeholder": "例）yamada@example.com",
       "help": "",
       "half": false,
-      "options": []
+      "choices": []
     },
     {
-      "label": "電話番号",
-      "type": "tel",
-      "required": false,
+      "item_label": "電話番号",
+      "input_type": "tel",
+      "is_required": false,
       "placeholder": "0674930993",
       "help": "",
       "half": false,
-      "options": []
+      "choices": []
     },
     {
-      "label": "住所",
-      "type": "text",
-      "required": true,
+      "item_label": "住所",
+      "input_type": "text",
+      "is_required": true,
       "placeholder": "大阪府大阪市城東区東中浜7丁目2-21",
       "help": "",
       "half": false,
-      "options": []
+      "choices": []
     },
     {
-      "label": "駐車スペース",
-      "type": "radio",
-      "required": false,
+      "item_label": "駐車スペース",
+      "input_type": "radio",
+      "is_required": false,
       "placeholder": "",
       "help": "",
       "half": false,
-      "options": ["あり（有料）", "あり（無料）", "なし"]
+      "choices": [
+        "あり（有料）",
+        "あり（無料）",
+        "なし"
+      ]
     },
     {
-      "label": "お問い合わせの種類",
-      "type": "checkbox",
-      "required": false,
+      "item_label": "お問い合わせの種類",
+      "input_type": "checkbox",
+      "is_required": false,
       "placeholder": "",
       "help": "",
       "half": false,
-      "options": [
+      "choices": [
         "通常エアコン",
         "お掃除機能付きエアコン",
         "縦型洗濯機",
@@ -71,13 +75,13 @@
       ]
     },
     {
-      "label": "内容",
-      "type": "textarea",
-      "required": true,
+      "item_label": "内容",
+      "input_type": "textarea",
+      "is_required": true,
       "placeholder": "ご質問、ご要望のみのお問い合せでも大歓迎です。 具体的にご依頼を検討されているお客様は、電話番号、ご住所（市町村まででも結構です）も内容欄に記載いただけると助かります。",
       "help": "ご希望の数量やオプションを詳しく記載いただけますとスムーズに対応させていただけます。",
       "half": false,
-      "options": []
+      "choices": []
     }
   ]
 }
