@@ -1197,9 +1197,14 @@ content:
         format: json
         fields:
           - name: form_items
-            label: 入力項目（上から順に表示されます）
+            label: 入力項目（上から順に、フォームに表示されます）
             type: object
-            list: true
+            # 各項目は折りたたんで表示し、見出しに「番号. 項目名（入力のしかた）」を出す。
+            # 全部開いた状態だと縦に長くなり、フォームとの対応が分からなくなるため。
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{index}. {fields.item_label}"
             fields:
               - name: item_label
                 label: 項目名
