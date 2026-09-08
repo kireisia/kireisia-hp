@@ -1,0 +1,20 @@
+# ============================================================
+# Dependabot 設定（GitHub Actions のバージョン見張り番）
+#
+# 何をするか:
+#   ワークフローで使っている部品（actions/checkout など）が
+#   新しくなったら、GitHubが自動でプルリクエストを出して知らせてくれる。
+#
+# なぜ要るか:
+#   GitHubは数年に一度、古い部品を強制的に削除する。
+#   （例：2026-09-23 に Node 20 が削除され、checkout@v4 が動かなくなった）
+#   これを入れておくと、期限が来る前に気づける。
+# ============================================================
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"   # 月1回チェックする（毎日だと通知が多すぎるため）
+    commit-message:
+      prefix: "chore"
