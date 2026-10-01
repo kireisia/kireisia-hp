@@ -1,0 +1,3 @@
+id,category,company_name,prefecture,city,contact_email,contact_page_url,source_url,status,notes,date_added,date_contacted
+1,hotel,(サンプル)大阪シティホテル京橋,大阪府,大阪市城東区,,https://osaka-city-hotel.com/contact/,https://osaka-city-hotel.com/,example,フォーマット確認用のサンプル行。実データではありません。,2026-10-01,
+2,nursing_care,(サンプル)○○介護サービス,大阪府,大阪市,info@example.com,,https://example.com/,example,フォーマット確認用のサンプル行。実データではありません。,2026-10-01,
