@@ -17,6 +17,7 @@ on:
   push:
     paths:
       - "content/blog/**"
+      - "content/blog-categories/**"
       - "**.md"
 
 # 生成物をコミット＆プッシュするため、リポジトリへの書き込み権限を付与

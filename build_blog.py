@@ -17,6 +17,7 @@ published: true の記事だけを対象に、
 """
 
 import html
+import json
 import os
 import re
 import shutil
@@ -59,6 +60,10 @@ OGP_IMAGE = SITE_BASE + "/images/ogp.jpg"
 
 # カテゴリのchip配色（施工事例だけ暖色、それ以外は水色テーマ）
 CATEGORY_WARM = {"施工事例", "お知らせ"}
+
+# カテゴリ一覧の置き場所（Pages CMSの「ブログ → カテゴリ」で追加・並べ替えする）
+# 1カテゴリ＝1つのJSONファイル（{"name": "エアコン", "order": 1}）
+CATEGORY_DIR = os.path.join(BASE_DIR, "content", "blog-categories")
 
 
 # ============================================================
@@ -169,6 +174,72 @@ def load_articles():
 
     articles.sort(key=sort_key, reverse=True)
     return articles
+
+
+def load_categories(category_dir=CATEGORY_DIR):
+    """
+    content/blog-categories/*.json からカテゴリ名を読み、表示順に並べて返す。
+
+    ・order（数字）の小さい順。order が空・数字でないものは最後（名前順）
+    ・同じ名前が複数あれば1つにまとめる
+    ・壊れたファイル・名前の無いファイルは警告を出して飛ばす
+    戻り値: カテゴリ名のリスト（フォルダが無ければ空リスト）
+    """
+    if not os.path.isdir(category_dir):
+        print(f"  [警告] カテゴリのフォルダが見つかりません: {category_dir}")
+        return []
+
+    entries = []
+    for file_name in sorted(os.listdir(category_dir)):
+        if not file_name.endswith(".json"):
+            continue
+        file_path = os.path.join(category_dir, file_name)
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except (OSError, ValueError) as error:
+            print(
+                f"  [警告] カテゴリ {file_name} を読めませんでした（飛ばします）: {error}"
+            )
+            continue
+
+        name = str(data.get("name", "")).strip() if isinstance(data, dict) else ""
+        if not name:
+            print(f"  [警告] カテゴリ {file_name} に名前がありません（飛ばします）")
+            continue
+
+        # 並び順：数字に直せないものは最後に回す
+        try:
+            order = float(data.get("order"))
+        except (TypeError, ValueError):
+            order = float("inf")
+        entries.append((order, name))
+
+    entries.sort(key=lambda entry: (entry[0], entry[1]))
+
+    names = []
+    for _, name in entries:
+        if name not in names:
+            names.append(name)
+    return names
+
+
+def visible_categories(category_names, articles):
+    """
+    絞り込みボタンに出すカテゴリを決める。
+
+    ・カテゴリ一覧の順番どおり。ただし公開記事が0本のカテゴリは出さない
+    ・一覧に無いカテゴリの記事（名前変更前の記事など）も、消さずに末尾へ出す
+    """
+    used = []
+    for article in articles:
+        category = article.get("category", "")
+        if category and category not in used:
+            used.append(category)
+
+    result = [name for name in category_names if name in used]
+    result += [name for name in used if name not in result]
+    return result
 
 
 # ============================================================
@@ -1230,9 +1301,35 @@ def update_llms_txt(articles):
     print(f"  生成: llms.txt（ブログ記事一覧 {len(articles)} 件を更新）")
 
 
+def render_filter_buttons(category_names):
+    """
+    一覧ページ上部の絞り込みボタン（すべて＋各カテゴリ）のHTMLを返す。
+    先頭の「すべて」だけ選択状態。カテゴリ名はHTMLエスケープする。
+    """
+    active_class = "blog-filter bg-primary text-white text-sm font-bold px-4 py-2 rounded-full cursor-pointer"
+    normal_class = (
+        "blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 "
+        "rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer"
+    )
+    buttons = [
+        f'      <button type="button" class="{active_class}" data-filter="すべて" aria-pressed="true">すべて</button>'
+    ]
+    for name in category_names:
+        safe_name = html.escape(name)
+        buttons.append(
+            f'      <button type="button" class="{normal_class}" data-filter="{safe_name}" aria-pressed="false">{safe_name}</button>'
+        )
+    return "\n".join(buttons)
+
+
 def render_list_page(articles):
     """記事一覧ページ blog.html を生成して返す"""
     root = ""  # blog.html はルート直下なので相対パスのプレフィックス不要
+
+    # 絞り込みボタン：CMSのカテゴリ一覧の順番で、公開記事のあるカテゴリだけ出す
+    filter_buttons_html = render_filter_buttons(
+        visible_categories(load_categories(), articles)
+    )
 
     # 記事カードを date降順（loadで既にソート済み）で並べる
     cards = []
@@ -1306,13 +1403,7 @@ def render_list_page(articles):
 <section class="pb-6 bg-white">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div id="blogFilters" class="flex flex-wrap justify-center gap-2">
-      <button type="button" class="blog-filter bg-primary text-white text-sm font-bold px-4 py-2 rounded-full cursor-pointer" data-filter="すべて" aria-pressed="true">すべて</button>
-      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="エアコン" aria-pressed="false">エアコン</button>
-      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="浴室・水回り" aria-pressed="false">浴室・水回り</button>
-      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="キッチン" aria-pressed="false">キッチン</button>
-      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="料金・相場" aria-pressed="false">料金・相場</button>
-      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="施工事例" aria-pressed="false">施工事例</button>
-      <button type="button" class="blog-filter bg-surface text-text-sub text-sm font-medium px-4 py-2 rounded-full ring-1 ring-border hover:ring-primary/40 cursor-pointer" data-filter="お知らせ" aria-pressed="false">お知らせ</button>
+{filter_buttons_html}
     </div>
   </div>
 </section>

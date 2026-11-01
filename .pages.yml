@@ -1119,12 +1119,16 @@ content:
                 - { value: article, label: お役立ち記事 }
                 - { value: case, label: 施工事例 }
             default: article
+          # カテゴリは「ブログ → カテゴリ」で登録したものから選ぶ（保存されるのはカテゴリ名）
           - name: category
             label: カテゴリ
-            type: select
+            type: reference
+            description: 選択肢を増やす時は、左メニュー「ブログ → カテゴリ」で追加してください。
             options:
-              values: [エアコン, 浴室・水回り, キッチン, 料金・相場, 施工事例, お知らせ]
-            default: 料金・相場
+              collection: blog_categories
+              value: "{name}"
+              label: "{name}"
+              search: name
           - name: date
             label: 公開日
             type: date
@@ -1162,6 +1166,31 @@ content:
           - name: body
             label: 本文
             type: rich-text
+
+      # ブログのカテゴリ（一覧ページの絞り込みボタン＋記事のカテゴリ選択肢になる）
+      - name: blog_categories
+        label: カテゴリ
+        type: collection
+        path: content/blog-categories
+        format: json
+        # ファイル名は作成日時から自動で作る（日本語名でも壊れないように）
+        filename: 'category-{year}{month}{day}-{hour}{minute}{second}.json'
+        view:
+          fields: [name, order]
+          primary: name
+          default:
+            sort: order
+            order: asc
+        fields:
+          - name: name
+            label: カテゴリ名
+            type: string
+            required: true
+            description: ブログ一覧のボタンに表示される名前。公開中の記事が1本もないカテゴリのボタンは表示されません。
+          - name: order
+            label: 並び順
+            type: number
+            description: 小さい数字ほど左に表示されます（例 1, 2, 3）。
 
   # 【3】お問い合わせ
   - name: page_contact
