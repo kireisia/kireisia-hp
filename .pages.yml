@@ -1126,9 +1126,10 @@ content:
             description: 選択肢を増やす時は、左メニュー「ブログ → カテゴリ」で追加してください。
             options:
               collection: blog_categories
-              value: "{name}"
-              label: "{name}"
-              search: name
+              # {name} はPages CMSでは「ファイル名」の意味になるため、必ず {fields.name} と書く
+              value: "{fields.name}"
+              label: "{fields.name}"
+              search: fields.name
           - name: date
             label: 公開日
             type: date
