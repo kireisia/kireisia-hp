@@ -1110,7 +1110,7 @@ content:
           - name: slug
             label: ファイル名（slug）
             type: string
-            description: 半角英数字とハイフンのみ。例 aircon-price-osaka （日本語・スペースは使わない）
+            description: 記事ページのURLの最後の部分になります（例 aircon-price-osaka → https://www.kireisia.co.jp/blog/aircon-price-osaka.html）。半角英数字とハイフンのみ（日本語・スペースは使わない）。公開後に変えるとURLが変わり、SNS等に貼ったリンクが開けなくなります。
           - name: type
             label: 記事タイプ
             type: select
