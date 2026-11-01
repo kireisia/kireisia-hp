@@ -1200,7 +1200,7 @@ content:
             label: カテゴリ名
             type: string
             required: true
-            description: ブログ一覧のボタンに表示される名前。公開中の記事が1本もないカテゴリのボタンは表示されません。
+            description: ブログ一覧のボタンに表示される名前。記事が0本でもボタンは表示されます（押すと「このジャンルの記事はまだありません。」と出ます）。
           - name: order
             label: 並び順
             type: number

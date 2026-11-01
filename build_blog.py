@@ -294,7 +294,8 @@ def visible_categories(category_names, articles):
     """
     絞り込みボタンに出すカテゴリを決める。
 
-    ・カテゴリ一覧の順番どおり。ただし公開記事が0本のカテゴリは出さない
+    ・カテゴリ一覧の順番どおり。公開記事が0本のカテゴリも出す（2026-11-02 RIKIYA指示）
+      → 押すと「このジャンルの記事はまだありません。」と表示される
     ・一覧に無いカテゴリの記事（名前変更前の記事など）も、消さずに末尾へ出す
     """
     used = []
@@ -303,7 +304,7 @@ def visible_categories(category_names, articles):
         if category and category not in used:
             used.append(category)
 
-    result = [name for name in category_names if name in used]
+    result = list(category_names)
     result += [name for name in used if name not in result]
     return result
 
@@ -1392,7 +1393,7 @@ def render_list_page(articles):
     """記事一覧ページ blog.html を生成して返す"""
     root = ""  # blog.html はルート直下なので相対パスのプレフィックス不要
 
-    # 絞り込みボタン：CMSのカテゴリ一覧の順番で、公開記事のあるカテゴリだけ出す
+    # 絞り込みボタン：CMSのカテゴリ一覧の順番で全部出す（記事0本でも出す）
     filter_buttons_html = render_filter_buttons(
         visible_categories(load_categories(), articles)
     )
