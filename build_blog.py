@@ -71,6 +71,45 @@ CATEGORY_DIR = os.path.join(BASE_DIR, "content", "blog-categories")
 # ============================================================
 
 
+def join_block_lines(block_lines, style):
+    """
+    改行入りの値（YAMLのブロック形式）の行をつないで1つの文字列にする。
+    ・`|` 系＝改行をそのまま残す ／ `>` 系＝改行をスペースにする（空行は段落区切りとして残す）
+    ・共通の字下げを外し、末尾の空行は取り除く
+    """
+    # 字下げの最小幅（空行は除いて数える）を求めて外す
+    indents = [len(line) - len(line.lstrip()) for line in block_lines if line.strip()]
+    cut = min(indents) if indents else 0
+    stripped = [line[cut:] if line.strip() else "" for line in block_lines]
+    while stripped and not stripped[-1]:
+        stripped.pop()
+
+    if style.startswith("|"):
+        return "\n".join(stripped)
+
+    # 折りたたみ形式：連続する行は1行にまとめ、空行は改行として残す
+    paragraphs = []
+    current = []
+    for line in stripped:
+        if line:
+            current.append(line)
+        else:
+            paragraphs.append(" ".join(current))
+            current = []
+    paragraphs.append(" ".join(current))
+    return "\n".join(paragraphs)
+
+
+def clean_slug(slug):
+    """slug の前後の空白（全角スペース・タブ含む）を取る。URLに %20 が混ざるのを防ぐ"""
+    return str(slug).strip().strip("　").strip()
+
+
+def format_lead_html(lead):
+    """リード文をHTMLにする（無害化してから、改行を <br> にする）"""
+    return html.escape(lead).replace("\n", "<br>")
+
+
 def parse_front_matter(text):
     """
     マークダウンファイルの先頭にある `---` で囲まれたフロントマターを解析する。
@@ -88,18 +127,43 @@ def parse_front_matter(text):
     body_start_index = 0
     closed = False
 
+    # 改行入りの値（`lead: |-` の次から字下げされた行が続く形）を読んでいる途中のキー
+    block_key = None
+    block_style = ""
+    block_lines = []
+
+    def finish_block():
+        """読み途中の改行入りの値を確定して meta に入れる"""
+        if block_key is not None:
+            meta[block_key] = join_block_lines(block_lines, block_style)
+
     # 1行目は `---` なので2行目から探索する
     for i in range(1, len(lines)):
         line = lines[i]
         if line.strip() == "---":
             # フロントマターの終わり
+            finish_block()
             body_start_index = i + 1
             closed = True
             break
+
+        # 改行入りの値の続き（字下げされた行・空行）はキーとして読まずに貯める
+        if block_key is not None and (line.startswith((" ", "\t")) or not line.strip()):
+            block_lines.append(line)
+            continue
+        finish_block()
+        block_key = None
+
         # `キー: 値` を分解（最初のコロンだけで分ける）
         if ":" in line:
             key, _, value = line.partition(":")
             value = value.strip()
+            # CMSが改行入りの文章を保存すると `|-` などの記号だけが1行目に来る
+            if value in ("|", "|-", "|+", ">", ">-", ">+"):
+                block_key = key.strip()
+                block_style = value
+                block_lines = []
+                continue
             # YAMLで値が引用符で囲まれている場合は外す（CMSがタイトル等を "..." で出力するため）
             if len(value) >= 2 and value[0] == value[-1] and value[0] in ('"', "'"):
                 value = value[1:-1]
@@ -162,6 +226,8 @@ def load_articles():
             )
             continue
 
+        # slug の前後の空白を取る（CMSでコピペ時に混ざるとURLが壊れるため）
+        meta["slug"] = clean_slug(meta["slug"])
         meta["body"] = body
         articles.append(meta)
 
@@ -1067,7 +1133,7 @@ def render_article_page(article):
 
   <div class="bg-primary-50 border-l-4 border-primary rounded-r-xl p-5 sm:p-6 my-6">
     <p class="text-sm sm:text-base leading-relaxed">
-      <strong class="text-text-main">{html.escape(article["lead"])}</strong>
+      <strong class="text-text-main">{format_lead_html(article["lead"])}</strong>
     </p>
   </div>
 
@@ -1195,7 +1261,7 @@ def render_case_page(article):
 
   <div class="bg-primary-50 border-l-4 border-primary rounded-r-xl p-5 sm:p-6 my-6">
     <p class="text-sm sm:text-base leading-relaxed">
-      <strong class="text-text-main">{html.escape(article["lead"])}</strong>
+      <strong class="text-text-main">{format_lead_html(article["lead"])}</strong>
     </p>
   </div>
 

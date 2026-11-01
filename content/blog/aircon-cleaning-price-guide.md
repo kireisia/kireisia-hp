@@ -1,6 +1,6 @@
 ---
 title: エアコンクリーニングの料金相場は？通常タイプとお掃除機能付きの違い・費用の確認ポイント
-slug: "    aircon-cleaning-price-guide"
+slug: aircon-cleaning-price-guide
 type: article
 category: 料金・相場
 date: 2026-10-27
