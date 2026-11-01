@@ -1107,6 +1107,7 @@ content:
           - name: title
             label: 記事タイトル
             type: string
+            description: 【必須】記事ページの見出しと、Google検索結果のタイトルになります。読む人の悩みが伝わる言葉で（例 エアコンクリーニングの料金相場は？）。
           - name: slug
             label: ファイル名（slug）
             type: string
@@ -1123,11 +1124,12 @@ content:
                 - { value: article, label: お役立ち記事 }
                 - { value: case, label: 施工事例 }
             default: article
+            description: お役立ち記事＝掃除のコツや料金の解説。施工事例＝実際の作業の紹介（下の「施工事例のとき入力」欄が「施工概要」の表として表示されます）。
           # カテゴリは「ブログ → カテゴリ」で登録したものから選ぶ（保存されるのはカテゴリ名）
           - name: category
             label: カテゴリ
             type: reference
-            description: 選択肢を増やす時は、左メニュー「ブログ → カテゴリ」で追加してください。
+            description: 【必須】ブログ一覧の絞り込みボタンで、この記事が入るグループです。選択肢を増やす時は、左メニュー「ブログ → カテゴリ」で追加してください。
             options:
               collection: blog_categories
               # {name} はPages CMSでは「ファイル名」の意味になるため、必ず {fields.name} と書く
@@ -1137,40 +1139,47 @@ content:
           - name: date
             label: 公開日
             type: date
+            description: 【必須】記事に「◯年◯月◯日 更新」と表示され、ブログ一覧はこの日付の新しい順に並びます。
           - name: thumbnail
             label: サムネイル画像（一覧に表示）
             type: image
+            description: ブログ一覧のカードに表示される画像です。空欄の場合はロゴ画像が表示されます。
           - name: description
             label: 検索用の説明文（meta description）
             type: text
-            description: 検索結果やSNSに表示される説明。70〜120字目安。
+            description: 【必須】Google検索結果やSNSで、タイトルの下に出る紹介文です（記事ページには表示されません）。70〜120字目安。空欄だと記事が公開されません。
           - name: lead
             label: 冒頭の結論文（リード）
             type: text
-            description: 記事の最初に表示する「結論」の一文。
+            description: 【必須】記事の一番上の青い枠に出る「この記事の答え」です。本文の書き出しと同じ文にせず、結論だけを1〜2文で（例 料金は機種で変わります。お掃除機能付きは追加料金がかかる場合があります）。ブログ一覧のカードの紹介文にも使われます。
           # ---- ここから下は 記事タイプ=施工事例(case) のときだけ入力 ----
           - name: place
             label: 施工事例(case)のとき入力｜場所
             type: string
+            description: 「施工概要」の表に表示されます（例 大阪市城東区のマンション）。お役立ち記事では空欄のままでOK。
           - name: work
             label: 施工事例(case)のとき入力｜作業内容
             type: string
+            description: 例 エアコン分解洗浄
           - name: scale
             label: 施工事例(case)のとき入力｜台数・規模
             type: string
+            description: 例 壁掛けエアコン3台
           - name: days
             label: 施工事例(case)のとき入力｜所要日数
             type: string
+            description: 例 1日
           # ---- 公開設定 ----
           - name: published
             label: 公開する
             type: boolean
             default: false
-            description: ONにすると次回ビルドでサイトに公開されます。
+            description: ONで公開、OFFのままなら下書き（サイトに出ません）。※【必須】の欄が1つでも空だと、ONでも公開されません。
           # ---- 本文 ----
           - name: body
             label: 本文
             type: rich-text
+            description: 記事の本文です。見出しを使うと、記事の上に目次が自動でできます。
 
       # ブログのカテゴリ（一覧ページの絞り込みボタン＋記事のカテゴリ選択肢になる）
       - name: blog_categories
