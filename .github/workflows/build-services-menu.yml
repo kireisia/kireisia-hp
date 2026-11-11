@@ -1,0 +1,61 @@
+# ============================================================
+# 追加サービスの左メニュー自動生成（GitHub Actions）
+# 作成: 2026-11-11
+#
+# 何をするか:
+#   編集画面（Pages CMS）で追加サービスを作る・名前を変える・消すと
+#   content/extra-services/ が変わる → build_services_menu.py を実行して
+#   ①.pages.yml の左メニュー（空気の王様の下・追加サービスの上）
+#   ②content/extra-services-index.json（ページが読む一覧）
+#   を作り直し、変更があればコミット＆プッシュする。
+#   書き換え後の設定が読めない時はスクリプトが止まり、何もコミットしない。
+# ============================================================
+
+name: 追加サービスの左メニュー自動生成
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/extra-services/**"
+      - "build_services_menu.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# ブログの自動処理などと同時に push してぶつからないよう、1本ずつ順番に動かす
+concurrency:
+  group: build-services-menu
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ソースコードを取得する
+        uses: actions/checkout@v7
+
+      - name: Python をセットアップする
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: 設定の確認に使う部品（PyYAML）を入れる
+        run: pip install pyyaml==6.0.2
+
+      - name: 左メニューと一覧を作り直す
+        run: python3 build_services_menu.py
+
+      - name: 変更があればコミットしてプッシュする
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .pages.yml content/extra-services-index.json
+          if git diff --staged --quiet; then
+            echo "変更はありませんでした。コミットをスキップします。"
+          else
+            git commit -m "追加サービスの左メニューを自動更新する（build_services_menu.py）"
+            git pull --rebase
+            git push
+          fi

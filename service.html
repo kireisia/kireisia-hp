@@ -1393,7 +1393,7 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
 </template>
 
 <!-- Pages CMS データ読み込み -->
-<script src="js/services-order.js?v=2"></script>
+<script src="js/services-order.js?v=3"></script>
 <script>
 // content/*.json を読み込んでHTML上のdata-cms-field要素に反映する
 (async function loadCmsContent(){
@@ -1528,11 +1528,24 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
     // サービスカード（各サービスのカード＋空気の王様・追加サービス・表示順）
     // 読み込みに失敗しても、この下（選ばれる理由・FAQ・詳細など）の反映は止めない
     try {
-      let servicesData = null;
+      // 追加サービス：一覧ファイル（自動生成）→ 1件ずつのファイルを読む。1件壊れていても他は出す
+      const extraItems = [];
       try {
-        const servicesResponse = await fetch('content/services.json', {cache:'no-cache'});
-        if (servicesResponse.ok) servicesData = await servicesResponse.json();
-      } catch(e) { console.error('[サービス一覧] services.json の読み込みに失敗しました', e); }
+        const indexResponse = await fetch('content/extra-services-index.json', {cache:'no-cache'});
+        const fileNames = indexResponse.ok ? await indexResponse.json() : [];
+        const files = await Promise.all((Array.isArray(fileNames) ? fileNames : []).map(async function(fileName){
+          if (typeof fileName !== 'string' || !/^[\w.-]+\.json$/.test(fileName)) return null;
+          try {
+            const response = await fetch('content/extra-services/' + fileName, {cache:'no-cache'});
+            return response.ok ? await response.json() : null;
+          } catch(e) { console.error('[サービス一覧] 追加サービス ' + fileName + ' の読み込みに失敗しました', e); return null; }
+        }));
+        files.forEach(function(data){
+          const item = window.KireisiaServices ? window.KireisiaServices.fromExtraFile(data) : null;
+          if (item) extraItems.push(item);
+        });
+      } catch(e) { console.error('[サービス一覧] 追加サービスの一覧の読み込みに失敗しました', e); }
+      const servicesData = { extra: extraItems };
       if (window.KireisiaServices) {
         const cardsData = window.KireisiaServices.mergeCards(servicesData, modalDataByKey);
         applyContent('services', cardsData);

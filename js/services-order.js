@@ -101,6 +101,29 @@
   }
 
   /**
+   * 追加サービス1件のファイル（content/extra-services/*.json）を、カードを作る形に直す
+   * 下書き（published が false）は null を返す＝ページに出さない
+   */
+  function fromExtraFile(data) {
+    if (!data || typeof data !== 'object') return null;
+    if (data.published === false) return null;
+    const card = data.card && typeof data.card === 'object' ? data.card : {};
+    return {
+      title: data.title,
+      image: card.image,
+      badge: card.badge,
+      description: card.description,
+      price: card.price,
+      order: card.order,
+      detail_lead: data.detail_lead,
+      detail_price_title: data.detail_price_title,
+      detail_price_note: data.detail_price_note,
+      detail_price_list: data.detail_price_list,
+      detail_notes: data.detail_notes,
+    };
+  }
+
+  /**
    * カードの値を1つにまとめる
    * servicesData   : content/services.json（空気の王様・追加サービス。古い形なら12種のカードも入っている）
    * modalDataByKey : {aircon: content/modals/aircon.json の中身, ...}
@@ -365,7 +388,7 @@
     });
   }
 
-  const api = { sortKeys: sortKeys, normalizeExtras: normalizeExtras, mergeCards: mergeCards, apply: apply };
+  const api = { sortKeys: sortKeys, normalizeExtras: normalizeExtras, mergeCards: mergeCards, fromExtraFile: fromExtraFile, apply: apply };
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = api;
   } else {
