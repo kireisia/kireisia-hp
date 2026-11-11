@@ -59,6 +59,24 @@
       });
   }
 
+  /** 文字の一覧から空の行を取り除く */
+  function cleanStrings(list) {
+    return Array.isArray(list) ? list.map(cleanText).filter(function (text) { return text; }) : [];
+  }
+
+  /** {name, price} などの行の一覧から、全部空の行を取り除く */
+  function cleanRows(list, keys) {
+    if (!Array.isArray(list)) return [];
+    return list
+      .filter(function (row) { return row && typeof row === 'object'; })
+      .map(function (row) {
+        const cleaned = {};
+        keys.forEach(function (key) { cleaned[key] = cleanText(row[key]); });
+        return cleaned;
+      })
+      .filter(function (row) { return keys.some(function (key) { return row[key]; }); });
+  }
+
   /** 追加サービスの入力を整理する（タイトルが空の行は無視） */
   function normalizeExtras(list) {
     if (!Array.isArray(list)) return [];
@@ -67,19 +85,14 @@
       if (!item || typeof item !== 'object') return;
       const title = cleanText(item.title);
       if (!title) return;
-      const priceRows = Array.isArray(item.detail_price_list)
-        ? item.detail_price_list
-            .filter(function (row) {
-              return row && typeof row === 'object' && (cleanText(row.name) || cleanText(row.price));
-            })
-            .map(function (row) {
-              return { name: cleanText(row.name), price: cleanText(row.price) };
-            })
-        : [];
-      const notes = Array.isArray(item.detail_notes)
-        ? item.detail_notes.map(cleanText).filter(function (n) { return n; })
-        : [];
+      const priceRows = cleanRows(item.detail_price_list, ['name', 'price']);
+      const notes = cleanStrings(item.detail_notes);
       const lead = cleanText(item.detail_lead);
+      const concerns = cleanStrings(item.concerns_list);
+      const options = cleanRows(item.options_list, ['name', 'price']);
+      const points = cleanStrings(item.points_list);
+      // FAQ は質問が空の行は出さない（答えだけでは意味が通らないため）
+      const faqs = cleanRows(item.faq_list, ['question', 'answer']).filter(function (row) { return row.question; });
       const extra = {
         key: 'extra-' + (result.length + 1),
         title: title,
@@ -93,8 +106,18 @@
         detailPriceNote: cleanText(item.detail_price_note),
         detailPriceList: priceRows,
         detailNotes: notes,
+        concernsTitle: cleanText(item.concerns_title),
+        concernsList: concerns,
+        optionsTitle: cleanText(item.options_title),
+        optionsList: options,
+        pointsTitle: cleanText(item.points_title),
+        pointsList: points,
+        faqTitle: cleanText(item.faq_title),
+        faqList: faqs,
       };
-      extra.hasDetail = Boolean(lead || priceRows.length || notes.length);
+      // 見出しだけ入っていても中身が空なら「詳細」ボタンは出さない
+      extra.hasDetail = Boolean(lead || priceRows.length || notes.length || concerns.length ||
+        options.length || points.length || faqs.length);
       result.push(extra);
     });
     return result;
@@ -120,6 +143,14 @@
       detail_price_note: data.detail_price_note,
       detail_price_list: data.detail_price_list,
       detail_notes: data.detail_notes,
+      concerns_title: data.concerns_title,
+      concerns_list: data.concerns_list,
+      options_title: data.options_title,
+      options_list: data.options_list,
+      points_title: data.points_title,
+      points_list: data.points_list,
+      faq_title: data.faq_title,
+      faq_list: data.faq_list,
     };
   }
 
@@ -224,6 +255,37 @@
     return card;
   }
 
+  // ページにある部品（<template>）で箇条書きの1行を作る。部品が無ければ素の行にする
+  function listItem(templateId, text) {
+    const template = document.getElementById(templateId);
+    if (template && template.content) {
+      const clone = template.content.firstElementChild.cloneNode(true);
+      const target = clone.querySelector('[data-content]');
+      if (target) {
+        target.textContent = text;
+        return clone;
+      }
+    }
+    return el('li', 'text-sm text-text-sub', text);
+  }
+
+  // 料金表（行が1つも無ければ何も出さない）
+  function appendPriceTable(container, title, note, rows) {
+    if (!rows.length) return;
+    const titleRow = el('div', 'flex items-baseline gap-3 mb-3');
+    titleRow.appendChild(el('h3', 'font-display font-bold text-base', title));
+    if (note) titleRow.appendChild(el('span', 'text-[10px] text-text-light', note));
+    container.appendChild(titleRow);
+    const table = el('div', 'rounded-xl ring-1 ring-border overflow-hidden mb-6');
+    rows.forEach(function (row) {
+      const line = el('div', 'price-row flex justify-between items-center px-5 py-3.5 text-sm');
+      line.appendChild(el('span', 'text-text-main font-medium', row.name));
+      line.appendChild(el('span', 'text-primary font-bold', row.price));
+      table.appendChild(line);
+    });
+    container.appendChild(table);
+  }
+
   function buildModal(extra) {
     const overlay = el('div', 'modal-overlay fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm');
     overlay.id = 'modal-' + extra.key;
@@ -249,24 +311,41 @@
       img.loading = 'lazy';
       content.appendChild(img);
     }
+    // ① お悩みリスト（今の13サービスと同じ「！」付きの箱）
+    if (extra.concernsList.length) {
+      const box = el('div', 'bg-surface rounded-xl p-5 mb-6 ring-1 ring-border');
+      box.appendChild(el('p', 'font-display font-bold text-sm text-text-main mb-3', extra.concernsTitle || 'こんなお悩みございませんか？'));
+      const ul = el('ul', 'space-y-2');
+      extra.concernsList.forEach(function (text) { ul.appendChild(listItem('tpl-concern-item-warm', text)); });
+      box.appendChild(ul);
+      content.appendChild(box);
+    }
     if (extra.detailLead) {
       content.appendChild(el('p', 'text-sm text-text-sub leading-relaxed mb-6 whitespace-pre-line', extra.detailLead));
     }
-    if (extra.detailPriceList.length) {
-      const titleRow = el('div', 'flex items-baseline gap-3 mb-3');
-      titleRow.appendChild(el('h3', 'font-display font-bold text-base', extra.detailPriceTitle || '料金'));
-      if (extra.detailPriceNote) {
-        titleRow.appendChild(el('span', 'text-[10px] text-text-light', extra.detailPriceNote));
-      }
-      content.appendChild(titleRow);
-      const table = el('div', 'rounded-xl ring-1 ring-border overflow-hidden mb-6');
-      extra.detailPriceList.forEach(function (row) {
-        const line = el('div', 'price-row flex justify-between items-center px-5 py-3.5 text-sm');
-        line.appendChild(el('span', 'text-text-main font-medium', row.name));
-        line.appendChild(el('span', 'text-primary font-bold', row.price));
-        table.appendChild(line);
+    // ② 料金表・③ オプション（同じ表の形）
+    appendPriceTable(content, extra.detailPriceTitle || '料金', extra.detailPriceNote, extra.detailPriceList);
+    appendPriceTable(content, extra.optionsTitle || 'オプション', '', extra.optionsList);
+    // ④ キレイシアのポイント（チェック付きの箱）
+    if (extra.pointsList.length) {
+      content.appendChild(el('h3', 'font-display font-bold text-base mb-3', extra.pointsTitle || 'キレイシアのポイント'));
+      const box = el('div', 'bg-primary-50 rounded-xl p-5 mb-6');
+      const ul = el('ul', 'space-y-2');
+      extra.pointsList.forEach(function (text) { ul.appendChild(listItem('tpl-point-item', text)); });
+      box.appendChild(ul);
+      content.appendChild(box);
+    }
+    // ⑤ よくある質問（押すと開く）
+    if (extra.faqList.length) {
+      content.appendChild(el('h3', 'font-display font-bold text-base mb-3', extra.faqTitle || 'よくある質問'));
+      const list = el('div', 'space-y-2 mb-6');
+      extra.faqList.forEach(function (row) {
+        const details = el('details', 'group bg-surface rounded-lg ring-1 ring-border');
+        details.appendChild(el('summary', 'cursor-pointer px-4 py-3 text-xs font-medium text-text-main hover:text-primary transition-colors', row.question));
+        details.appendChild(el('div', 'px-4 pb-3 text-xs text-text-sub leading-relaxed whitespace-pre-line', row.answer));
+        list.appendChild(details);
       });
-      content.appendChild(table);
+      content.appendChild(list);
     }
     if (extra.detailNotes.length) {
       const noteBox = el('div', 'bg-warm-light rounded-lg p-3 mb-6');

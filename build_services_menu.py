@@ -47,11 +47,16 @@ FIELDS_YAML = f"""              - {{name: title, label: サービス名（カー
                   - {{name: description, label: 説明文, type: text}}
                   - {{name: price, label: "価格表示（例：¥5,000〜（税込）・空なら「お見積り」）", type: string}}
                   - {{name: order, label: {ORDER_LABEL}, type: number}}
-              - {{name: detail_lead, label: 詳細画面の説明文（説明文・料金表・注意書きが全部空なら「詳細」ボタンは出ません）, type: text}}
-              - {{name: detail_price_title, label: 詳細画面の料金表 見出し（空なら「料金」）, type: string}}
-              - {{name: detail_price_note, label: 詳細画面の料金表 注記（例：※すべて税込価格）, type: string}}
+              - {{name: detail_lead, label: 詳細画面の紹介文（詳細画面の欄が全部空なら「詳細」ボタンは出ません。空の欄は表示されません）, type: text}}
+              - {{name: concerns_title, label: お悩みリスト 見出し（空なら「こんなお悩みございませんか？」）, type: string}}
+              - name: concerns_list
+                label: お悩みリスト 項目（1行ずつ）
+                type: string
+                list: true
+              - {{name: detail_price_title, label: 料金表 見出し（空なら「料金」）, type: string}}
+              - {{name: detail_price_note, label: 料金表 注記（例：※すべて税込価格）, type: string}}
               - name: detail_price_list
-                label: 詳細画面の料金表 項目
+                label: 料金表 項目
                 type: object
                 list:
                   collapsible:
@@ -60,8 +65,35 @@ FIELDS_YAML = f"""              - {{name: title, label: サービス名（カー
                 fields:
                   - {{name: name, label: 項目名, type: string}}
                   - {{name: price, label: 料金, type: string}}
+              - {{name: options_title, label: オプション 見出し（空なら「オプション」）, type: string}}
+              - name: options_list
+                label: オプション 項目
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{{index}}. {{fields.name}}"
+                fields:
+                  - {{name: name, label: 項目名, type: string}}
+                  - {{name: price, label: 料金, type: string}}
+              - {{name: points_title, label: キレイシアのポイント 見出し（空なら「キレイシアのポイント」）, type: string}}
+              - name: points_list
+                label: キレイシアのポイント 項目（1行ずつ）
+                type: string
+                list: true
+              - {{name: faq_title, label: よくある質問 見出し（空なら「よくある質問」）, type: string}}
+              - name: faq_list
+                label: よくある質問 項目
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{{index}}. {{fields.question}}"
+                fields:
+                  - {{name: question, label: 質問, type: string}}
+                  - {{name: answer, label: 回答, type: text}}
               - name: detail_notes
-                label: 詳細画面の注意書き（1行ずつ）
+                label: 注意書き（1行ずつ）
                 type: string
                 list: true"""
 
@@ -76,7 +108,10 @@ def load_services(services_dir):
             continue
         if not SAFE_FILE_NAME.match(file_name):
             # ページ側（service.html）も同じ条件で読むので、通らない名前はメニューにも載せない
-            print(f"[警告] {file_name} は使えない文字を含むため飛ばします（半角英数字・_・.・- だけ）", file=sys.stderr)
+            print(
+                f"[警告] {file_name} は使えない文字を含むため飛ばします（半角英数字・_・.・- だけ）",
+                file=sys.stderr,
+            )
             continue
         path = os.path.join(services_dir, file_name)
         try:
