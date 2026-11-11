@@ -1117,41 +1117,6 @@ content:
               - {name: price_text, label: 料金 説明, type: string}
 
           # ▼自動生成：追加サービス（build_services_menu.py が書き換える・この間は手で編集しない）
-          - name: extra_service_autotest
-            label: "テスト（自動確認用・すぐ消します）"
-            type: file
-            path: "content/extra-services/service-autotest.json"
-            format: json
-            fields:
-              - {name: title, label: サービス名（カードのタイトル・必須）※新しく作った時は、保存して1〜2分後に再読み込みすると左メニューに出ます, type: string}
-              - {name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}
-              - name: card
-                label: カード（サービス一覧に並ぶ枠）
-                type: object
-                fields:
-                  - {name: image, label: カード画像, type: image}
-                  - {name: badge, label: 画像左上の札（例：NEW・空なら出しません。カード画像がある時だけ表示）, type: string}
-                  - {name: description, label: 説明文, type: text}
-                  - {name: price, label: "価格表示（例：¥5,000〜（税込）・空なら「お見積り」）", type: string}
-                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-              - {name: detail_lead, label: 詳細画面の説明文（説明文・料金表・注意書きが全部空なら「詳細」ボタンは出ません）, type: text}
-              - {name: detail_price_title, label: 詳細画面の料金表 見出し（空なら「料金」）, type: string}
-              - {name: detail_price_note, label: 詳細画面の料金表 注記（例：※すべて税込価格）, type: string}
-              - name: detail_price_list
-                label: 詳細画面の料金表 項目
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{index}. {fields.name}"
-                fields:
-                  - {name: name, label: 項目名, type: string}
-                  - {name: price, label: 料金, type: string}
-              - name: detail_notes
-                label: 詳細画面の注意書き（1行ずつ）
-                type: string
-                list: true
-
           - name: extra_services
             label: ＋ サービスを追加
             type: collection
