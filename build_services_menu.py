@@ -30,11 +30,14 @@ PAGES_YML_PATH = os.path.join(BASE_DIR, ".pages.yml")
 MARK_START = "          # ▼自動生成：追加サービス（build_services_menu.py が書き換える・この間は手で編集しない）"
 MARK_END = "          # ▲自動生成ここまで"
 
+SAFE_FILE_NAME = re.compile(r"^[A-Za-z0-9_.-]+\.json$")
+CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f]")
+
 ORDER_LABEL = "表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）"
 
 # 追加サービス1件の入力欄（左メニューの各行と「追加サービス」の新規作成で共通）
 FIELDS_YAML = f"""              - {{name: title, label: サービス名（カードのタイトル・必須）, type: string}}
-              - {{name: published, label: ページに表示する（オフにすると下書き＝お客様には見えない）, type: boolean, default: true}}
+              - {{name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}}
               - name: card
                 label: カード（サービス一覧に並ぶ枠）
                 type: object
@@ -71,6 +74,10 @@ def load_services(services_dir):
     for file_name in sorted(os.listdir(services_dir)):
         if not file_name.endswith(".json"):
             continue
+        if not SAFE_FILE_NAME.match(file_name):
+            # ページ側（service.html）も同じ条件で読むので、通らない名前はメニューにも載せない
+            print(f"[警告] {file_name} は使えない文字を含むため飛ばします（半角英数字・_・.・- だけ）", file=sys.stderr)
+            continue
         path = os.path.join(services_dir, file_name)
         try:
             with open(path, encoding="utf-8") as f:
@@ -86,7 +93,7 @@ def load_services(services_dir):
             )
             continue
         title = data.get("title")
-        title = title.strip() if isinstance(title, str) else ""
+        title = CONTROL_CHARS.sub("", title).strip() if isinstance(title, str) else ""
         card = data.get("card") if isinstance(data.get("card"), dict) else {}
         order = card.get("order")
         has_order = isinstance(order, (int, float)) and not isinstance(order, bool)
@@ -112,13 +119,18 @@ def menu_name(file_name):
 def build_block(services):
     """印の間に入れる文字（各サービスの行＋「追加サービス」の新規作成）を作る"""
     lines = [MARK_START]
+    used_names = set()
     for service in services:
+        name = menu_name(service["file"])
+        while name in used_names:  # a-b.json と a_b.json のように重なったら番号を足す
+            name += "_2"
+        used_names.add(name)
         label = service["title"] or "（サービス名が未入力）"
         lines += [
-            f"          - name: {menu_name(service['file'])}",
+            f"          - name: {name}",
             f"            label: {json.dumps(label, ensure_ascii=False)}",
             "            type: file",
-            f"            path: content/extra-services/{service['file']}",
+            f"            path: {json.dumps('content/extra-services/' + service['file'])}",
             "            format: json",
             "            fields:",
             FIELDS_YAML,

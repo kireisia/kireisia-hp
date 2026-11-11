@@ -53,5 +53,7 @@ jobs:
             echo "生成物に変更はありませんでした。コミットをスキップします。"
           else
             git commit -m "ブログ生成物を自動更新する（build_blog.py）"
+            # 追加サービスの自動処理などと同時に push した時に断られないよう、先に最新を取り込む
+            git pull --rebase
             git push
           fi

@@ -1128,7 +1128,7 @@ content:
               primary: title
             fields:
               - {name: title, label: サービス名（カードのタイトル・必須）, type: string}
-              - {name: published, label: ページに表示する（オフにすると下書き＝お客様には見えない）, type: boolean, default: true}
+              - {name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}
               - name: card
                 label: カード（サービス一覧に並ぶ枠）
                 type: object

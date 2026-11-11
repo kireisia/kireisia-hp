@@ -20,6 +20,9 @@ on:
       - "content/extra-services/**"
       - "build_services_menu.py"
   workflow_dispatch:
+  # 取りこぼし（失敗）があっても翌日には直るよう、毎日1回作り直す（日本時間 朝6時）
+  schedule:
+    - cron: "0 21 * * *"
 
 permissions:
   contents: write
@@ -33,8 +36,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # 起動したコミットではなく「今の最新の main」を取る（続けて保存された時に古い状態から作らない）
       - name: ソースコードを取得する
         uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Python をセットアップする
         uses: actions/setup-python@v7
@@ -44,18 +51,27 @@ jobs:
       - name: 設定の確認に使う部品（PyYAML）を入れる
         run: pip install pyyaml==6.0.2
 
-      - name: 左メニューと一覧を作り直す
-        run: python3 build_services_menu.py
-
-      - name: 変更があればコミットしてプッシュする
+      # push が他の保存とぶつかったら、最新を取り直して作り直す（最大5回）
+      - name: 左メニューと一覧を作り直してプッシュする
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .pages.yml content/extra-services-index.json
-          if git diff --staged --quiet; then
-            echo "変更はありませんでした。コミットをスキップします。"
-          else
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 build_services_menu.py
+            git add .pages.yml content/extra-services-index.json
+            if git diff --staged --quiet; then
+              echo "変更はありませんでした。"
+              exit 0
+            fi
             git commit -m "追加サービスの左メニューを自動更新する（build_services_menu.py）"
-            git pull --rebase
-            git push
-          fi
+            if git push origin HEAD:main; then
+              echo "${attempt}回目で反映しました。"
+              exit 0
+            fi
+            echo "他の保存とぶつかったため、取り直して作り直します（${attempt}回目）"
+            sleep $((attempt * 5))
+          done
+          echo "[E010] 5回続けてぶつかりました。翌朝の自動実行で作り直されます。"
+          exit 1
