@@ -137,7 +137,7 @@ content:
                 type: string
 
       - name: services
-        label: サービスカード一覧（12種）
+        label: サービスカード一覧（並び順・追加）
         type: file
         path: content/services.json
         format: json
@@ -150,6 +150,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: washer
             label: 洗濯機クリーニング
             type: object
@@ -158,6 +159,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: water
             label: 水回りクリーニング
             type: object
@@ -166,6 +168,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: sofa
             label: ソファクリーニング
             type: object
@@ -174,6 +177,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: mattress
             label: マットレスクリーニング
             type: object
@@ -182,6 +186,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: wall
             label: 壁紙再生コーティング
             type: object
@@ -190,6 +195,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: vacant
             label: 空室清掃
             type: object
@@ -198,6 +204,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: aircon_install
             label: エアコン設置
             type: object
@@ -206,6 +213,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: shop
             label: 店舗清掃
             type: object
@@ -214,6 +222,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: handyman
             label: 便利屋
             type: object
@@ -222,6 +231,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: drain
             label: 排水管洗浄
             type: object
@@ -230,6 +240,7 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
           - name: housekeeping
             label: 家事代行
             type: object
@@ -238,6 +249,43 @@ content:
               - {name: title, label: タイトル, type: string}
               - {name: description, label: 説明文, type: text}
               - {name: price, label: 価格表示, type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。10・20…の間に入れたい時は15など。空なら一番後ろ）, type: number}
+          - name: ousama
+            label: 空気の王様 抗菌エアコンフィルター（表示順だけ変更できます）
+            type: object
+            fields:
+              - {name: order, label: 表示順（小さい数字ほど前。空なら一番後ろ）, type: number}
+          - name: extra
+            label: 追加サービス（「＋」で追加・空の行は表示されません）
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{index}. {fields.title}"
+            fields:
+              - {name: title, label: タイトル（必須・空だとカードを表示しません）, type: string}
+              - {name: image, label: カード画像, type: image}
+              - {name: badge, label: 画像左上の札（例：NEW・空なら出しません。カード画像がある時だけ表示）, type: string}
+              - {name: description, label: 説明文, type: text}
+              - {name: price, label: "価格表示（例：¥5,000〜（税込）・空なら「お見積り」）", type: string}
+              - {name: order, label: 表示順（小さい数字ほど前。空なら一番後ろ）, type: number}
+              - {name: detail_lead, label: 詳細画面の説明文（詳細・料金表・注記が全部空なら「詳細」ボタンは出ません）, type: text}
+              - {name: detail_price_title, label: 詳細画面の料金表 見出し（空なら「料金」）, type: string}
+              - {name: detail_price_note, label: 詳細画面の料金表 注記（例：※すべて税込価格）, type: string}
+              - name: detail_price_list
+                label: 詳細画面の料金表 項目
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
+                fields:
+                  - {name: name, label: 項目名, type: string}
+                  - {name: price, label: 料金, type: string}
+              - name: detail_notes
+                label: 詳細画面の注意書き（1行ずつ）
+                type: string
+                list: true
 
       # サービスごとの詳細（料金表・FAQ・Before/After）
       - name: service_details

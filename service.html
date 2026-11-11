@@ -1393,6 +1393,7 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
 </template>
 
 <!-- Pages CMS データ読み込み -->
+<script src="js/services-order.js?v=1"></script>
 <script>
 // content/*.json を読み込んでHTML上のdata-cms-field要素に反映する
 (async function loadCmsContent(){
@@ -1514,11 +1515,17 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
       applyContent('hero', await heroResponse.json());
     }
 
-    // サービスカード（12枚）
-    const servicesResponse = await fetch('content/services.json', {cache:'no-cache'});
-    if (servicesResponse.ok) {
-      applyContent('services', await servicesResponse.json());
-    }
+    // サービスカード（既存12枚＋追加サービス・表示順）
+    // 読み込みに失敗しても、この下（選ばれる理由・FAQ・詳細など）の反映は止めない
+    try {
+      const servicesResponse = await fetch('content/services.json', {cache:'no-cache'});
+      if (servicesResponse.ok) {
+        const servicesData = await servicesResponse.json();
+        applyContent('services', servicesData);
+        // 追加サービスの表示と並び替え（js/services-order.js）。失敗しても既存カードはそのまま
+        if (window.KireisiaServices) window.KireisiaServices.apply(servicesData);
+      }
+    } catch(e) { console.error('[サービス一覧] サービスカードの読み込み・並び替えに失敗しました', e); }
 
     // 選ばれる理由
     const featuresResponse = await fetch('content/features.json', {cache:'no-cache'});
