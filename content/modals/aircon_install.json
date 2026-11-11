@@ -1,4 +1,11 @@
 {
+  "card": {
+    "image": "images/aircon-install-top.jpg",
+    "title": "エアコン設置",
+    "description": "エアコンの取付・取外し工事をプロが対応。引越し時の移設もお任せください。",
+    "price": "お見積り",
+    "order": 8
+  },
   "title": "エアコン設置",
   "badge_1": "出張費",
   "badge_1_strong": "0円",
@@ -7,11 +14,26 @@
   "price_section_title": "メニュー・料金",
   "price_section_note": "※すべて税込価格です　※時期によって金額が変動いたします",
   "price_list": [
-    {"name": "エアコン取り外し撤去", "price": "¥4,000〜"},
-    {"name": "取り付け", "price": "¥15,000〜"},
-    {"name": "取り外し", "price": "お見積り"},
-    {"name": "運搬費", "price": "お見積り"},
-    {"name": "移設（取外し＋取付け＋運搬）", "price": "お見積り"}
+    {
+      "name": "エアコン取り外し撤去",
+      "price": "¥4,000〜"
+    },
+    {
+      "name": "取り付け",
+      "price": "¥15,000〜"
+    },
+    {
+      "name": "取り外し",
+      "price": "お見積り"
+    },
+    {
+      "name": "運搬費",
+      "price": "お見積り"
+    },
+    {
+      "name": "移設（取外し＋取付け＋運搬）",
+      "price": "お見積り"
+    }
   ],
   "price_note": "※設置状況・配管の長さ等により料金が変動する場合があります。まずはお気軽にご相談ください。",
   "points_title": "キレイシアのポイント",
@@ -43,10 +65,26 @@
   ],
   "cancellation_title": "キャンセル料金",
   "cancellation_list": [
-    {"period": "作業日の5日前まで", "rate": "0%", "color": "main"},
-    {"period": "作業日の2〜4日前", "rate": "25%", "color": "warm"},
-    {"period": "作業日の前日", "rate": "50%", "color": "warm"},
-    {"period": "作業日当日", "rate": "100%", "color": "red"}
+    {
+      "period": "作業日の5日前まで",
+      "rate": "0%",
+      "color": "main"
+    },
+    {
+      "period": "作業日の2〜4日前",
+      "rate": "25%",
+      "color": "warm"
+    },
+    {
+      "period": "作業日の前日",
+      "rate": "50%",
+      "color": "warm"
+    },
+    {
+      "period": "作業日当日",
+      "rate": "100%",
+      "color": "red"
+    }
   ],
   "cancellation_note": "※作業日確定から48時間以内であれば、何日前でもキャンセル料は頂きません。"
 }

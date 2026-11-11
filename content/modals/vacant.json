@@ -1,22 +1,68 @@
 {
+  "card": {
+    "image": "images/vacant-top.jpg",
+    "title": "空室清掃",
+    "description": "引越し前後や退去後のお部屋を隅々まで丁寧に仕上げます。",
+    "price": "¥16,500〜",
+    "order": 7
+  },
   "title": "空室清掃",
   "intro": "引越し前後や退去後のお部屋を、プロの技術で徹底清掃。キッチン・浴室・トイレ・床など、隅々まで丁寧に仕上げます。",
   "price_section_title": "台数別料金表",
   "price_section_note": "※すべて税込価格です　※時期によって金額が変動いたします",
   "price_list": [
-    {"name": "1R", "price": "¥27,000"},
-    {"name": "1K", "price": "¥27,000"},
-    {"name": "1DK", "price": "¥40,000"},
-    {"name": "1LDK", "price": "¥50,000"},
-    {"name": "2K", "price": "¥48,000"},
-    {"name": "2DK", "price": "¥58,000"},
-    {"name": "2LDK", "price": "¥68,000"},
-    {"name": "3K", "price": "¥58,000"},
-    {"name": "3DK", "price": "¥68,000"},
-    {"name": "3LDK", "price": "¥80,000"},
-    {"name": "4K", "price": "¥75,000"},
-    {"name": "4DK", "price": "¥80,000"},
-    {"name": "4LDK", "price": "¥90,000"}
+    {
+      "name": "1R",
+      "price": "¥27,000"
+    },
+    {
+      "name": "1K",
+      "price": "¥27,000"
+    },
+    {
+      "name": "1DK",
+      "price": "¥40,000"
+    },
+    {
+      "name": "1LDK",
+      "price": "¥50,000"
+    },
+    {
+      "name": "2K",
+      "price": "¥48,000"
+    },
+    {
+      "name": "2DK",
+      "price": "¥58,000"
+    },
+    {
+      "name": "2LDK",
+      "price": "¥68,000"
+    },
+    {
+      "name": "3K",
+      "price": "¥58,000"
+    },
+    {
+      "name": "3DK",
+      "price": "¥68,000"
+    },
+    {
+      "name": "3LDK",
+      "price": "¥80,000"
+    },
+    {
+      "name": "4K",
+      "price": "¥75,000"
+    },
+    {
+      "name": "4DK",
+      "price": "¥80,000"
+    },
+    {
+      "name": "4LDK",
+      "price": "¥90,000"
+    }
   ],
   "points_title": "キレイシアのポイント",
   "points_intro": "プロの技でスッキリ！快適な空間をご提供します！",
@@ -42,10 +88,26 @@
   ],
   "cancellation_title": "キャンセル料金",
   "cancellation_list": [
-    {"period": "作業日の5日前まで", "rate": "0%", "color": "main"},
-    {"period": "作業日の2〜4日前", "rate": "25%", "color": "warm"},
-    {"period": "作業日の前日", "rate": "50%", "color": "warm"},
-    {"period": "作業日当日", "rate": "100%", "color": "red"}
+    {
+      "period": "作業日の5日前まで",
+      "rate": "0%",
+      "color": "main"
+    },
+    {
+      "period": "作業日の2〜4日前",
+      "rate": "25%",
+      "color": "warm"
+    },
+    {
+      "period": "作業日の前日",
+      "rate": "50%",
+      "color": "warm"
+    },
+    {
+      "period": "作業日当日",
+      "rate": "100%",
+      "color": "red"
+    }
   ],
   "cancellation_note": "※作業日確定から48時間以内であれば、何日前でもキャンセル料は頂きません。"
 }

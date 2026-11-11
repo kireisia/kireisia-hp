@@ -1,4 +1,11 @@
 {
+  "card": {
+    "image": "images/housekeeping-top.jpg",
+    "title": "家事代行",
+    "description": "プロが行うお掃除特化型の家事代行。掃除のコツもアドバイスいたします。",
+    "price": "¥3,500〜（税込）",
+    "order": 12
+  },
   "title": "家事代行",
   "badge_1": "出張費",
   "badge_1_strong": "0円",
@@ -7,8 +14,14 @@
   "price_section_title": "料金",
   "price_section_note": "※すべて税込価格です　※時期によって金額が変動いたします",
   "price_list": [
-    {"name": "1時間", "price": "¥3,500"},
-    {"name": "2時間目以降（1時間ごと）", "price": "¥3,500"}
+    {
+      "name": "1時間",
+      "price": "¥3,500"
+    },
+    {
+      "name": "2時間目以降（1時間ごと）",
+      "price": "¥3,500"
+    }
   ],
   "price_note": "※道具・洗剤はスタッフが持参します。お客様でご用意いただく必要はありません。",
   "points_title": "キレイシアのポイント",

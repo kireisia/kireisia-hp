@@ -2,7 +2,7 @@
  * サービス一覧ページ（service.html）：カードの並び順と「追加サービス」の表示
  * 作成: 2026-11-11
  *
- * データの出どころ: content/services.json（Pages CMS「サービスカード一覧」で編集）
+ * データの出どころ: content/modals/<サービス>.json の card（各サービスの画面で編集）＋ content/services.json
  *   - 既存12種の各カード … order（表示順の数字）
  *   - ousama.order       … 空気の王様フィルター（HTML固定カード）の表示順
  *   - extra[]            … 編集画面から追加したサービス
@@ -98,6 +98,30 @@
       result.push(extra);
     });
     return result;
+  }
+
+  /**
+   * カードの値を1つにまとめる
+   * servicesData   : content/services.json（空気の王様・追加サービス。古い形なら12種のカードも入っている）
+   * modalDataByKey : {aircon: content/modals/aircon.json の中身, ...}
+   * 各サービスのファイルに card があればそれを使い、無ければ services.json 側の値を残す（移行中の安全策）
+   */
+  function mergeCards(servicesData, modalDataByKey) {
+    const merged = {};
+    if (servicesData && typeof servicesData === 'object') {
+      Object.keys(servicesData).forEach(function (key) {
+        merged[key] = servicesData[key];
+      });
+    }
+    if (modalDataByKey && typeof modalDataByKey === 'object') {
+      Object.keys(modalDataByKey).forEach(function (key) {
+        const modalData = modalDataByKey[key];
+        if (modalData && typeof modalData === 'object' && modalData.card && typeof modalData.card === 'object') {
+          merged[key] = modalData.card;
+        }
+      });
+    }
+    return merged;
   }
 
   // ---------------- ここから下はブラウザ専用（画面の組み立て） ----------------
@@ -341,7 +365,7 @@
     });
   }
 
-  const api = { sortKeys: sortKeys, normalizeExtras: normalizeExtras, apply: apply };
+  const api = { sortKeys: sortKeys, normalizeExtras: normalizeExtras, mergeCards: mergeCards, apply: apply };
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = api;
   } else {

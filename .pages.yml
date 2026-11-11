@@ -136,169 +136,27 @@ content:
                 label: 注記
                 type: string
 
-      - name: services
-        label: サービスカード一覧（並び順・追加）
-        type: file
-        path: content/services.json
-        format: json
-        fields:
-          - name: aircon
-            label: エアコンクリーニング
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: washer
-            label: 洗濯機クリーニング
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: water
-            label: 水回りクリーニング
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: sofa
-            label: ソファクリーニング
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: mattress
-            label: マットレスクリーニング
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: wall
-            label: 壁紙再生コーティング
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: vacant
-            label: 空室清掃
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: aircon_install
-            label: エアコン設置
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: shop
-            label: 店舗清掃
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: handyman
-            label: 便利屋
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: drain
-            label: 排水管洗浄
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: housekeeping
-            label: 家事代行
-            type: object
-            fields:
-              - {name: image, label: カード画像, type: image}
-              - {name: title, label: タイトル, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: 価格表示, type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: ousama
-            label: 空気の王様 抗菌エアコンフィルター（表示順だけ変更できます）
-            type: object
-            fields:
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-          - name: extra
-            label: 追加サービス（「＋」で追加・空の行は表示されません）
-            type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{index}. {fields.title}"
-            fields:
-              - {name: title, label: タイトル（必須・空だとカードを表示しません）, type: string}
-              - {name: image, label: カード画像, type: image}
-              - {name: badge, label: 画像左上の札（例：NEW・空なら出しません。カード画像がある時だけ表示）, type: string}
-              - {name: description, label: 説明文, type: text}
-              - {name: price, label: "価格表示（例：¥5,000〜（税込）・空なら「お見積り」）", type: string}
-              - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
-              - {name: detail_lead, label: 詳細画面の説明文（詳細・料金表・注記が全部空なら「詳細」ボタンは出ません）, type: text}
-              - {name: detail_price_title, label: 詳細画面の料金表 見出し（空なら「料金」）, type: string}
-              - {name: detail_price_note, label: 詳細画面の料金表 注記（例：※すべて税込価格）, type: string}
-              - name: detail_price_list
-                label: 詳細画面の料金表 項目
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{index}. {fields.name}"
-                fields:
-                  - {name: name, label: 項目名, type: string}
-                  - {name: price, label: 料金, type: string}
-              - name: detail_notes
-                label: 詳細画面の注意書き（1行ずつ）
-                type: string
-                list: true
-
-      # サービスごとの詳細（料金表・FAQ・Before/After）
+      # サービスごと（カード＋詳細）。サービス名を押すと、カードの枠と詳細画面の中身が1画面に出る
       - name: service_details
-        label: サービスの詳細（料金表）
+        label: サービス（カード・詳細）
         type: group
         items:
           - name: modal_aircon
-            label: 詳細：エアコンクリーニング
+            label: エアコンクリーニング
             type: file
             path: content/modals/aircon.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: badge_1_line1, label: バッジ1上段（全機種対応）, type: string}
               - {name: badge_2_line1, label: バッジ2上段, type: string}
               - {name: badge_2_line2, label: バッジ2下段（強調）, type: string}
@@ -315,7 +173,10 @@ content:
               - name: price_group_1_items
                 label: 価格表 グループ1 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -324,7 +185,10 @@ content:
               - name: price_group_2_items
                 label: 価格表 グループ2 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -332,7 +196,10 @@ content:
               - name: options_list
                 label: オプション 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -346,7 +213,10 @@ content:
               - name: before_after_slides
                 label: Before/After スライド（追加・削除可）
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.caption}"
                 fields:
                   - {name: caption, label: キャプション, type: string}
                   - {name: before_image, label: Before画像, type: image}
@@ -367,7 +237,10 @@ content:
               - name: faq_list
                 label: FAQ 項目（追加・削除可）
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.question}"
                 fields:
                   - {name: question, label: 質問, type: string}
                   - {name: answer, label: 回答, type: text}
@@ -375,7 +248,10 @@ content:
               - name: cancellation_list
                 label: キャンセル料金 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.period}"
                 fields:
                   - {name: period, label: 期間, type: string}
                   - {name: rate, label: 料率, type: string}
@@ -389,12 +265,21 @@ content:
               - {name: seo_paragraph_2, label: SEOテキスト 段落2, type: text}
 
           - name: modal_washer
-            label: 詳細：洗濯機クリーニング
+            label: 洗濯機クリーニング
             type: file
             path: content/modals/washer.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: badge_1, label: バッジ1上段, type: string}
               - {name: badge_1_strong, label: バッジ1強調, type: string}
               - {name: badge_2, label: バッジ2, type: string}
@@ -412,7 +297,10 @@ content:
               - name: price_group_1_items
                 label: 価格表 グループ1 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -422,7 +310,10 @@ content:
               - name: price_subgroup_2a_items
                 label: グループ2 サブA項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -430,7 +321,10 @@ content:
               - name: price_subgroup_2b_items
                 label: グループ2 サブB項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -442,7 +336,10 @@ content:
               - name: options_list
                 label: オプション 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -456,7 +353,10 @@ content:
               - name: before_after_slides
                 label: Before/After スライド
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.caption}"
                 fields:
                   - {name: caption, label: キャプション, type: string}
                   - {name: before_image, label: Before画像, type: image}
@@ -472,18 +372,30 @@ content:
               - name: faq_list
                 label: FAQ 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.question}"
                 fields:
                   - {name: question, label: 質問, type: string}
                   - {name: answer, label: 回答, type: text}
 
           - name: modal_water
-            label: 詳細：水回りクリーニング
+            label: 水回りクリーニング
             type: file
             path: content/modals/water.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: concerns_title, label: お悩みリスト 見出し, type: string}
               - name: concerns_list
                 label: お悩みリスト 項目
@@ -495,7 +407,10 @@ content:
               - name: price_list
                 label: 価格表 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -503,7 +418,10 @@ content:
               - name: options_list
                 label: オプション 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -511,7 +429,10 @@ content:
               - name: before_after_slides
                 label: Before/After スライド
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.caption}"
                 fields:
                   - {name: caption, label: キャプション, type: string}
                   - {name: before_image, label: Before画像, type: image}
@@ -520,12 +441,21 @@ content:
                   - {name: after_alt, label: After画像説明, type: string}
 
           - name: modal_sofa
-            label: 詳細：ソファクリーニング
+            label: ソファクリーニング
             type: file
             path: content/modals/sofa.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: concerns_title, label: お悩みリスト 見出し, type: string}
               - name: concerns_list
                 label: お悩みリスト 項目
@@ -538,7 +468,10 @@ content:
               - name: price_list
                 label: 基本料金 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 素材, type: string}
                   - {name: price, label: 価格, type: string}
@@ -546,7 +479,10 @@ content:
               - name: options_list
                 label: オプション 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -554,7 +490,10 @@ content:
               - name: size_chart_list
                 label: サイズ早見表 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 人掛け, type: string}
                   - {name: price, label: 幅, type: string}
@@ -588,24 +527,39 @@ content:
               - name: faq_list
                 label: FAQ 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.question}"
                 fields:
                   - {name: question, label: 質問, type: string}
                   - {name: answer, label: 回答, type: text}
 
           - name: modal_mattress
-            label: 詳細：マットレスクリーニング
+            label: マットレスクリーニング
             type: file
             path: content/modals/mattress.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: price_one_side_title, label: 片面仕上げ 見出し, type: string}
               - {name: price_one_side_note, label: 片面仕上げ 注記, type: string}
               - name: price_one_side_list
                 label: 片面仕上げ 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: サイズ, type: string}
                   - {name: price, label: 価格, type: string}
@@ -614,7 +568,10 @@ content:
               - name: price_both_side_list
                 label: 両面仕上げ 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: サイズ, type: string}
                   - {name: price, label: 価格, type: string}
@@ -622,7 +579,10 @@ content:
               - name: options_list
                 label: オプション 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目名, type: string}
                   - {name: price, label: 価格, type: string}
@@ -630,7 +590,10 @@ content:
               - name: size_chart_list
                 label: サイズ表 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 名称, type: string}
                   - {name: price, label: 値, type: string}
@@ -645,7 +608,10 @@ content:
               - name: before_after_slides
                 label: Before/After スライド
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.caption}"
                 fields:
                   - {name: caption, label: キャプション, type: string}
                   - {name: before_image, label: Before画像, type: image}
@@ -666,19 +632,31 @@ content:
               - name: duration_list
                 label: 作業時間 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 条件, type: string}
                   - {name: price, label: 時間, type: string}
               - {name: duration_note, label: 作業時間 注記, type: string}
 
           - name: modal_wall
-            label: 詳細：壁紙再生コーティング
+            label: 壁紙再生コーティング
             type: file
             path: content/modals/wall.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: concept_title, label: コンセプト 見出し, type: string}
               - {name: concept_text, label: コンセプト 本文, type: text}
               - {name: merit_1_title, label: メリット1 見出し, type: string}
@@ -691,37 +669,55 @@ content:
               - name: price_group_1_items
                 label: グループ1 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields: [{name: name, label: 項目, type: string}, {name: price, label: 価格, type: string}]
               - {name: price_group_2_name, label: グループ2 名称, type: string}
               - name: price_group_2_items
                 label: グループ2 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields: [{name: name, label: 項目, type: string}, {name: price, label: 価格, type: string}]
               - {name: price_group_3_name, label: グループ3 名称, type: string}
               - name: price_group_3_items
                 label: グループ3 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields: [{name: name, label: 項目, type: string}, {name: price, label: 価格, type: string}]
               - {name: price_group_4_name, label: グループ4 名称, type: string}
               - name: price_group_4_items
                 label: グループ4 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields: [{name: name, label: 項目, type: string}, {name: price, label: 価格, type: string}]
               - {name: price_group_5_name, label: グループ5 名称, type: string}
               - name: price_group_5_items
                 label: グループ5 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields: [{name: name, label: 項目, type: string}, {name: price, label: 価格, type: string}]
               - {name: price_group_6_name, label: グループ6 名称, type: string}
               - name: price_group_6_items
                 label: グループ6 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields: [{name: name, label: 項目, type: string}, {name: price, label: 価格, type: string}]
               - {name: points_title, label: ポイント 見出し, type: string}
               - {name: points_intro, label: ポイント リード文, type: string}
@@ -733,7 +729,10 @@ content:
               - name: before_after_slides
                 label: Before/After スライド
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.caption}"
                 fields:
                   - {name: caption, label: キャプション, type: string}
                   - {name: before_image, label: Before画像, type: image}
@@ -742,19 +741,31 @@ content:
                   - {name: after_alt, label: After画像説明, type: string}
 
           - name: modal_vacant
-            label: 詳細：空室清掃
+            label: 空室清掃
             type: file
             path: content/modals/vacant.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: intro, label: 紹介文, type: text}
               - {name: price_section_title, label: 料金表 見出し, type: string}
               - {name: price_section_note, label: 料金表 注記, type: string}
               - name: price_list
                 label: 料金表 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 間取り, type: string}
                   - {name: price, label: 価格, type: string}
@@ -773,7 +784,10 @@ content:
               - name: cancellation_list
                 label: キャンセル料金 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.period}"
                 fields:
                   - {name: period, label: 期間, type: string}
                   - {name: rate, label: 料率, type: string}
@@ -784,12 +798,21 @@ content:
               - {name: cancellation_note, label: キャンセル料金 注記, type: string}
 
           - name: modal_aircon_install
-            label: 詳細：エアコン設置
+            label: エアコン設置
             type: file
             path: content/modals/aircon_install.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: badge_1, label: バッジ1, type: string}
               - {name: badge_1_strong, label: バッジ1強調, type: string}
               - {name: badge_2, label: バッジ2, type: string}
@@ -799,7 +822,10 @@ content:
               - name: price_list
                 label: 料金表 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目, type: string}
                   - {name: price, label: 価格, type: string}
@@ -824,7 +850,10 @@ content:
               - name: cancellation_list
                 label: キャンセル料金 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.period}"
                 fields:
                   - {name: period, label: 期間, type: string}
                   - {name: rate, label: 料率, type: string}
@@ -835,19 +864,31 @@ content:
               - {name: cancellation_note, label: キャンセル料金 注記, type: string}
 
           - name: modal_shop
-            label: 詳細：店舗清掃
+            label: 店舗清掃
             type: file
             path: content/modals/shop.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: intro, label: 紹介文, type: text}
               - {name: menu_title, label: メニュー 見出し, type: string}
               - {name: menu_note, label: メニュー 注記, type: string}
               - name: menu_list
                 label: メニュー 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目, type: string}
                   - {name: price, label: 価格, type: string}
@@ -855,7 +896,10 @@ content:
               - name: biz_aircon_list
                 label: 業務用エアコン 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目, type: string}
                   - {name: price, label: 価格, type: string}
@@ -864,7 +908,10 @@ content:
               - name: aircon_option_list
                 label: エアコンオプション 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目, type: string}
                   - {name: price, label: 価格, type: string}
@@ -883,18 +930,30 @@ content:
               - name: faq_list
                 label: FAQ 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.question}"
                 fields:
                   - {name: question, label: 質問, type: string}
                   - {name: answer, label: 回答, type: text}
 
           - name: modal_handyman
-            label: 詳細：便利屋
+            label: 便利屋
             type: file
             path: content/modals/handyman.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: intro_strong, label: 紹介文 強調, type: string}
               - {name: intro_text, label: 紹介文 本文, type: text}
               - {name: menu_title, label: メニュー 見出し, type: string}
@@ -902,7 +961,10 @@ content:
               - name: menu_list
                 label: メニュー 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目, type: string}
                   - {name: price, label: 価格, type: string}
@@ -913,7 +975,10 @@ content:
               - name: support_without_tools_list
                 label: 道具なし料金
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目, type: string}
                   - {name: price, label: 価格, type: string}
@@ -921,7 +986,10 @@ content:
               - name: support_with_tools_list
                 label: 道具あり料金
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目, type: string}
                   - {name: price, label: 価格, type: string}
@@ -940,28 +1008,49 @@ content:
               - name: faq_list
                 label: FAQ 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.question}"
                 fields:
                   - {name: question, label: 質問, type: string}
                   - {name: answer, label: 回答, type: text}
 
           - name: modal_drain
-            label: 詳細：排水管洗浄
+            label: 排水管洗浄
             type: file
             path: content/modals/drain.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: intro, label: 紹介文, type: text}
               - {name: price_note, label: 料金注記, type: text}
 
           - name: modal_housekeeping
-            label: 詳細：家事代行
+            label: 家事代行
             type: file
             path: content/modals/housekeeping.json
             format: json
             fields:
-              - {name: title, label: モーダルタイトル, type: string}
+              - name: card
+                label: カード（サービス一覧に並ぶ枠）
+                type: object
+                fields:
+                  - {name: image, label: カード画像, type: image}
+                  - {name: title, label: タイトル, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: 価格表示, type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - {name: title, label: 詳細画面の見出し, type: string}
               - {name: badge_1, label: バッジ1, type: string}
               - {name: badge_1_strong, label: バッジ1強調, type: string}
               - {name: badge_2, label: バッジ2, type: string}
@@ -971,7 +1060,10 @@ content:
               - name: price_list
                 label: 料金 項目
                 type: object
-                list: true
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.name}"
                 fields:
                   - {name: name, label: 項目, type: string}
                   - {name: price, label: 価格, type: string}
@@ -982,6 +1074,49 @@ content:
                 label: ポイント 項目
                 type: string
                 list: true
+
+          - name: services_extra
+            label: 空気の王様（表示順）・追加サービス
+            type: file
+            path: content/services.json
+            format: json
+            fields:
+              - name: ousama
+                label: 空気の王様 抗菌エアコンフィルター（表示順だけ変更できます）
+                type: object
+                fields:
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+              - name: extra
+                label: 追加サービス（「＋」で追加・空の行は表示されません）
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{index}. {fields.title}"
+                fields:
+                  - {name: title, label: タイトル（必須・空だとカードを表示しません）, type: string}
+                  - {name: image, label: カード画像, type: image}
+                  - {name: badge, label: 画像左上の札（例：NEW・空なら出しません。カード画像がある時だけ表示）, type: string}
+                  - {name: description, label: 説明文, type: text}
+                  - {name: price, label: "価格表示（例：¥5,000〜（税込）・空なら「お見積り」）", type: string}
+                  - {name: order, label: 表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）, type: number}
+                  - {name: detail_lead, label: 詳細画面の説明文（詳細・料金表・注記が全部空なら「詳細」ボタンは出ません）, type: text}
+                  - {name: detail_price_title, label: 詳細画面の料金表 見出し（空なら「料金」）, type: string}
+                  - {name: detail_price_note, label: 詳細画面の料金表 注記（例：※すべて税込価格）, type: string}
+                  - name: detail_price_list
+                    label: 詳細画面の料金表 項目
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{index}. {fields.name}"
+                    fields:
+                      - {name: name, label: 項目名, type: string}
+                      - {name: price, label: 料金, type: string}
+                  - name: detail_notes
+                    label: 詳細画面の注意書き（1行ずつ）
+                    type: string
+                    list: true
 
       - name: campaign
         label: キャンペーン告知

@@ -1,29 +1,69 @@
 {
+  "card": {
+    "image": "images/mattress-top.jpg",
+    "title": "マットレスクリーニング",
+    "description": "毎日使う寝具のダニ・ホコリを徹底除去。安眠の環境を。",
+    "price": "¥7,000〜（税込）",
+    "order": 5
+  },
   "title": "マットレスクリーニング",
   "price_one_side_title": "基本料金（片面仕上げ）",
   "price_one_side_note": "※すべて税込価格 / 枚あたり　※時期によって金額が変動いたします",
   "price_one_side_list": [
-    {"name": "ベビー・キッズ", "price": "¥7,000 /枚"},
-    {"name": "シングル", "price": "¥9,000 /枚"},
-    {"name": "セミダブル・ダブル", "price": "¥12,000 /枚"},
-    {"name": "クイーン・キング", "price": "¥16,000 /枚"}
+    {
+      "name": "ベビー・キッズ",
+      "price": "¥7,000 /枚"
+    },
+    {
+      "name": "シングル",
+      "price": "¥9,000 /枚"
+    },
+    {
+      "name": "セミダブル・ダブル",
+      "price": "¥12,000 /枚"
+    },
+    {
+      "name": "クイーン・キング",
+      "price": "¥16,000 /枚"
+    }
   ],
   "price_one_side_warning": "※全て片面仕上げの金額です",
   "price_both_side_title": "両面仕上げ料金",
   "price_both_side_list": [
-    {"name": "シングルサイズ", "price": "¥15,000 /枚"},
-    {"name": "セミダブル・ダブルサイズ", "price": "¥20,000 /枚"},
-    {"name": "クイーン・キングサイズ", "price": "¥25,000 /枚"}
+    {
+      "name": "シングルサイズ",
+      "price": "¥15,000 /枚"
+    },
+    {
+      "name": "セミダブル・ダブルサイズ",
+      "price": "¥20,000 /枚"
+    },
+    {
+      "name": "クイーン・キングサイズ",
+      "price": "¥25,000 /枚"
+    }
   ],
   "options_title": "オプション",
   "options_list": [
-    {"name": "シミ取り", "price": "¥1,500"}
+    {
+      "name": "シミ取り",
+      "price": "¥1,500"
+    }
   ],
   "size_chart_title": "マットレスサイズについて",
   "size_chart_list": [
-    {"name": "シングル", "price": "幅100cm未満"},
-    {"name": "セミダブル・ダブル", "price": "幅140cm未満"},
-    {"name": "クイーン・キング", "price": "幅200cm未満"}
+    {
+      "name": "シングル",
+      "price": "幅100cm未満"
+    },
+    {
+      "name": "セミダブル・ダブル",
+      "price": "幅140cm未満"
+    },
+    {
+      "name": "クイーン・キング",
+      "price": "幅200cm未満"
+    }
   ],
   "size_chart_note": "※各メーカーの基準を平均化したものとなります。ワイドダブルサイズはクイーンサイズの料金となります。",
   "points_title": "キレイシアのポイント",
@@ -38,8 +78,20 @@
   ],
   "before_after_title": "Before / After",
   "before_after_slides": [
-    {"caption": "マットレス シミ取りクリーニング", "before_image": "images/mattress-before1.jpg", "before_alt": "マットレス 黄ばみ・シミ付着状態", "after_image": "images/mattress-after1.jpg", "after_alt": "マットレス シミ取りクリーニング後"},
-    {"caption": "マットレス表面洗浄", "before_image": "images/mattress-before2.jpg", "before_alt": "マットレス表面 汚れ・変色状態", "after_image": "images/mattress-after2.jpg", "after_alt": "マットレス表面 洗浄後の清潔な状態"}
+    {
+      "caption": "マットレス シミ取りクリーニング",
+      "before_image": "images/mattress-before1.jpg",
+      "before_alt": "マットレス 黄ばみ・シミ付着状態",
+      "after_image": "images/mattress-after1.jpg",
+      "after_alt": "マットレス シミ取りクリーニング後"
+    },
+    {
+      "caption": "マットレス表面洗浄",
+      "before_image": "images/mattress-before2.jpg",
+      "before_alt": "マットレス表面 汚れ・変色状態",
+      "after_image": "images/mattress-after2.jpg",
+      "after_alt": "マットレス表面 洗浄後の清潔な状態"
+    }
   ],
   "no_clean_title": "主な洗浄不可製品一覧",
   "no_clean_list": [
@@ -59,8 +111,14 @@
   ],
   "duration_title": "作業時間目安",
   "duration_list": [
-    {"name": "シングル片面の場合", "price": "約1時間30分〜2時間"},
-    {"name": "ダブル両面の場合", "price": "約2時間〜2時間30分"}
+    {
+      "name": "シングル片面の場合",
+      "price": "約1時間30分〜2時間"
+    },
+    {
+      "name": "ダブル両面の場合",
+      "price": "約2時間〜2時間30分"
+    }
   ],
   "duration_note": "※作業時間は作業当日の気温や湿度、汚れの状態、オプション作業の有無により前後することがあります。"
 }

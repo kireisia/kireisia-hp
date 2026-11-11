@@ -1393,7 +1393,7 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
 </template>
 
 <!-- Pages CMS データ読み込み -->
-<script src="js/services-order.js?v=1"></script>
+<script src="js/services-order.js?v=2"></script>
 <script>
 // content/*.json を読み込んでHTML上のdata-cms-field要素に反映する
 (async function loadCmsContent(){
@@ -1515,17 +1515,31 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
       applyContent('hero', await heroResponse.json());
     }
 
-    // サービスカード（既存12枚＋追加サービス・表示順）
+    // 各サービスのファイル（カード＋詳細）を先にまとめて読む。1つ壊れていても他は読む
+    const serviceKeys = ['aircon','washer','water','sofa','mattress','wall','vacant','aircon_install','shop','handyman','drain','housekeeping'];
+    const modalDataByKey = {};
+    await Promise.all(serviceKeys.map(async function(serviceKey){
+      try {
+        const response = await fetch('content/modals/' + serviceKey + '.json', {cache:'no-cache'});
+        if (response.ok) modalDataByKey[serviceKey] = await response.json();
+      } catch(e) { console.error('[サービス一覧] ' + serviceKey + '.json の読み込みに失敗しました', e); }
+    }));
+
+    // サービスカード（各サービスのカード＋空気の王様・追加サービス・表示順）
     // 読み込みに失敗しても、この下（選ばれる理由・FAQ・詳細など）の反映は止めない
     try {
-      const servicesResponse = await fetch('content/services.json', {cache:'no-cache'});
-      if (servicesResponse.ok) {
-        const servicesData = await servicesResponse.json();
-        applyContent('services', servicesData);
+      let servicesData = null;
+      try {
+        const servicesResponse = await fetch('content/services.json', {cache:'no-cache'});
+        if (servicesResponse.ok) servicesData = await servicesResponse.json();
+      } catch(e) { console.error('[サービス一覧] services.json の読み込みに失敗しました', e); }
+      if (window.KireisiaServices) {
+        const cardsData = window.KireisiaServices.mergeCards(servicesData, modalDataByKey);
+        applyContent('services', cardsData);
         // 追加サービスの表示と並び替え（js/services-order.js）。失敗しても既存カードはそのまま
-        if (window.KireisiaServices) window.KireisiaServices.apply(servicesData);
+        window.KireisiaServices.apply(cardsData);
       }
-    } catch(e) { console.error('[サービス一覧] サービスカードの読み込み・並び替えに失敗しました', e); }
+    } catch(e) { console.error('[サービス一覧] サービスカードの反映・並び替えに失敗しました', e); }
 
     // 選ばれる理由
     const featuresResponse = await fetch('content/features.json', {cache:'no-cache'});
@@ -1551,24 +1565,14 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
       applyContent('ctas', await ctasResponse.json());
     }
 
-    // モーダル：エアコンクリーニング
-    const airconResponse = await fetch('content/modals/aircon.json', {cache:'no-cache'});
-    if (airconResponse.ok) {
-      const airconData = await airconResponse.json();
-      applyContent('modal_aircon', airconData);
-      renderCmsList('modal_aircon', airconData);
-    }
-    // モーダル群：洗濯機・水回り・ソファ・マットレス・壁紙再生・空室清掃・エアコン設置・店舗清掃・便利屋・排水管・家事代行
-    const modalNames = ['washer','water','sofa','mattress','wall','vacant','aircon_install','shop','handyman','drain','housekeeping'];
-    for (const modalName of modalNames) {
+    // 詳細画面（モーダル）12種：上で読んだ各サービスのファイルを反映する
+    for (const serviceKey of serviceKeys) {
+      const data = modalDataByKey[serviceKey];
+      if (!data) continue;
       try {
-        const response = await fetch('content/modals/' + modalName + '.json', {cache:'no-cache'});
-        if (response.ok) {
-          const data = await response.json();
-          applyContent('modal_' + modalName, data);
-          renderCmsList('modal_' + modalName, data);
-        }
-      } catch(e) {}
+        applyContent('modal_' + serviceKey, data);
+        renderCmsList('modal_' + serviceKey, data);
+      } catch(e) { console.error('[サービス一覧] ' + serviceKey + ' の詳細の反映に失敗しました', e); }
     }
     // CMS動的レンダリング後にBAカルーセルの初期化を再実行（新しい要素にスクロールハンドラを付ける）
     if (typeof window.initBeforeAfterCarousels === 'function') {
