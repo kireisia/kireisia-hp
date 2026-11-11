@@ -1118,7 +1118,7 @@ content:
 
           # ▼自動生成：追加サービス（build_services_menu.py が書き換える・この間は手で編集しない）
           - name: extra_services
-            label: 追加サービス（＋新規作成はここ・保存して1〜2分後に再読み込みすると左メニューに1行増えます）
+            label: ＋ サービスを追加
             type: collection
             path: content/extra-services
             format: json
@@ -1127,7 +1127,7 @@ content:
               fields: [title, published]
               primary: title
             fields:
-              - {name: title, label: サービス名（カードのタイトル・必須）, type: string}
+              - {name: title, label: サービス名（カードのタイトル・必須）※新しく作った時は、保存して1〜2分後に再読み込みすると左メニューに出ます, type: string}
               - {name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}
               - name: card
                 label: カード（サービス一覧に並ぶ枠）

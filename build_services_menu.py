@@ -36,7 +36,7 @@ CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f]")
 ORDER_LABEL = "表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）"
 
 # 追加サービス1件の入力欄（左メニューの各行と「追加サービス」の新規作成で共通）
-FIELDS_YAML = f"""              - {{name: title, label: サービス名（カードのタイトル・必須）, type: string}}
+FIELDS_YAML = f"""              - {{name: title, label: サービス名（カードのタイトル・必須）※新しく作った時は、保存して1〜2分後に再読み込みすると左メニューに出ます, type: string}}
               - {{name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}}
               - name: card
                 label: カード（サービス一覧に並ぶ枠）
@@ -138,7 +138,7 @@ def build_block(services):
         ]
     lines += [
         "          - name: extra_services",
-        "            label: 追加サービス（＋新規作成はここ・保存して1〜2分後に再読み込みすると左メニューに1行増えます）",
+        "            label: ＋ サービスを追加",
         "            type: collection",
         "            path: content/extra-services",
         "            format: json",
