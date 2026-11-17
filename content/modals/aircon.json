@@ -8,11 +8,9 @@
   },
   "title": "エアコンクリーニング",
   "badge_1_line1": "全機種対応",
-  "badge_1_line2": "",
   "badge_2_line1": "出張費・追加料金",
   "badge_2_line2": "0円",
   "badge_3_line1": "保険加入済み",
-  "badge_3_line2": "",
   "concerns_title": "こんなお悩みございませんか？",
   "concerns_list": [
     "エアコンから嫌なニオイがする",
@@ -84,7 +82,7 @@
     },
     {
       "name": "ドレンパン分解",
-      "price": "¥3,000"
+      "price": "¥4,000"
     },
     {
       "name": "完全分解",
