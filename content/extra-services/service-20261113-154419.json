@@ -3,10 +3,10 @@
   "published": true,
   "card": {
     "image": "images/ビルメンテナンス画像.jpg",
-    "description": "日常清掃・定期清掃で日々の生活、仕事を快適に",
+    "description": "日常清掃・定期清掃で日々の生活、仕事を快適に。\n",
     "order": 11
   },
-  "detail_lead": "日常清掃・定期清掃で日々の生活、仕事を快適に\n",
+  "detail_lead": "日常清掃・定期清掃で日々の生活、仕事を快適に。\n",
   "detail_price_list": [
     {
       "name": "日常清掃",
@@ -15,6 +15,9 @@
     {
       "name": "定期清掃",
       "price": "お見積り"
+    },
+    {
+      "name": "フィルター清掃"
     }
   ]
 }
