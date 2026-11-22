@@ -36,17 +36,17 @@ CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f]")
 ORDER_LABEL = "表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）"
 
 # 追加サービス1件の入力欄（左メニューの各行と「追加サービス」の新規作成で共通）
-FIELDS_YAML = f"""              - {{name: title, label: サービス名（カードのタイトル・必須）※新しく作った時は、保存して1〜2分後に再読み込みすると左メニューに出ます, type: string}}
-              - {{name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}}
-              - name: card
+FIELDS_YAML = f"""              - name: card
                 label: カード（サービス一覧に並ぶ枠）
                 type: object
                 fields:
                   - {{name: image, label: カード画像, type: image}}
-                  - {{name: badge, label: 画像左上の札（例：NEW・空なら出しません。カード画像がある時だけ表示）, type: string}}
+                  - {{name: title, label: サービス名（カードのタイトル・詳細画面の見出し・必須）※新しく作った時は、保存して1〜2分後に再読み込みすると左メニューに出ます, type: string}}
                   - {{name: description, label: 説明文, type: text}}
                   - {{name: price, label: "価格表示（例：¥5,000〜（税込）・空なら「お見積り」）", type: string}}
                   - {{name: order, label: {ORDER_LABEL}, type: number}}
+                  - {{name: badge, label: 画像左上の札（例：NEW・人気No.1。空なら出しません。カード画像がある時だけ表示）, type: string}}
+              - {{name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}}
               - {{name: detail_lead, label: 詳細画面の紹介文（詳細画面の欄が全部空なら「詳細」ボタンは出ません。空の欄は表示されません）, type: text}}
               - {{name: concerns_title, label: お悩みリスト 見出し（空なら「こんなお悩みございませんか？」）, type: string}}
               - name: concerns_list
@@ -54,10 +54,10 @@ FIELDS_YAML = f"""              - {{name: title, label: サービス名（カー
                 type: string
                 list: true
               - {{name: concerns_outro, label: お悩みリスト 締めの一文（例：プロのクリーニングでお悩み解決いたします）, type: string}}
-              - {{name: detail_price_title, label: 料金表 見出し（空なら「料金」）, type: string}}
-              - {{name: detail_price_note, label: 料金表 注記（例：※すべて税込価格）, type: string}}
+              - {{name: detail_price_title, label: 価格表 見出し（空なら「価格表」）, type: string}}
+              - {{name: detail_price_note, label: 価格表 注記（例：※すべて税込価格です）, type: string}}
               - name: detail_price_list
-                label: 料金表 項目
+                label: 価格表 項目
                 type: object
                 list:
                   collapsible:
@@ -107,9 +107,9 @@ FIELDS_YAML = f"""              - {{name: title, label: サービス名（カー
                 label: ご予約に関する注意事項 項目（1行ずつ）
                 type: string
                 list: true
-              - {{name: faq_title, label: よくある質問 見出し（空なら「よくある質問」）, type: string}}
+              - {{name: faq_title, label: よくあるご質問 見出し（空なら「よくあるご質問」）, type: string}}
               - name: faq_list
-                label: よくある質問 項目
+                label: よくあるご質問 項目
                 type: object
                 list:
                   collapsible:
@@ -150,7 +150,13 @@ FIELDS_YAML = f"""              - {{name: title, label: サービス名（カー
                   - {{name: body, label: 記述, type: text}}"""
 
 
+def clean_title(value):
+    """サービス名から制御文字と前後の空白を取り除く（文字でなければ空）"""
+    return CONTROL_CHARS.sub("", value).strip() if isinstance(value, str) else ""
+
+
 def load_services(services_dir):
+    # サービス名はカード枠の中（card.title）。2026-11-22 より前の置き場（一番上の title）も読む
     """追加サービスのファイルを読み、表示順→ファイル名の順に並べて返す（壊れたファイルは飛ばす）"""
     services = []
     if not os.path.isdir(services_dir):
@@ -179,9 +185,8 @@ def load_services(services_dir):
                 f"[警告] {file_name} の中身が正しくないため飛ばします", file=sys.stderr
             )
             continue
-        title = data.get("title")
-        title = CONTROL_CHARS.sub("", title).strip() if isinstance(title, str) else ""
         card = data.get("card") if isinstance(data.get("card"), dict) else {}
+        title = clean_title(card.get("title")) or clean_title(data.get("title"))
         order = card.get("order")
         has_order = isinstance(order, (int, float)) and not isinstance(order, bool)
         services.append(
@@ -231,8 +236,8 @@ def build_block(services):
         "            format: json",
         "            filename: 'service-{year}{month}{day}-{hour}{minute}{second}.json'",
         "            view:",
-        "              fields: [title, published]",
-        "              primary: title",
+        "              fields: [card.title, published]",
+        "              primary: card.title",
         "            fields:",
         FIELDS_YAML,
         MARK_END,

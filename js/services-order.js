@@ -174,7 +174,8 @@
     if (data.published === false) return null;
     const card = data.card && typeof data.card === 'object' ? data.card : {};
     return {
-      title: data.title,
+      // サービス名はカード枠の中。2026-11-22 より前の置き場（一番上の title）も読む
+      title: cleanText(card.title) || data.title,
       image: card.image,
       badge: card.badge,
       description: card.description,
@@ -456,7 +457,7 @@
       content.appendChild(el('p', 'text-sm text-text-sub leading-relaxed mb-6 whitespace-pre-line', extra.detailLead));
     }
     // ② 料金表・③ オプション（同じ表の形）
-    appendPriceTable(content, extra.detailPriceTitle || '料金', extra.detailPriceNote, extra.detailPriceList);
+    appendPriceTable(content, extra.detailPriceTitle || '価格表', extra.detailPriceNote, extra.detailPriceList);
     appendPriceTable(content, extra.optionsTitle || 'オプション', '', extra.optionsList);
     // ④ キレイシアのポイント（チェック付きの箱）
     if (extra.pointsList.length) {
@@ -477,9 +478,9 @@
       'bg-warm-light rounded-xl p-5 mb-6', 'tpl-warning-item-warm');
     appendNoteBox(content, extra.bookingNotesTitle || 'ご予約に関する注意事項', extra.bookingNotesList,
       'bg-surface rounded-xl p-5 mb-6 ring-1 ring-border', 'tpl-warning-item-primary');
-    // ⑧ よくある質問（押すと開く）
+    // ⑧ よくあるご質問（押すと開く）
     if (extra.faqList.length) {
-      content.appendChild(el('h3', 'font-display font-bold text-base mb-3', extra.faqTitle || 'よくある質問'));
+      content.appendChild(el('h3', 'font-display font-bold text-base mb-3', extra.faqTitle || 'よくあるご質問'));
       const list = el('div', 'space-y-2 mb-6');
       extra.faqList.forEach(function (row) {
         const details = el('details', 'group bg-surface rounded-lg ring-1 ring-border');

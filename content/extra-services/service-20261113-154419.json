@@ -1,11 +1,11 @@
 {
-  "title": "ビルメンテナンス",
-  "published": true,
   "card": {
     "image": "images/ビルメンテナンス画像.jpg",
+    "title": "ビルメンテナンス",
     "description": "日常清掃・定期清掃で日々の生活、仕事を快適に。\n",
     "order": 11
   },
+  "published": true,
   "detail_lead": "日常清掃・定期清掃で日々の生活、仕事を快適に。\n",
   "concerns_title": "キレイを維持したいかた、快適な空間を作りたい方",
   "detail_price_list": [
