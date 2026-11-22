@@ -48,20 +48,20 @@ FIELDS_YAML = f"""              - {{name: published, label: ページに表示�
                   - {{name: order, label: {ORDER_LABEL}, type: number}}
                   - {{name: badge, label: 画像左上の札（例：NEW・人気No.1。空なら出しません。カード画像がある時だけ表示）, type: string}}
               - name: detail
-                label: 詳細画面（カードの「詳細」を押すと開く画面。空の欄は表示されません）
+                label: 詳細画面（カードの「詳細」を押すと開く画面。【1】〜【12】は実際の画面の上からの順番です。空の欄は表示されません。全部空なら「詳細」ボタンは出ません）
                 type: object
                 fields:
-                  - {{name: detail_lead, label: 紹介文（この枠の欄が全部空なら、カードに「詳細」ボタンは出ません）, type: text}}
-                  - {{name: concerns_title, label: お悩みリスト 見出し（空なら「こんなお悩みございませんか？」）, type: string}}
+                  - {{name: concerns_title, label: 【1】お悩みリスト 見出し（空なら「こんなお悩みございませんか？」）, type: string}}
                   - name: concerns_list
-                    label: お悩みリスト 項目（1行ずつ）
+                    label: 【1】お悩みリスト 項目（1行ずつ）
                     type: string
                     list: true
-                  - {{name: concerns_outro, label: お悩みリスト 締めの一文（例：プロのクリーニングでお悩み解決いたします）, type: string}}
-                  - {{name: detail_price_title, label: 価格表 見出し（空なら「価格表」）, type: string}}
-                  - {{name: detail_price_note, label: 価格表 注記（例：※すべて税込価格です）, type: string}}
+                  - {{name: concerns_outro, label: 【1】お悩みリスト 締めの一文（例：プロのクリーニングでお悩み解決いたします）, type: string}}
+                  - {{name: detail_lead, label: 【2】紹介文, type: text}}
+                  - {{name: detail_price_title, label: 【3】価格表 見出し（空なら「価格表」）, type: string}}
+                  - {{name: detail_price_note, label: 【3】価格表 注記（例：※すべて税込価格です）, type: string}}
                   - name: detail_price_list
-                    label: 価格表 項目
+                    label: 【3】価格表 項目
                     type: object
                     list:
                       collapsible:
@@ -70,9 +70,9 @@ FIELDS_YAML = f"""              - {{name: published, label: ページに表示�
                     fields:
                       - {{name: name, label: 項目名, type: string}}
                       - {{name: price, label: 料金, type: string}}
-                  - {{name: options_title, label: オプション 見出し（空なら「オプション」）, type: string}}
+                  - {{name: options_title, label: 【4】オプション 見出し（空なら「オプション」）, type: string}}
                   - name: options_list
-                    label: オプション 項目
+                    label: 【4】オプション 項目
                     type: object
                     list:
                       collapsible:
@@ -81,15 +81,15 @@ FIELDS_YAML = f"""              - {{name: published, label: ページに表示�
                     fields:
                       - {{name: name, label: 項目名, type: string}}
                       - {{name: price, label: 料金, type: string}}
-                  - {{name: points_title, label: キレイシアのポイント 見出し（空なら「キレイシアのポイント」）, type: string}}
-                  - {{name: points_intro, label: キレイシアのポイント リード文（例：プロの技でスッキリ！快適な空間をご提供します！）, type: string}}
+                  - {{name: points_title, label: 【5】キレイシアのポイント 見出し（空なら「キレイシアのポイント」）, type: string}}
+                  - {{name: points_intro, label: 【5】キレイシアのポイント リード文（例：プロの技でスッキリ！快適な空間をご提供します！）, type: string}}
                   - name: points_list
-                    label: キレイシアのポイント 項目（1行ずつ）
+                    label: 【5】キレイシアのポイント 項目（1行ずつ）
                     type: string
                     list: true
-                  - {{name: before_after_title, label: Before/After 見出し（空なら「Before / After」）, type: string}}
+                  - {{name: before_after_title, label: 【6】Before/After 見出し（空なら「Before / After」）, type: string}}
                   - name: before_after_slides
-                    label: Before/After スライド（追加・削除可）
+                    label: 【6】Before/After スライド（追加・削除可）
                     type: object
                     list:
                       collapsible:
@@ -101,19 +101,19 @@ FIELDS_YAML = f"""              - {{name: published, label: ページに表示�
                       - {{name: before_alt, label: Before画像の説明（SEO用）, type: string}}
                       - {{name: after_image, label: After画像, type: image}}
                       - {{name: after_alt, label: After画像の説明（SEO用）, type: string}}
-                  - {{name: customer_request_title, label: お客様へお願い 見出し（空なら「お客様へお願い」）, type: string}}
+                  - {{name: customer_request_title, label: 【7】お客様へお願い 見出し（空なら「お客様へお願い」）, type: string}}
                   - name: customer_request_list
-                    label: お客様へお願い 項目（1行ずつ）
+                    label: 【7】お客様へお願い 項目（1行ずつ）
                     type: string
                     list: true
-                  - {{name: booking_notes_title, label: ご予約に関する注意事項 見出し（空なら「ご予約に関する注意事項」）, type: string}}
+                  - {{name: booking_notes_title, label: 【8】ご予約に関する注意事項 見出し（空なら「ご予約に関する注意事項」）, type: string}}
                   - name: booking_notes_list
-                    label: ご予約に関する注意事項 項目（1行ずつ）
+                    label: 【8】ご予約に関する注意事項 項目（1行ずつ）
                     type: string
                     list: true
-                  - {{name: faq_title, label: よくあるご質問 見出し（空なら「よくあるご質問」）, type: string}}
+                  - {{name: faq_title, label: 【9】よくあるご質問 見出し（空なら「よくあるご質問」）, type: string}}
                   - name: faq_list
-                    label: よくあるご質問 項目
+                    label: 【9】よくあるご質問 項目
                     type: object
                     list:
                       collapsible:
@@ -122,9 +122,9 @@ FIELDS_YAML = f"""              - {{name: published, label: ページに表示�
                     fields:
                       - {{name: question, label: 質問, type: string}}
                       - {{name: answer, label: 回答, type: text}}
-                  - {{name: cancellation_title, label: キャンセル料金 見出し（空なら「キャンセル料金」）, type: string}}
+                  - {{name: cancellation_title, label: 【10】キャンセル料金 見出し（空なら「キャンセル料金」）, type: string}}
                   - name: cancellation_list
-                    label: キャンセル料金 項目
+                    label: 【10】キャンセル料金 項目
                     type: object
                     list:
                       collapsible:
@@ -137,13 +137,13 @@ FIELDS_YAML = f"""              - {{name: published, label: ページに表示�
                         label: 強調色（main＝黒・warm＝オレンジ・red＝赤）
                         type: select
                         options: {{values: [main, warm, red]}}
-                  - {{name: cancellation_note, label: キャンセル料金 注記, type: string}}
+                  - {{name: cancellation_note, label: 【10】キャンセル料金 注記, type: string}}
                   - name: detail_notes
-                    label: 注意書き（1行ずつ）
+                    label: 【11】注意書き（1行ずつ）
                     type: string
                     list: true
                   - name: custom_sections
-                    label: ＋ 項目追加（項目名と記述・詳細画面の一番下に出ます。下の「Add an item」を押すたびに1つ増えます）
+                    label: 【12】＋ 項目追加（項目名と記述・詳細画面の一番下に出ます。下の「Add an item」を押すたびに1つ増えます）
                     type: object
                     list:
                       collapsible:
