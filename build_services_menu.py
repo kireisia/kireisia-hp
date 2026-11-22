@@ -143,7 +143,7 @@ FIELDS_YAML = f"""              - {{name: published, label: ページに表示�
                     type: string
                     list: true
                   - name: custom_sections
-                    label: ＋ 項目追加（項目名と記述・詳細画面の一番下に出ます。下の「Add an entry」を押すたびに1つ増えます）
+                    label: ＋ 項目追加（項目名と記述・詳細画面の一番下に出ます。下の「Add an item」を押すたびに1つ増えます）
                     type: object
                     list:
                       collapsible:
