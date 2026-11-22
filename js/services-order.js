@@ -173,6 +173,11 @@
     if (!data || typeof data !== 'object') return null;
     if (data.published === false) return null;
     const card = data.card && typeof data.card === 'object' ? data.card : {};
+    // 詳細画面の欄は「詳細画面」の枠（detail）の中。無い欄だけ 2026-11-22 より前の置き場（一番上）を読む
+    const detail = data.detail && typeof data.detail === 'object' ? data.detail : {};
+    function pick(key) {
+      return detail[key] !== undefined && detail[key] !== null ? detail[key] : data[key];
+    }
     return {
       // サービス名はカード枠の中。2026-11-22 より前の置き場（一番上の title）も読む
       title: cleanText(card.title) || data.title,
@@ -181,31 +186,31 @@
       description: card.description,
       price: card.price,
       order: card.order,
-      detail_lead: data.detail_lead,
-      detail_price_title: data.detail_price_title,
-      detail_price_note: data.detail_price_note,
-      detail_price_list: data.detail_price_list,
-      detail_notes: data.detail_notes,
-      concerns_title: data.concerns_title,
-      concerns_list: data.concerns_list,
-      options_title: data.options_title,
-      options_list: data.options_list,
-      points_title: data.points_title,
-      points_list: data.points_list,
-      faq_title: data.faq_title,
-      faq_list: data.faq_list,
-      concerns_outro: data.concerns_outro,
-      points_intro: data.points_intro,
-      before_after_title: data.before_after_title,
-      before_after_slides: data.before_after_slides,
-      customer_request_title: data.customer_request_title,
-      customer_request_list: data.customer_request_list,
-      booking_notes_title: data.booking_notes_title,
-      booking_notes_list: data.booking_notes_list,
-      cancellation_title: data.cancellation_title,
-      cancellation_list: data.cancellation_list,
-      cancellation_note: data.cancellation_note,
-      custom_sections: data.custom_sections,
+      detail_lead: pick('detail_lead'),
+      detail_price_title: pick('detail_price_title'),
+      detail_price_note: pick('detail_price_note'),
+      detail_price_list: pick('detail_price_list'),
+      detail_notes: pick('detail_notes'),
+      concerns_title: pick('concerns_title'),
+      concerns_list: pick('concerns_list'),
+      options_title: pick('options_title'),
+      options_list: pick('options_list'),
+      points_title: pick('points_title'),
+      points_list: pick('points_list'),
+      faq_title: pick('faq_title'),
+      faq_list: pick('faq_list'),
+      concerns_outro: pick('concerns_outro'),
+      points_intro: pick('points_intro'),
+      before_after_title: pick('before_after_title'),
+      before_after_slides: pick('before_after_slides'),
+      customer_request_title: pick('customer_request_title'),
+      customer_request_list: pick('customer_request_list'),
+      booking_notes_title: pick('booking_notes_title'),
+      booking_notes_list: pick('booking_notes_list'),
+      cancellation_title: pick('cancellation_title'),
+      cancellation_list: pick('cancellation_list'),
+      cancellation_note: pick('cancellation_note'),
+      custom_sections: pick('custom_sections'),
     };
   }
 

@@ -36,7 +36,8 @@ CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f]")
 ORDER_LABEL = "表示順（1が一番前・2、3…の順に並びます。入れ替える時は番号を付け替えてください。空なら一番後ろ）"
 
 # 追加サービス1件の入力欄（左メニューの各行と「追加サービス」の新規作成で共通）
-FIELDS_YAML = f"""              - name: card
+FIELDS_YAML = f"""              - {{name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}}
+              - name: card
                 label: カード（サービス一覧に並ぶ枠）
                 type: object
                 fields:
@@ -46,108 +47,111 @@ FIELDS_YAML = f"""              - name: card
                   - {{name: price, label: "価格表示（例：¥5,000〜（税込）・空なら「お見積り」）", type: string}}
                   - {{name: order, label: {ORDER_LABEL}, type: number}}
                   - {{name: badge, label: 画像左上の札（例：NEW・人気No.1。空なら出しません。カード画像がある時だけ表示）, type: string}}
-              - {{name: published, label: ページに表示する（オフにするとページに出さない＝下書き）, type: boolean, default: true}}
-              - {{name: detail_lead, label: 詳細画面の紹介文（詳細画面の欄が全部空なら「詳細」ボタンは出ません。空の欄は表示されません）, type: text}}
-              - {{name: concerns_title, label: お悩みリスト 見出し（空なら「こんなお悩みございませんか？」）, type: string}}
-              - name: concerns_list
-                label: お悩みリスト 項目（1行ずつ）
-                type: string
-                list: true
-              - {{name: concerns_outro, label: お悩みリスト 締めの一文（例：プロのクリーニングでお悩み解決いたします）, type: string}}
-              - {{name: detail_price_title, label: 価格表 見出し（空なら「価格表」）, type: string}}
-              - {{name: detail_price_note, label: 価格表 注記（例：※すべて税込価格です）, type: string}}
-              - name: detail_price_list
-                label: 価格表 項目
+              - name: detail
+                label: 詳細画面（カードの「詳細」を押すと開く画面。空の欄は表示されません）
                 type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{{index}}. {{fields.name}}"
                 fields:
-                  - {{name: name, label: 項目名, type: string}}
-                  - {{name: price, label: 料金, type: string}}
-              - {{name: options_title, label: オプション 見出し（空なら「オプション」）, type: string}}
-              - name: options_list
-                label: オプション 項目
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{{index}}. {{fields.name}}"
-                fields:
-                  - {{name: name, label: 項目名, type: string}}
-                  - {{name: price, label: 料金, type: string}}
-              - {{name: points_title, label: キレイシアのポイント 見出し（空なら「キレイシアのポイント」）, type: string}}
-              - {{name: points_intro, label: キレイシアのポイント リード文（例：プロの技でスッキリ！快適な空間をご提供します！）, type: string}}
-              - name: points_list
-                label: キレイシアのポイント 項目（1行ずつ）
-                type: string
-                list: true
-              - {{name: before_after_title, label: Before/After 見出し（空なら「Before / After」）, type: string}}
-              - name: before_after_slides
-                label: Before/After スライド（追加・削除可）
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{{index}}. {{fields.caption}}"
-                fields:
-                  - {{name: caption, label: キャプション, type: string}}
-                  - {{name: before_image, label: Before画像, type: image}}
-                  - {{name: before_alt, label: Before画像の説明（SEO用）, type: string}}
-                  - {{name: after_image, label: After画像, type: image}}
-                  - {{name: after_alt, label: After画像の説明（SEO用）, type: string}}
-              - {{name: customer_request_title, label: お客様へお願い 見出し（空なら「お客様へお願い」）, type: string}}
-              - name: customer_request_list
-                label: お客様へお願い 項目（1行ずつ）
-                type: string
-                list: true
-              - {{name: booking_notes_title, label: ご予約に関する注意事項 見出し（空なら「ご予約に関する注意事項」）, type: string}}
-              - name: booking_notes_list
-                label: ご予約に関する注意事項 項目（1行ずつ）
-                type: string
-                list: true
-              - {{name: faq_title, label: よくあるご質問 見出し（空なら「よくあるご質問」）, type: string}}
-              - name: faq_list
-                label: よくあるご質問 項目
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{{index}}. {{fields.question}}"
-                fields:
-                  - {{name: question, label: 質問, type: string}}
-                  - {{name: answer, label: 回答, type: text}}
-              - {{name: cancellation_title, label: キャンセル料金 見出し（空なら「キャンセル料金」）, type: string}}
-              - name: cancellation_list
-                label: キャンセル料金 項目
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{{index}}. {{fields.period}}"
-                fields:
-                  - {{name: period, label: 期間（例：作業日の前日）, type: string}}
-                  - {{name: rate, label: 料率（例：50%）, type: string}}
-                  - name: color
-                    label: 強調色（main＝黒・warm＝オレンジ・red＝赤）
-                    type: select
-                    options: {{values: [main, warm, red]}}
-              - {{name: cancellation_note, label: キャンセル料金 注記, type: string}}
-              - name: detail_notes
-                label: 注意書き（1行ずつ）
-                type: string
-                list: true
-              - name: custom_sections
-                label: ＋ 項目追加（項目名と記述・詳細画面の一番下に出ます。下の「Add an entry」を押すたびに1つ増えます）
-                type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{{index}}. {{fields.heading}}"
-                fields:
-                  - {{name: heading, label: 項目名, type: string}}
-                  - {{name: body, label: 記述, type: text}}"""
+                  - {{name: detail_lead, label: 紹介文（この枠の欄が全部空なら、カードに「詳細」ボタンは出ません）, type: text}}
+                  - {{name: concerns_title, label: お悩みリスト 見出し（空なら「こんなお悩みございませんか？」）, type: string}}
+                  - name: concerns_list
+                    label: お悩みリスト 項目（1行ずつ）
+                    type: string
+                    list: true
+                  - {{name: concerns_outro, label: お悩みリスト 締めの一文（例：プロのクリーニングでお悩み解決いたします）, type: string}}
+                  - {{name: detail_price_title, label: 価格表 見出し（空なら「価格表」）, type: string}}
+                  - {{name: detail_price_note, label: 価格表 注記（例：※すべて税込価格です）, type: string}}
+                  - name: detail_price_list
+                    label: 価格表 項目
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{{index}}. {{fields.name}}"
+                    fields:
+                      - {{name: name, label: 項目名, type: string}}
+                      - {{name: price, label: 料金, type: string}}
+                  - {{name: options_title, label: オプション 見出し（空なら「オプション」）, type: string}}
+                  - name: options_list
+                    label: オプション 項目
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{{index}}. {{fields.name}}"
+                    fields:
+                      - {{name: name, label: 項目名, type: string}}
+                      - {{name: price, label: 料金, type: string}}
+                  - {{name: points_title, label: キレイシアのポイント 見出し（空なら「キレイシアのポイント」）, type: string}}
+                  - {{name: points_intro, label: キレイシアのポイント リード文（例：プロの技でスッキリ！快適な空間をご提供します！）, type: string}}
+                  - name: points_list
+                    label: キレイシアのポイント 項目（1行ずつ）
+                    type: string
+                    list: true
+                  - {{name: before_after_title, label: Before/After 見出し（空なら「Before / After」）, type: string}}
+                  - name: before_after_slides
+                    label: Before/After スライド（追加・削除可）
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{{index}}. {{fields.caption}}"
+                    fields:
+                      - {{name: caption, label: キャプション, type: string}}
+                      - {{name: before_image, label: Before画像, type: image}}
+                      - {{name: before_alt, label: Before画像の説明（SEO用）, type: string}}
+                      - {{name: after_image, label: After画像, type: image}}
+                      - {{name: after_alt, label: After画像の説明（SEO用）, type: string}}
+                  - {{name: customer_request_title, label: お客様へお願い 見出し（空なら「お客様へお願い」）, type: string}}
+                  - name: customer_request_list
+                    label: お客様へお願い 項目（1行ずつ）
+                    type: string
+                    list: true
+                  - {{name: booking_notes_title, label: ご予約に関する注意事項 見出し（空なら「ご予約に関する注意事項」）, type: string}}
+                  - name: booking_notes_list
+                    label: ご予約に関する注意事項 項目（1行ずつ）
+                    type: string
+                    list: true
+                  - {{name: faq_title, label: よくあるご質問 見出し（空なら「よくあるご質問」）, type: string}}
+                  - name: faq_list
+                    label: よくあるご質問 項目
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{{index}}. {{fields.question}}"
+                    fields:
+                      - {{name: question, label: 質問, type: string}}
+                      - {{name: answer, label: 回答, type: text}}
+                  - {{name: cancellation_title, label: キャンセル料金 見出し（空なら「キャンセル料金」）, type: string}}
+                  - name: cancellation_list
+                    label: キャンセル料金 項目
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{{index}}. {{fields.period}}"
+                    fields:
+                      - {{name: period, label: 期間（例：作業日の前日）, type: string}}
+                      - {{name: rate, label: 料率（例：50%）, type: string}}
+                      - name: color
+                        label: 強調色（main＝黒・warm＝オレンジ・red＝赤）
+                        type: select
+                        options: {{values: [main, warm, red]}}
+                  - {{name: cancellation_note, label: キャンセル料金 注記, type: string}}
+                  - name: detail_notes
+                    label: 注意書き（1行ずつ）
+                    type: string
+                    list: true
+                  - name: custom_sections
+                    label: ＋ 項目追加（項目名と記述・詳細画面の一番下に出ます。下の「Add an entry」を押すたびに1つ増えます）
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{{index}}. {{fields.heading}}"
+                    fields:
+                      - {{name: heading, label: 項目名, type: string}}
+                      - {{name: body, label: 記述, type: text}}"""
 
 
 def clean_title(value):
