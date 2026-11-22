@@ -22,6 +22,9 @@
     return isFinite(Number(value));
   }
 
+  // キャンセル料金の強調色（既存サービスと同じ3色：黒・オレンジ・赤）
+  const CANCELLATION_COLORS = ['main', 'warm', 'red'];
+
   function cleanText(value) {
     return typeof value === 'string' ? value.trim() : '';
   }
@@ -93,6 +96,32 @@
       const points = cleanStrings(item.points_list);
       // FAQ は質問が空の行は出さない（答えだけでは意味が通らないため）
       const faqs = cleanRows(item.faq_list, ['question', 'answer']).filter(function (row) { return row.question; });
+      // Before/After は画像が1枚も無い行・危ない画像パスは出さない
+      const slides = cleanRows(item.before_after_slides, ['caption', 'before_image', 'before_alt', 'after_image', 'after_alt'])
+        .map(function (row) {
+          return {
+            caption: row.caption,
+            beforeImage: cleanImage(row.before_image),
+            beforeAlt: row.before_alt,
+            afterImage: cleanImage(row.after_image),
+            afterAlt: row.after_alt,
+          };
+        })
+        .filter(function (row) { return row.beforeImage || row.afterImage; });
+      const requests = cleanStrings(item.customer_request_list);
+      const bookingNotes = cleanStrings(item.booking_notes_list);
+      // キャンセル料金：期間か料率のどちらかがある行だけ。色は既存サービスと同じ3色だけ受け付ける
+      const cancellations = cleanRows(item.cancellation_list, ['period', 'rate', 'color'])
+        .filter(function (row) { return row.period || row.rate; })
+        .map(function (row) {
+          return {
+            period: row.period,
+            rate: row.rate,
+            color: CANCELLATION_COLORS.indexOf(row.color) >= 0 ? row.color : 'main',
+          };
+        });
+      // ＋項目追加（項目名と記述）：どちらかが入っていれば出す
+      const customSections = cleanRows(item.custom_sections, ['heading', 'body']);
       const extra = {
         key: 'extra-' + (result.length + 1),
         title: title,
@@ -114,10 +143,23 @@
         pointsList: points,
         faqTitle: cleanText(item.faq_title),
         faqList: faqs,
+        concernsOutro: cleanText(item.concerns_outro),
+        pointsIntro: cleanText(item.points_intro),
+        beforeAfterTitle: cleanText(item.before_after_title),
+        beforeAfterSlides: slides,
+        customerRequestTitle: cleanText(item.customer_request_title),
+        customerRequestList: requests,
+        bookingNotesTitle: cleanText(item.booking_notes_title),
+        bookingNotesList: bookingNotes,
+        cancellationTitle: cleanText(item.cancellation_title),
+        cancellationList: cancellations,
+        cancellationNote: cleanText(item.cancellation_note),
+        customSections: customSections,
       };
-      // 見出しだけ入っていても中身が空なら「詳細」ボタンは出さない
+      // 見出し・締めの一文・リード文だけ入っていても中身が空なら「詳細」ボタンは出さない
       extra.hasDetail = Boolean(lead || priceRows.length || notes.length || concerns.length ||
-        options.length || points.length || faqs.length);
+        options.length || points.length || faqs.length || slides.length || requests.length ||
+        bookingNotes.length || cancellations.length || customSections.length);
       result.push(extra);
     });
     return result;
@@ -151,6 +193,18 @@
       points_list: data.points_list,
       faq_title: data.faq_title,
       faq_list: data.faq_list,
+      concerns_outro: data.concerns_outro,
+      points_intro: data.points_intro,
+      before_after_title: data.before_after_title,
+      before_after_slides: data.before_after_slides,
+      customer_request_title: data.customer_request_title,
+      customer_request_list: data.customer_request_list,
+      booking_notes_title: data.booking_notes_title,
+      booking_notes_list: data.booking_notes_list,
+      cancellation_title: data.cancellation_title,
+      cancellation_list: data.cancellation_list,
+      cancellation_note: data.cancellation_note,
+      custom_sections: data.custom_sections,
     };
   }
 
@@ -286,6 +340,78 @@
     container.appendChild(table);
   }
 
+  // 見出し＋箱入りの箇条書き（お客様へお願い・ご予約に関する注意事項）。行が無ければ何も出さない
+  function appendNoteBox(container, title, items, boxClass, templateId) {
+    if (!items.length) return;
+    container.appendChild(el('h3', 'font-display font-bold text-base mb-3', title));
+    const box = el('div', boxClass);
+    const ul = el('ul', 'space-y-2');
+    items.forEach(function (text) { ul.appendChild(listItem(templateId, text)); });
+    box.appendChild(ul);
+    container.appendChild(box);
+  }
+
+  // Before/After：既存サービスと同じ部品。ページの initBeforeAfterCarousels が説明と点の切り替えを受け持つ
+  function appendBeforeAfter(container, extra) {
+    container.appendChild(el('h3', 'font-display font-bold text-base mb-3', extra.beforeAfterTitle || 'Before / After'));
+    const gallery = el('div', 'mb-6');
+    const slider = el('div', 'flex overflow-x-auto snap-x snap-mandatory rounded-xl');
+    slider.style.scrollbarWidth = 'none';
+    // 初期化の目印（ページ側は data-cms-list が before_after_slides で終わる枠を探す）
+    slider.setAttribute('data-cms-list', extra.key + '.before_after_slides');
+    extra.beforeAfterSlides.forEach(function (slide) {
+      const slideNode = el('div', 'ba-slide flex-shrink-0 w-full snap-center');
+      slideNode.setAttribute('data-caption', slide.caption);
+      const grid = el('div', 'grid grid-cols-2 gap-2');
+      [['Before', slide.beforeImage, slide.beforeAlt, 'rounded-l-xl', 'top-2 left-2 bg-black/50'],
+        ['After', slide.afterImage, slide.afterAlt, 'rounded-r-xl', 'top-2 right-2 bg-primary']].forEach(function (side) {
+        const half = el('div', 'relative ' + side[3] + ' overflow-hidden bg-surface');
+        half.appendChild(el('span', 'absolute ' + side[4] + ' text-white text-[10px] font-bold px-2 py-0.5 rounded z-10', side[0]));
+        if (side[1]) {
+          const img = el('img', 'w-full aspect-[4/3] object-cover');
+          img.src = side[1];
+          img.alt = side[2] || (extra.title + ' ' + side[0]);
+          img.loading = 'lazy';
+          half.appendChild(img);
+        } else {
+          half.appendChild(el('div', 'w-full aspect-[4/3]'));
+        }
+        grid.appendChild(half);
+      });
+      slideNode.appendChild(grid);
+      slider.appendChild(slideNode);
+    });
+    gallery.appendChild(slider);
+    gallery.appendChild(el('p', 'ba-caption text-center text-xs text-text-sub mt-2', extra.beforeAfterSlides[0].caption));
+    if (extra.beforeAfterSlides.length > 1) {
+      const dots = el('div', 'ba-dots-container flex justify-center gap-1.5 mt-2');
+      extra.beforeAfterSlides.forEach(function (slide, index) {
+        dots.appendChild(el('span', 'ba-dot w-2 h-2 rounded-full transition-all ' + (index === 0 ? 'bg-primary' : 'bg-border')));
+      });
+      gallery.appendChild(dots);
+    }
+    container.appendChild(gallery);
+  }
+
+  // キャンセル料金の表（色は main＝黒・warm＝オレンジ・red＝赤）
+  function appendCancellation(container, extra) {
+    const colorClass = { main: 'text-text-main', warm: 'text-warm', red: 'text-red-500' };
+    container.appendChild(el('h3', 'font-display font-bold text-base mb-3', extra.cancellationTitle || 'キャンセル料金'));
+    const table = el('div', 'rounded-xl ring-1 ring-border overflow-hidden ' + (extra.cancellationNote ? 'mb-2' : 'mb-6'));
+    extra.cancellationList.forEach(function (row) {
+      const line = el('div', 'price-row flex justify-between items-center px-5 py-3 text-sm');
+      line.appendChild(el('span', 'text-text-main font-medium', row.period));
+      const right = el('span', 'text-text-sub', row.rate ? '予約金額の' : '');
+      right.appendChild(el('strong', colorClass[row.color], row.rate));
+      line.appendChild(right);
+      table.appendChild(line);
+    });
+    container.appendChild(table);
+    if (extra.cancellationNote) {
+      container.appendChild(el('p', 'text-[10px] text-text-light mb-6', extra.cancellationNote));
+    }
+  }
+
   function buildModal(extra) {
     const overlay = el('div', 'modal-overlay fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm');
     overlay.id = 'modal-' + extra.key;
@@ -319,6 +445,12 @@
       extra.concernsList.forEach(function (text) { ul.appendChild(listItem('tpl-concern-item-warm', text)); });
       box.appendChild(ul);
       content.appendChild(box);
+      // お悩みの締めの一文（今の13サービスと同じ青の中央寄せ）
+      if (extra.concernsOutro) {
+        const outro = el('div', 'text-center mb-6');
+        outro.appendChild(el('p', 'font-display font-bold text-base text-primary', extra.concernsOutro));
+        content.appendChild(outro);
+      }
     }
     if (extra.detailLead) {
       content.appendChild(el('p', 'text-sm text-text-sub leading-relaxed mb-6 whitespace-pre-line', extra.detailLead));
@@ -330,12 +462,22 @@
     if (extra.pointsList.length) {
       content.appendChild(el('h3', 'font-display font-bold text-base mb-3', extra.pointsTitle || 'キレイシアのポイント'));
       const box = el('div', 'bg-primary-50 rounded-xl p-5 mb-6');
+      if (extra.pointsIntro) box.appendChild(el('p', 'font-bold text-sm text-primary mb-3', extra.pointsIntro));
       const ul = el('ul', 'space-y-2');
       extra.pointsList.forEach(function (text) { ul.appendChild(listItem('tpl-point-item', text)); });
       box.appendChild(ul);
       content.appendChild(box);
     }
-    // ⑤ よくある質問（押すと開く）
+    // ⑤ Before/After（左右にスワイプ・下に説明と点）
+    if (extra.beforeAfterSlides.length) {
+      appendBeforeAfter(content, extra);
+    }
+    // ⑥ お客様へお願い（オレンジの箱）・⑦ ご予約に関する注意事項（灰色の箱）
+    appendNoteBox(content, extra.customerRequestTitle || 'お客様へお願い', extra.customerRequestList,
+      'bg-warm-light rounded-xl p-5 mb-6', 'tpl-warning-item-warm');
+    appendNoteBox(content, extra.bookingNotesTitle || 'ご予約に関する注意事項', extra.bookingNotesList,
+      'bg-surface rounded-xl p-5 mb-6 ring-1 ring-border', 'tpl-warning-item-primary');
+    // ⑧ よくある質問（押すと開く）
     if (extra.faqList.length) {
       content.appendChild(el('h3', 'font-display font-bold text-base mb-3', extra.faqTitle || 'よくある質問'));
       const list = el('div', 'space-y-2 mb-6');
@@ -347,6 +489,10 @@
       });
       content.appendChild(list);
     }
+    // ⑨ キャンセル料金（今の13サービスと同じ表）
+    if (extra.cancellationList.length) {
+      appendCancellation(content, extra);
+    }
     if (extra.detailNotes.length) {
       const noteBox = el('div', 'bg-warm-light rounded-lg p-3 mb-6');
       const ul = el('ul', 'space-y-1');
@@ -356,6 +502,11 @@
       noteBox.appendChild(ul);
       content.appendChild(noteBox);
     }
+    // ⑩ ＋項目追加（項目名と記述）：詳細画面の一番下に、入れた順で出す
+    extra.customSections.forEach(function (section) {
+      if (section.heading) content.appendChild(el('h3', 'font-display font-bold text-base mb-3', section.heading));
+      if (section.body) content.appendChild(el('p', 'text-sm text-text-sub leading-relaxed mb-6 whitespace-pre-line', section.body));
+    });
     panel.appendChild(content);
     overlay.appendChild(panel);
 

@@ -1392,7 +1392,7 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
 </template>
 
 <!-- Pages CMS データ読み込み -->
-<script src="js/services-order.js?v=4"></script>
+<script src="js/services-order.js?v=5"></script>
 <script>
 // content/*.json を読み込んでHTML上のdata-cms-field要素に反映する
 (async function loadCmsContent(){
@@ -1550,6 +1550,10 @@ if(isHidden)content.scrollIntoView({behavior:'smooth',block:'nearest'});
         applyContent('services', cardsData);
         // 追加サービスの表示と並び替え（js/services-order.js）。失敗しても既存カードはそのまま
         window.KireisiaServices.apply(cardsData);
+        // 追加サービスの Before/After をすぐ動かす（この下の読み込みが失敗しても動くように。2回呼んでも二重にならない）
+        if (typeof window.initBeforeAfterCarousels === 'function') {
+          window.initBeforeAfterCarousels();
+        }
       }
     } catch(e) { console.error('[サービス一覧] サービスカードの反映・並び替えに失敗しました', e); }
 
