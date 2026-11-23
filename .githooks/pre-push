@@ -1,0 +1,38 @@
+#!/bin/sh
+# キレイシアHP：本番に反映（git push）する直前に、自動点検を必ず走らせる。
+# ❌（止める）が1つでもあれば、反映を中止する。
+# 有効にする方法（最初に1回）: git config core.hooksPath .githooks
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+# 本当に動く Python を探す（Windows には、名前だけあって動かない python3 があるため、実際に動かして確かめる）
+PY=""
+for CANDIDATE in python3 python py; do
+  if command -v "$CANDIDATE" >/dev/null 2>&1; then
+    if "$CANDIDATE" -c "import sys; sys.exit(0 if sys.version_info >= (3, 8) else 1)" >/dev/null 2>&1; then
+      PY="$CANDIDATE"
+      break
+    fi
+  fi
+done
+
+if [ -z "$PY" ]; then
+  echo "Python（3.8以上）が見つからないため、自動点検を実行できません。反映を中止しました。"
+  echo "Python を入れてから、もう一度反映してください。"
+  exit 1
+fi
+
+"$PY" "$ROOT/check_site.py" --pre-push
+STATUS=$?
+
+if [ "$STATUS" -eq 0 ]; then
+  exit 0
+fi
+echo ""
+if [ "$STATUS" -eq 1 ]; then
+  echo "反映を中止しました。上の ❌ を直してから、もう一度反映してください。"
+else
+  echo "自動点検が途中で止まりました（点検プログラム自体の不具合の可能性）。反映を中止しました。"
+  echo "上に出ている文をそのまま制作担当へ伝えてください。"
+fi
+exit 1

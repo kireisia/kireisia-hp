@@ -1,0 +1,4 @@
+# 反映前の自動点検（.githooks/）は、Windows でも改行を LF のままにする
+# （CRLF になると sh が読めず、反映のたびに止まる）
+.githooks/* text eol=lf
+*.sh text eol=lf
