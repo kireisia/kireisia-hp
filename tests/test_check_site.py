@@ -475,3 +475,22 @@ def test_pre_push_without_git_is_ng(tmp_path):
     """変更点を調べられない時に、点検なしで通さない"""
     root = make_site(tmp_path)
     assert codes(cs.check_pre_push(root), cs.NG) == ["GIT"]
+
+
+# ---------- 通し試験（2026-11-23）で見つかった点 ----------
+
+
+def test_browser_candidates_include_per_user_install_on_windows(monkeypatch):
+    """Windows で「自分のユーザーだけ」に入れた Chrome・Edge も探す"""
+    monkeypatch.setenv("LOCALAPPDATA", r"C:\Users\tanaka\AppData\Local")
+    candidates = cs.browser_candidates()
+    assert r"C:\Users\tanaka\AppData\Local\Google\Chrome\Application\chrome.exe" in candidates
+    assert r"C:\Users\tanaka\AppData\Local\Microsoft\Edge\Application\msedge.exe" in candidates
+
+
+def test_browser_candidates_without_localappdata(monkeypatch):
+    """Mac など、その場所の設定が無いパソコンでも落ちない"""
+    monkeypatch.delenv("LOCALAPPDATA", raising=False)
+    candidates = cs.browser_candidates()
+    assert "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" in candidates
+    assert all(candidates)

@@ -141,6 +141,7 @@ Claude Code は作業前にこのファイルを読むこと。編集のルー�
 |---|---|
 | `tests/test_check_site.py` | 反映前の自動点検（`check_site.py`） |
 | `tests/test_blog_categories.py`・`tests/test_blog_frontmatter.py` | ブログの作り直し（`build_blog.py`） |
+| `tests/test_blog_ga.py` | ブログのページにアクセス計測（GA4）のタグと、その許可設定が入っていること |
 | `tests/test_services_menu.py` | 追加サービスの左メニュー（`build_services_menu.py`・`.pages.yml`） |
 | `tests/test_services_order.py` | サービスカードの並び替え・追加サービスの表示（`js/services-order.js`） |
 

@@ -870,9 +870,20 @@ SHOT_SIZES = [
 ]
 
 
+def browser_candidates():
+    """Chrome・Edge がありそうな場所の一覧（Windows で自分のユーザーだけに入れた場合も含む）"""
+    candidates = list(BROWSER_CANDIDATES)
+    local_app_data = os.environ.get("LOCALAPPDATA")
+    if local_app_data:
+        base = local_app_data.rstrip("\\/")
+        candidates.append(base + "\\Google\\Chrome\\Application\\chrome.exe")
+        candidates.append(base + "\\Microsoft\\Edge\\Application\\msedge.exe")
+    return candidates
+
+
 def find_browser():
     """Chrome か Edge の場所を探す。無ければ None"""
-    for path in BROWSER_CANDIDATES:
+    for path in browser_candidates():
         if os.path.exists(path):
             return path
     for command in BROWSER_COMMANDS:
