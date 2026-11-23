@@ -666,8 +666,10 @@ def common_head_styles():
     """全ページ共通の<head>内スタイル（@theme・フォント・CSP）を返す"""
     return """  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; base-uri 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; base-uri 'self';">
   <meta name="robots" content="index, follow">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFKLS69SQD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-ZFKLS69SQD');</script>
   <link rel="icon" type="image/x-icon" href="{root}images/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="{root}images/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="{root}images/favicon-180.png">
