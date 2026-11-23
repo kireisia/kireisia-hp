@@ -80,7 +80,8 @@ Claude Code は作業前にこのファイルを読むこと。編集のルー�
 | CNAME | `www` | `kireisia.github.io` |
 
 - 🔴 この5行と `CNAME` ファイルは**変えない**。Claude Code からは DNS を触れない。DNS・ドメインの変更が必要な話は「大事なこと」（`.claude/CLAUDE.md` §7）として制作担当へ連絡する。
-- 予定：エリア別ページ（`area.kireisia.co.jp`）を別のリポジトリ `kireisia-area` で作る構想あり。その場合も上の5行は触らず、`area` の行を1行足すだけ（2026-11-22時点で未着手）。
+- `area.kireisia.co.jp` も設定済み（CNAME `area` → `kireisia.github.io`。2026-11-24 に確認。上の表には無いが消さない）。リポジトリ `kireisia-area` の公開先（下の §4）。
+- エリア別ページは、**このリポジトリの中に作る**方針（2026-11-24 に担当者と決定。検索の評価を本体と共有でき、ドメインの設定も要らないため）。1つ目：`aircon-cleaning-higashiosaka.html`（東大阪市のエアコンクリーニング）。地名だけ変えた同じ中身のページを並べない（実際の作業写真・事例など、そのエリアだけの中身があるエリアだけ作る）。
 
 ---
 
@@ -90,6 +91,7 @@ Claude Code は作業前にこのファイルを読むこと。編集のルー�
 |---|---|---|
 | `kireisia/kireisia-hp` | **今のホームページ**（このリポジトリ） | ✅ |
 | `kireisia/kireisia.github.io` | 旧LP（`kireisia.github.io`）。今は**新ホームページへの転送専用**（`index.html`・`404.html`） | ❌ 触らない（外部に残る古いリンクの受け皿。消すと古いリンクが全部「ページが見つかりません」になる） |
+| `kireisia/kireisia-area` | 旧・エリア別LP（`area.kireisia.co.jp`）。作りかけの東大阪市LP（2026年9月）を 2026-11-24 に本体へ移し、`higashiosaka/index.html` は**新ページ `aircon-cleaning-higashiosaka.html` への転送専用**にした（前の中身は履歴に残っている）。ファイル名に `:` を含む画像があり、Windows では `git clone` の取り出しに失敗する（直す時は GitHub の API か画面で） | ❌ 触らない（外部に残る古いリンクの受け皿） |
 
 ---
 
