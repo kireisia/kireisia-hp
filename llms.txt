@@ -22,6 +22,7 @@
 # サイト構成（複数ページ＋お役立ちブログ）
 - トップページ: https://www.kireisia.co.jp/index.html
 - サービス一覧: https://www.kireisia.co.jp/service.html
+- 東大阪市のエアコンクリーニング（料金・完全分解・施工事例）: https://www.kireisia.co.jp/aircon-cleaning-higashiosaka.html
 - 企業理念: https://www.kireisia.co.jp/about.html
 - 会社概要: https://www.kireisia.co.jp/company.html
 - お役立ちブログ（一覧）: https://www.kireisia.co.jp/blog.html
