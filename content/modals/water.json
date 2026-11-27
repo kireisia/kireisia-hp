@@ -123,6 +123,20 @@
       "before_alt": "キッチン シンク周りの汚れ状態",
       "after_image": "images/water-after6.jpg",
       "after_alt": "キッチン シンク周り クリーニング後"
+    },
+    {
+      "caption": "レンジフード 部品の洗浄",
+      "before_image": "images/water-rangehood-parts-before.jpg",
+      "before_alt": "レンジフードのフィルター・ファン・油受け 油汚れが付いた状態",
+      "after_image": "images/water-rangehood-parts-after.jpg",
+      "after_alt": "レンジフードのフィルター・ファン・油受け 洗浄後"
+    },
+    {
+      "caption": "レンジフード 本体内部の洗浄",
+      "before_image": "images/water-rangehood-body-before.jpg",
+      "before_alt": "レンジフード本体の内側 油汚れが付いた状態",
+      "after_image": "images/water-rangehood-body-after.jpg",
+      "after_alt": "レンジフード本体の内側 洗浄後"
     }
   ]
 }
