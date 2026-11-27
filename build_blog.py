@@ -44,6 +44,7 @@ MAIN_PAGES = [
     ("index.html", "weekly", "1.0"),  # トップページ
     ("service.html", "monthly", "0.9"),  # サービス一覧
     ("aircon-cleaning.html", "monthly", "0.8"),  # エアコンクリーニング（サービス別ページ）
+    ("washing-machine-cleaning.html", "monthly", "0.8"),  # 洗濯機クリーニング（サービス別ページ）
     ("aircon-cleaning-higashiosaka.html", "monthly", "0.8"),  # 東大阪市のエアコンクリーニング（LP）
     ("about.html", "monthly", "0.8"),  # 企業理念
     ("company.html", "monthly", "0.8"),  # 会社概要
